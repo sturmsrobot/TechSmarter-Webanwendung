@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const { body, validationResult } = require("express-validator");
+const { where } = require("sequelize");
+const { error } = require("winston");
 
 // GET-Anforderungen (Benutzerdaten abrufen):
 router.get("/users", (req, res) => {
@@ -39,6 +41,18 @@ router.put("/users/:id", (req, res) => {
 router.delete("/users/:id", (req, res) => {
   // Code, um Benutzerdaten zu löschen
   res.send("Benutzerdaten erfolgreich gelöscht!");
+});
+
+router.get("/users/search", (req, res) => {
+  const { username } = req.query; // Benutzername wird aus Query-Parametern extrahiert
+  User.findAll({ where: { username } }) // Suche nach angegebenem Benutzernamen
+    .then((users) => {
+      res.json(users); // sendet die gefundenen Benutzer als JSON-Antwort zurück
+    })
+    .catch((err) => {
+      console.error("Fehler bei der Suche nach Benutzern:", err);
+      res.status(500).json({ message: "Interner Serverfehler!" });
+    });
 });
 
 module.exports = router;
