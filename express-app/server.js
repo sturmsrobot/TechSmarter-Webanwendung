@@ -1,7 +1,11 @@
 const express = require("express");
+const loggerMiddleware = require("./middleware/authentication");
+const routes = require("./routes/routes");
+
 const app = express();
 const PORT = process.env.PORT || 3306;
-const routes = require("./routes/routes");
+
+app.use(loggerMiddleware); // Verwendung der Middleware
 
 app.use("/api", routes); // Verwendung definierter Routen
 
