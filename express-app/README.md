@@ -43,3 +43,14 @@ Wir haben Logging-Mechanismen implementiert, um Serveraktivitäten und Fehler zu
 Wir haben eine angemessene Fehlerbehandlung implementiert, um sicherzustellen, dass Fehlermeldungen an Client-Anfragen gesendet werden oder protokolliert werden, und um sicherzustellen, dass die Anwendung auch bei Fehlern robust bleibt.
 
 ### Durch diese Implementierungen sind wir in der Lage, eine robuste und leistungsstarke Express-Anwendung zu erstellen, die den Anforderungen unserer Benutzer gerecht wird und gleichzeitig eine reibungslose Benutzererfahrung bietet.
+
+## 6. Kleine Änderungen:
+1. Erstellung der `index.js`-Datei im models-Verzeichnis.
+2. Verwendung von Modulen wie `fs`, `path`, und `Sequelize` für die Datenbankverbindung und Modelle.
+3. Einrichtung der Umgebung mit der Verwendung der `NODE_ENV`-Variable.
+4. Laden der Datenbankkonfiguration aus der `config.json`-Datei, abhängig von der Umgebung.
+5. Initialisierung eines leeren Objekts `db` zur Speicherung der geladenen Modelle.
+6. Verwendung der `basename`-Variable zur Extraktion des Dateinamens.
+7. Zusammenführung der `Users.js` und `user.js` zu einer einzigen Datei.
+8. Installation des Sequelize-Clients für die Interaktion mit der Datenbank.
+9. Erstellung einer `sequelize`-Instanz zur Herstellung der Verbindung zur Datenbank.
