@@ -1,4 +1,5 @@
 const express = require("express");
+const { registration } = require("../controllers/userController");
 const router = express.Router();
 
 // GET-Anforderungen (Benutzerdaten abrufen):
@@ -24,5 +25,10 @@ router.delete("/users/:id", (req, res) => {
   // Code, um Benutzerdaten zu löschen
   res.send("Benutzerdaten erfolgreich gelöscht!");
 });
+
+//registraion route
+router.post("/registration", registration);
+//login route
+router.post("/login", login);
 
 module.exports = router;

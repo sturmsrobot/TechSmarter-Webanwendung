@@ -10,7 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "express": "^4.19.2",
+    "mongoose": "^8.3.0",
     "mysql2": "^3.9.3",
     "sequelize": "^6.37.2",
     "winston": "^3.13.0"
