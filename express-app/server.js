@@ -4,6 +4,7 @@ const errorHandlingMiddleware = require("./middleware/errorHandlingMiddleware");
 const authenticationMiddleware = require("./middleware/authentication");
 const sequelize = require("./config/database"); //Datenbankverbindung
 const routes = require("./routes/routes");
+const { validationResult } = require("express-validator");
 
 const app = express();
 const PORT = process.env.PORT || 3306;
@@ -24,3 +25,22 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Dieser Server läuft auf Port ${PORT}`); // Serverstart
 });
+
+const { body, validationResult } = require("express-validator");
+
+app.post(
+  "/api/users",
+  [
+    body("username").notEmpty().isString(),
+    body("email").notEmpty().isEmail(),
+    body("password").notEmpty().isString().isLength({ min: 6 }),
+  ],
+  (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    // Wenn die Validierung erfolgreich ist, fahre ich hier mit der Datenbankoperation fort
+  }
+);

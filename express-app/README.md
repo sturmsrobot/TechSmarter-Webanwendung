@@ -54,3 +54,10 @@ Wir haben eine angemessene Fehlerbehandlung implementiert, um sicherzustellen, d
 7. Zusammenführung der `Users.js` und `user.js` zu einer einzigen Datei.
 8. Installation des Sequelize-Clients für die Interaktion mit der Datenbank.
 9. Erstellung einer `sequelize`-Instanz zur Herstellung der Verbindung zur Datenbank.
+10. Body-Parser als Abhängigkeit, um Anfragekörper zu analysieren und zu verarbeiten.
+11. Passport als Abhängigkeit für die Implementierung der Authentifizierung und Autorisierung.
+12. Express-Validator als Abhängigkeit für die Validierung von Benutzereingaben.
+13. Helmet als Abhängigkeit für die Verbesserung der Sicherheit durch das Setzen von HTTP-Headern.
+14. Cors als Abhängikeit, um Cross-Origin-Ressourcenfreigabe zu ermöglichen.
+15. Ich habe die Validierungsregeln für den POST-Endpunkt hinzugefügt, um sicherzustellen, dass die Benutzereingaben den erwarteten Formaten entsprechen.
+16. Ich habe die Validierungsergebnisse überprüft und bei Fehlern eine entsprechende Fehlerantwort zurückgegeben.
