@@ -1,13 +1,18 @@
 import React, { useState } from "react";
 import logo from "../../images/Tech.png";
-import "./App.module.css";
+import styles from "./Main_Page.module.css";
 
 const Main = () => {
-  const [beschreibung, setBeschreibung] = useState("");
   const [ausgewählteSprache, setAusgewählteSprache] = useState(null);
+  const [dropdownSichtbar, setDropdownSichtbar] = useState(false);
 
   const handleSprachauswahl = (sprache) => {
     setAusgewählteSprache(sprache);
+    setDropdownSichtbar(false);
+  };
+
+  const toggleDropdown = () => {
+    setDropdownSichtbar(!dropdownSichtbar);
   };
 
   const handleLoginKlick = () => {
@@ -22,11 +27,24 @@ const Main = () => {
 
   return (
     <div className="app">
-      <div className="header">
-        <img src={logo} alt="Logo" className="logo" />
-        <div className="dropdown">
-          <button className="dropbtn">Dropdown</button>
-          <div className="dropdown-content">
+      <div className={styles.header}>
+        <img
+          src={logo}
+          alt="Logo"
+          className="logo"
+          style={{ width: "80px", height: "auto" }}
+        />
+        <div className="header-buttons">
+          <button onClick={handleLoginKlick}>Anmelden</button>
+          <button onClick={handleRegistrierungKlick}>Registrieren</button>
+        </div>
+      </div>
+      <div className={styles.dropdown}>
+        <button className="dropbtn" onClick={toggleDropdown}>
+          Dropdown
+        </button>
+        {dropdownSichtbar && (
+          <div className={styles.dropdowncontent}>
             <button onClick={() => handleSprachauswahl("Python")}>
               Python
             </button>
@@ -36,17 +54,14 @@ const Main = () => {
             <button onClick={() => handleSprachauswahl("HTML")}>HTML</button>
             <button onClick={() => handleSprachauswahl("React")}>React</button>
           </div>
-        </div>
-        {ausgewählteSprache && <p>Ausgewählte Sprache: {ausgewählteSprache}</p>}
+        )}
       </div>
+      {ausgewählteSprache && <p>Ausgewählte Sprache: {ausgewählteSprache}</p>}
       <div className="content">
-        <textarea
-          placeholder="Willkommen bei TechSmarter - deiner ultimativen Lernplattform für technologisches Know-how und intelligente Lösungen! Hier bist du genau richtig, um deine Fähigkeiten zu erweitern, deine Neugier zu stillen und in die faszinierende Welt der Technologie einzutauchen."
-          value={beschreibung}
-          onChange={(e) => setBeschreibung(e.target.value)}
-        />
-        <button onClick={handleLoginKlick}>Anmelden</button>
-        <button onClick={handleRegistrierungKlick}>Registrieren</button>
+        "Willkommen bei TechSmarter - deiner ultimativen Lernplattform für
+        technologisches Know-how und intelligente Lösungen! Hier bist du genau
+        richtig, um deine Fähigkeiten zu erweitern, deine Neugier zu stillen und
+        in die faszinierende Welt der Technologie einzutauchen."
       </div>
     </div>
   );
