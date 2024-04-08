@@ -1,4 +1,4 @@
-const User = require("../models/User");
+const User = require("../models/Users");
 
 // Route zum Abrufen aller Benutzer
 exports.getAllUsers = async (req, res) => {
