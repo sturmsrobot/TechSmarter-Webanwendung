@@ -1,5 +1,7 @@
 const express = require("express");
-const loggerMiddleware = require("./middleware/authentication");
+const loggerMiddleware = require("./middleware/loggingMiddleware");
+const errorHandlingMiddleware = require("./middleware/errorHandlingMiddleware");
+const authenticationMiddleware = require("./middleware/authentication");
 const sequelize = require("./config/database"); //Datenbankverbindung
 const routes = require("./routes/routes");
 
@@ -9,7 +11,9 @@ const PORT = process.env.PORT || 3306;
 // Initialisierung Datenbank
 sequelize.sync(); // Synchronisierung der Datenbankmodelle
 
-app.use(loggerMiddleware); // Verwendung der Middleware
+app.use(loggerMiddleware); // Verwendung der Middleware für Anfragen-Logging
+app.use(errorHandlingMiddleware); // Verwendung der Middleware für Fehlerbehandlung
+app.use(authenticationMiddleware); // Verwendung der Middleware für  Authentifizierung
 
 app.use("/api", routes); // Verwendung definierter Routen
 
