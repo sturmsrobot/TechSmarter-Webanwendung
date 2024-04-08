@@ -22,4 +22,9 @@ const User = sequelize.define("User", {
   },
 });
 
+// Definieren der Assoziationen, falls erforderlich
+User.associate = (models) => {
+  // Definition der Assoziationen, falls benötigt
+};
+
 module.exports = User;
