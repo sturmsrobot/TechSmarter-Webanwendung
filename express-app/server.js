@@ -7,9 +7,10 @@ const authenticationMiddleware = require("./middleware/authentication");
 const cors = require("cors");
 const sequelize = require("./config/database"); //Datenbankverbindung
 const routes = require("./routes/routes");
-
+const cors = require("cors");
 const app = express();
 const PORT = process.env.PORT || 3000;
+require("dotenv").config();
 
 // Initialisierung Datenbank
 sequelize
@@ -25,7 +26,7 @@ sequelize
 
 app.use(bodyParser.json()); // body-parser verwenden, um JSON-Anfragen zu parsen
 app.use(bodyParser.urlencoded({ extended: true })); // body-parser, um URL-codierten Anforderungskörper zu parsen
-app.use(cors());
+app.use(cors);
 app.use(loggerMiddleware); // Verwendung der Middleware für Anfragen-Logging
 app.use(errorHandlingMiddleware); // Verwendung der Middleware für Fehlerbehandlung
 app.use(authenticationMiddleware); // Verwendung der Middleware für Authentifizierung
