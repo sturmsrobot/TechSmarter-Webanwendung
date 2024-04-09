@@ -1,21 +1,12 @@
-
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+import "./JavaScript.module.css";
 
 const Javascript = () => {
   const [text, setText] = useState("");
   const welcomeText = "Willkommen zum Javascript Lernen!";
-    return (
-      <div className={styles.container}>
-        <h2>JavaScript</h2>
-        <p>
-          JavaScript ist eine Programmiersprache, die hauptsächlich für die
-          clientseitige Entwicklung von Webanwendungen verwendet wird.
-        </p>
-      </div>
-    );
-  };
+
+  let interval
   useEffect(() => {
     const animateText = () => {
       let currentIndex = 0;
@@ -45,7 +36,8 @@ const Javascript = () => {
 
   return (
     <div className="container">
-      <h1>{text}</h1>
+      <h1>JavaScript ist eine Programmiersprache, die hauptsächlich für die
+          clientseitige Entwicklung von Webanwendungen verwendet wird.</h1>
       <div className="buttons">
         <button onClick={() => importTask("Aufgabe 1")}>
           Aufgabe 1 importieren
@@ -65,13 +57,13 @@ const Javascript = () => {
       </div>
     </div>
   );
-
+};
 
 ReactDOM.render(
   <React.StrictMode>
-    <HTML />
+    <Javascript />
   </React.StrictMode>,
   document.getElementById("root")
 );
 
-export default Javascript
+export default Javascript;
