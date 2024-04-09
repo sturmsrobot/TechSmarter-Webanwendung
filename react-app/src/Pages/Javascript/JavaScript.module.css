@@ -1,14 +1,11 @@
 .container {
   padding: 20px;
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
+  background-color: #7383e7;
+  border: 1px solid #f03333;
   border-radius: 5px;
 }
 
 h2 {
-  color: #333;
+  color: #932929;
 }
 
-p {
-  color: #666;
-}
