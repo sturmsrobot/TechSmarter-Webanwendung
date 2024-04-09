@@ -28,6 +28,8 @@ function TaskDescription() {
           auf der Webseite an, nachdem der Benutzer den Button geklickt hat.
         </ol>
       </p>
+      <button onClick={handleLoginKlick}>Hint 1 JavaScript</button>
+      <button onClick={handleLoginKlick}>Hint 2 JavaScript</button>
     </div>
   );
 }
