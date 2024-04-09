@@ -49,6 +49,11 @@ router.delete("/users/:id", (req, res) => {
   res.send("Benutzerdaten erfolgreich gelöscht!");
 });
 
+// Route für die Main_Page
+router.get("/main", (req, res) => {
+  res.json({ message: "Daten für die Main_Page" });
+});
+
 router.get("/users/search", (req, res) => {
   const { username } = req.query; // Benutzername wird aus Query-Parametern extrahiert
   User.findAll({ where: { username } }) // Suche nach angegebenem Benutzernamen
