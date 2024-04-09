@@ -54,6 +54,12 @@ router.get("/main", (req, res) => {
   res.json({ message: "Daten für die Main_Page" });
 });
 
+// Handler für GET-Anfragen
+router.get("/data", (req, res) => {
+  // Hier den Code hinzufügen, um Daten aus der Datenbank abzurufen
+  // res.send("Daten von der Datenbank");
+});
+
 router.get("/users/search", (req, res) => {
   const { username } = req.query; // Benutzername wird aus Query-Parametern extrahiert
   console.log("Hello World");
