@@ -5,9 +5,10 @@ const HTML = () => {
   const [text, setText] = useState("");
   const welcomeText = "Willkommen zum HTML Lernen!";
   useEffect(() => {
+    let interval;
     const animateText = () => {
       let currentIndex = 0;
-      const interval = setInterval(() => {
+      interval = setInterval(() => {
         if (currentIndex <= welcomeText.length) {
           setText(welcomeText.slice(0, currentIndex));
           currentIndex++;
@@ -19,6 +20,7 @@ const HTML = () => {
     animateText();
     return () => clearInterval(interval);
   }, []);
+
   const importTask = (taskName) => {
     console.log(`Importiere Aufgabe: ${taskName}`);
     // Hier könntest du die Logik für den Import der Aufgaben implementieren
