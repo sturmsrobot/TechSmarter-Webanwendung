@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
-
 const HTML = () => {
   const [text, setText] = useState("");
   const welcomeText = "Willkommen zum HTML Lernen!";
-
   useEffect(() => {
+    let interval;
     const animateText = () => {
       let currentIndex = 0;
-      const interval = setInterval(() => {
+      interval = setInterval(() => {
         if (currentIndex <= welcomeText.length) {
           setText(welcomeText.slice(0, currentIndex));
           currentIndex++;
@@ -18,9 +17,7 @@ const HTML = () => {
         }
       }, 100);
     };
-
     animateText();
-
     return () => clearInterval(interval);
   }, []);
 
@@ -28,11 +25,9 @@ const HTML = () => {
     console.log(`Importiere Aufgabe: ${taskName}`);
     // Hier könntest du die Logik für den Import der Aufgaben implementieren
   };
-
   const redirectToLink = (link) => {
     window.location.href = link;
   };
-
   return (
     <div className="container">
       <h1>{text}</h1>
@@ -56,10 +51,10 @@ const HTML = () => {
     </div>
   );
 };
-
 ReactDOM.render(
   <React.StrictMode>
     <HTML />
   </React.StrictMode>,
   document.getElementById("root")
 );
+export default HTML;

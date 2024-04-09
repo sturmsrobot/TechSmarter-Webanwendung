@@ -1,10 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import logo from "../../images/Tech.png";
 import styles from "./Main_Page.module.css";
 
 const Main = () => {
   const [ausgewählteSprache, setAusgewählteSprache] = useState(null);
   const [dropdownSichtbar, setDropdownSichtbar] = useState(false);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get("https://example.com/api/data"); //  URL für Datenbank-API
+      setData(response.data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  };
 
   const handleSprachauswahl = (sprache) => {
     setAusgewählteSprache(sprache);
@@ -58,6 +73,9 @@ const Main = () => {
       </div>
       {ausgewählteSprache && <p>Ausgewählte Sprache: {ausgewählteSprache}</p>}
       <div className="content">
+        {data.map((item) => (
+          <div key={item.id}>{item.name}</div>
+        ))}
         "Willkommen bei TechSmarter - deiner ultimativen Lernplattform für
         technologisches Know-how und intelligente Lösungen! Hier bist du genau
         richtig, um deine Fähigkeiten zu erweitern, deine Neugier zu stillen und
