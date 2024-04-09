@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import logo from "../../images/Tech.png";
 import styles from "./Main_Page.module.css";
-
+import { useNavigate } from "react-router-dom";
 const Main = () => {
   const [ausgewählteSprache, setAusgewählteSprache] = useState(null);
   const [dropdownSichtbar, setDropdownSichtbar] = useState(false);
