@@ -27,4 +27,14 @@ User.associate = (models) => {
   // Definition der Assoziationen, falls benötigt
 };
 
+// Statische Methode für Benutzersuche nach Benutzernamen
+User.findByUsername = async function (username) {
+  try {
+    const users = await User.findAll({ where: { username } });
+    return users;
+  } catch (error) {
+    throw new Error("Fehler beim Suchen von Benutzern: " + error);
+  }
+};
+
 module.exports = User;

@@ -5,6 +5,11 @@ const { User } = require("../models/Users"); // Importiert das User-Modell
 const { where } = require("sequelize");
 const { error } = require("winston");
 
+// Überprüfen, ob das User-Modell korrekt importiert wurde
+if (!User) {
+  console.error("Das User-Modell wurde nicht richtig importiert!");
+}
+
 // GET-Anforderungen (Benutzerdaten abrufen):
 router.get("/users", (req, res) => {
   // Code, um Benutzerdaten abzurufen
