@@ -43,7 +43,13 @@ const HTML = () => {
         <button onClick={() => importTask("Aufgabe 2")}>
           Aufgabe 2 importieren
         </button>
-        <button onClick={() => redirectToLink("https://example.com")}>
+        <button
+          onClick={() =>
+            redirectToLink(
+              "https://code-crowd.de/blog/html-tutorial-fuer-anfaenger-deutsch/"
+            )
+          }
+        >
           Externer Link
         </button>
       </div>
