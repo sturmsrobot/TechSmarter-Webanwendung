@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { body, validationResult } = require("express-validator");
-const { User } = require("../models/Users"); // Importiert das User-Modell
+const User = require("../models/Users"); // Importiert das User-Modell
 const { where } = require("sequelize");
 const { error } = require("winston");
 
@@ -56,6 +56,7 @@ router.get("/main", (req, res) => {
 
 router.get("/users/search", (req, res) => {
   const { username } = req.query; // Benutzername wird aus Query-Parametern extrahiert
+  console.log("Hello World");
   User.findAll({ where: { username } }) // Suche nach angegebenem Benutzernamen
     .then((users) => {
       res.json(users); // sendet die gefundenen Benutzer als JSON-Antwort zurück

@@ -4,6 +4,7 @@ const { body, validationResult } = require("express-validator"); // Importiere e
 const loggerMiddleware = require("./middleware/loggingMiddleware");
 const errorHandlingMiddleware = require("./middleware/errorHandlingMiddleware");
 const authenticationMiddleware = require("./middleware/authentication");
+const cors = require("cors");
 const sequelize = require("./config/database"); //Datenbankverbindung
 const routes = require("./routes/routes");
 const cors = require("cors");
@@ -12,17 +13,16 @@ const PORT = process.env.PORT || 3000;
 require("dotenv").config();
 
 // Initialisierung Datenbank
-sequelize.sync(); // Synchronisierung der Datenbankmodelle
-
-// Verbindung zur Datenbank herstellen
 sequelize
-  .authenticate()
+  .sync()
   .then(() => {
     console.log("Datenbankverbindung erfolgreich hergestellt!");
   })
   .catch((err) => {
     console.error("Fehler beim Verbinden mit der Datenbank:", err);
-  });
+  }); // Synchronisierung der Datenbankmodelle
+
+// Verbindung zur Datenbank herstellen
 
 app.use(bodyParser.json()); // body-parser verwenden, um JSON-Anfragen zu parsen
 app.use(bodyParser.urlencoded({ extended: true })); // body-parser, um URL-codierten Anforderungskörper zu parsen
