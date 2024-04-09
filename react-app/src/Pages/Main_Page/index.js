@@ -7,7 +7,7 @@ const Main = () => {
   const [ausgewählteSprache, setAusgewählteSprache] = useState(null);
   const [dropdownSichtbar, setDropdownSichtbar] = useState(false);
   const [data, setData] = useState([]);
-
+  const navigate = useNavigate();
   useEffect(() => {
     fetchData();
   }, []);
@@ -31,7 +31,7 @@ const Main = () => {
   };
 
   const handleLoginKlick = () => {
-    // Füge hier die Logik für den Login-Button hinzu
+    navigate("/Login");
     console.log("Login geklickt");
   };
 
