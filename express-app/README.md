@@ -61,3 +61,22 @@ Wir haben eine angemessene Fehlerbehandlung implementiert, um sicherzustellen, d
 14. Cors als Abhängikeit, um Cross-Origin-Ressourcenfreigabe zu ermöglichen.
 15. Ich habe die Validierungsregeln für den POST-Endpunkt hinzugefügt, um sicherzustellen, dass die Benutzereingaben den erwarteten Formaten entsprechen.
 16. Ich habe die Validierungsergebnisse überprüft und bei Fehlern eine entsprechende Fehlerantwort zurückgegeben.
+
+
+# Express-App Dokumentation - Dienstag, 9. April 2024
+
+## Zusammenfassung der heutigen Aktivitäten:
+
+- Implementierung der Datenbankanbindung in der Express-App.
+- Definition von Modellen für Datenbanktabellen im Backend.
+- Hinzufügen von Validierungsregeln für POST- und PUT-Anforderungen im Backend.
+- Einrichtung einer neuen Route für die Main_Page im Backend.
+- Implementierung der Main_Page-Route, um Daten zurückzugeben, basierend auf einem Modell im Backend.
+- Aktualisierung der Frontend-Route, um Daten von der aktualisierten Main_Page-Route abzurufen.
+- Refaktorisierung und Verbesserung des Codes in verschiedenen Teilen der Anwendung.
+
+## Zusätzlich zu dieser Aktivität wurden einige Kleinigkeiten verbessert:
+
+- Implementierung weiterer Routen und Endpunkte, um die Funktionalität der Anwendung zu erweitern.
+- Hinzufügen von Middleware für Sicherheit und Authentifizierung.
+- Dokumentation der durchgeführten Änderungen und Aktualisierung der Projektdokumentation.
