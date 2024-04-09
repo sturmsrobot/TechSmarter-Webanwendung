@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Zahlenraten-Spiel</title>
+</head>
+<body>
+    <h1>Willkommen zum Zahlenraten-Spiel!</h1>
+    <p>Gib eine Zahl zwischen 1 und 100 ein:</p>
+    <input type="text" id="guessField">
+    <button onclick="checkGuess()">Rate!</button>
+    <p id="message"></p>
+
+    <script>
+        // Schritte 1 und 2: Zufallszahl generieren und speichern
+        const randomNumber = Math.floor(Math.random() * 100) + 1;
+        let guesses = 0;
+
+        function checkGuess() {
+            // Schritt 3: Überprüfen, ob die eingegebene Zahl korrekt ist
+            const guess = parseInt(document.getElementById("guessField").value);
+            if (guess === randomNumber) {
+                document.getElementById("message").innerHTML = "Glückwunsch! Du hast die richtige Zahl erraten!";
+            } else if (guess < randomNumber) {
+                document.getElementById("message").innerHTML = "Die gesuchte Zahl ist höher.";
+            } else {
+                document.getElementById("message").innerHTML = "Die gesuchte Zahl ist niedriger.";
+            }
+            
+            guesses++; // Versuchsanzahl erhöhen
+            // Schritt 5: Ausgeben, wie viele Versuche benötigt wurden
+            if (guesses === 10) {
+                document.getElementById("message").innerHTML += "<br>Du hast alle Versuche aufgebraucht. Die gesuchte Zahl war " + randomNumber + ".";
+            }
+        }
+    </script>
+</body>
+</html>
