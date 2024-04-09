@@ -8,7 +8,7 @@ const HTML = () => {
     let interval;
     const animateText = () => {
       let currentIndex = 0;
-      const interval = setInterval(() => {
+      interval = setInterval(() => {
         if (currentIndex <= welcomeText.length) {
           setText(welcomeText.slice(0, currentIndex));
           currentIndex++;
