@@ -30,6 +30,8 @@ function TaskDescription() {
           benötigt hat, um die richtige Zahl zu erraten.
         </ol>
       </p>
+      <button onClick={handleLoginKlick}>Hint 3 Javascript </button>
+
     </div>
   );
 }
