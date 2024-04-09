@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const { body, validationResult } = require("express-validator");
 const User = require("../models/Users"); // Importiert das User-Modell
+const { Data } = require("../models/index");
 const { where } = require("sequelize");
 const { error } = require("winston");
 
@@ -56,8 +57,16 @@ router.get("/main", (req, res) => {
 
 // Handler für GET-Anfragen
 router.get("/data", (req, res) => {
-  // Hier den Code hinzufügen, um Daten aus der Datenbank abzurufen
-  // res.send("Daten von der Datenbank");
+  // Code, um Daten aus der Datenbank abzurufen
+  // Daten aus einer Datenbanktabelle abrufen:
+  Data.findAll()
+    .then((data) => {
+      res.json(data); // Sendet die abgerufenen Daten als JSON-Antwort zurück
+    })
+    .catch((err) => {
+      console.error("Fehler beim Abrufen von Daten aus der Datenbank:", err);
+      res.status(500).json({ message: "Interner Serverfehler!" });
+    });
 });
 
 router.get("/users/search", (req, res) => {
