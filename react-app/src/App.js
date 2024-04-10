@@ -5,11 +5,12 @@ import HTML from "./Pages/HTML/index";
 import JavaScript from "./Pages/Javascript/index";
 import Login from "./Pages/Login/index";
 import Python from "./Pages/Python/index";
-
+import Registrierung from "./Pages/Registrierung/index";
 function App() {
   return (
     <BrowserRouter>
       <Routes>
+        <Route path="/Registrierung" element={<Registrierung />} />
         <Route path="/" element={<Main />} />
         <Route path="/HTML" element={<HTML />} />
         <Route path="/Javascript" element={<JavaScript />} />

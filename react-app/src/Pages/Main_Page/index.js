@@ -36,7 +36,7 @@ const Main = () => {
   };
 
   const handleRegistrierungKlick = () => {
-    // Füge hier die Logik für den Registrierungs-Button hinzu
+    navigate("/Registrierung");
     console.log("Registrierung geklickt");
   };
 
