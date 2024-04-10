@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import logo from "../../images/Tech.png";
 import styles from "./Main_Page.module.css";
-
+import { useNavigate } from "react-router-dom";
 const Main = () => {
   const [ausgewählteSprache, setAusgewählteSprache] = useState(null);
   const [dropdownSichtbar, setDropdownSichtbar] = useState(false);
   const [data, setData] = useState([]);
-
+  const navigate = useNavigate();
   useEffect(() => {
     fetchData();
   }, []);
@@ -31,12 +31,12 @@ const Main = () => {
   };
 
   const handleLoginKlick = () => {
-    // Füge hier die Logik für den Login-Button hinzu
+    navigate("/Login");
     console.log("Login geklickt");
   };
 
   const handleRegistrierungKlick = () => {
-    // Füge hier die Logik für den Registrierungs-Button hinzu
+    navigate("/Registrierung");
     console.log("Registrierung geklickt");
   };
 
