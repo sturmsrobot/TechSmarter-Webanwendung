@@ -7,6 +7,7 @@ import Login from "./Pages/Login/index";
 import Python from "./Pages/Python/index";
 import Registrierung from "./Pages/Registrierung/index";
 import ProfilePage from "./Pages/profil";
+import Quiz from "./Pages/Quiz";
 function App() {
   return (
     <BrowserRouter>
@@ -18,6 +19,7 @@ function App() {
         <Route path="/Login" element={<Login />} />
         <Route path="/Python" element={<Python />} />
         <Route path="/Profil" element={<ProfilePage />} />
+        <Route path="/Quiz" element={< Quiz/>} />
       </Routes>
     </BrowserRouter>
   );
