@@ -76,4 +76,8 @@
   .dropdown:hover .dropbtn {
     background-color: #943e3e;
   }
-  
+  button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }

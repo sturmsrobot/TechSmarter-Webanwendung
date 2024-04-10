@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from "react";
-import { navigate } from "react-router-dom"; 
+import { navigate } from "react-router-dom";
 import styles from "./index.css";
+
+// Pfade zu den Musikdateien
+const backgroundMusic = "../../backgroundmusic/relaxed-vlog-night-street-131746.mp3";
 
 const ProfilePage = () => {
   const [profile, setProfile] = useState({
     name: "Max Mustermann",
     profilePicture: "url_zum_profilbild.jpg",
-    progress: 25, // Fortschrittsanzeige in Prozent
-    points: 70, // Gesammelte Punkte
+    progress: 15, // Fortschrittsanzeige in Prozent
+    points: 55, // Gesammelte Punkte
   });
 
   const [dropdownSichtbar, setDropdownSichtbar] = useState(false);
@@ -15,6 +18,7 @@ const ProfilePage = () => {
 
   useEffect(() => {
     fetchUserData();
+    playBackgroundMusic(); // Starte die Hintergrundmusik beim Laden der Seite
   }, []);
 
   const fetchUserData = async () => {
@@ -23,7 +27,7 @@ const ProfilePage = () => {
       const userData = await response.json();
 
       const answeredQuestions = userData.answers.filter(answer => answer.correct);
-      const progress = (answeredQuestions.length / TOTAL_QUESTIONS) * 100;
+      const progress = (answeredQuestions.length / 5) * 100;
 
       setProfile({
         ...profile,
@@ -35,11 +39,16 @@ const ProfilePage = () => {
     }
   };
 
+  const playBackgroundMusic = () => {
+    const audio = new Audio(backgroundMusic);
+    audio.loop = true; // Loop die Hintergrundmusik
+    audio.play();
+  };
+
   const handleSprachauswahl = (sprache) => {
     setAusgewählteSprache(sprache);
     setDropdownSichtbar(false);
     
-    // Je nach ausgewählter Sprache navigiere zu einer entsprechenden Seite
     switch (sprache) {
       case "Python":
         navigate("/python-seite");
@@ -53,8 +62,6 @@ const ProfilePage = () => {
       case "React":
         navigate("/react-seite");
         break;
-      default:
-        console.error("Ungültige Sprache");
     }
   };
 
@@ -118,3 +125,4 @@ const ProfilePage = () => {
 };
 
 export default ProfilePage;
+
