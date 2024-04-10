@@ -21,18 +21,26 @@
 
 .headerButtons {
   display: flex;
-  justify-content: flex-end;
 }
 
 .headerButtons button {
   background-color: #ffffff;
   color: #333;
-  margin-left: 10px;
+  margin-left: 0; /* Margin für den linken Button auf 0 setzen */
+  margin-right: 20px;
   padding: 10px 20px;
   cursor: pointer;
   border: none;
   border-radius: 5px;
   font-family: verdana, sans-serif;
+}
+
+.headerButtons button:last-child {
+  margin-right: 30px;
+}
+
+.headerButtons button:hover {
+  background-color: #ff0000; /* Ändern Sie die Hintergrundfarbe beim Überfahren des Buttons */
 }
 
 .content {
@@ -44,7 +52,7 @@
   background-color: #ff0000;
   padding: 180px;
   border-radius: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 10px rgb(100, 100, 100);
 }
 
 .logo {
@@ -61,7 +69,9 @@ button {
 }
 
 .dropdown {
-  position: relative;
+  position: absolute;
+  left: 15%;
+  transform: translateX(-50%);
   display: inline-block;
   align-items: center;
   margin-right: 30px;
@@ -102,10 +112,15 @@ button {
   width: 100%;
   padding: 10px 20px;
   font-family: verdana, sans-serif;
+  background-color: #ff0000;
 }
 
 .dropdownContent button:hover {
   background-color: #ddd;
+}
+
+.dropbtn:hover {
+  background-color: #ff0000; /* Ändern Sie die Hintergrundfarbe beim Überfahren des Dropdown-Buttons */
 }
 
 .footer {
