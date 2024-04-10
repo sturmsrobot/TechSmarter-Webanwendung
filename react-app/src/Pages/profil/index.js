@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styles from "./index.css";
 
 // Pfade zu den Musikdateien
 const backgroundMusic =
   "../../backgroundmusic/relaxed-vlog-night-street-131746.mp3";
+
 
 const ProfilePage = () => {
   const [profile, setProfile] = useState({
@@ -48,34 +49,34 @@ const ProfilePage = () => {
     audio.play();
   };
 
-  const handleSprachauswahl = (sprache) => {
-    setAusgewählteSprache(sprache);
-    setDropdownSichtbar(false);
-
-    switch (sprache) {
-      case "Python":
-        navigate("/python-seite");
-        break;
-      case "Javascript":
-        navigate("/javascript-seite");
-        break;
-      case "HTML":
-        navigate("/html-seite");
-        break;
-      case "React":
-        navigate("/react-seite");
-        break;
-    }
-  };
+//   const handleSprachauswahl = (sprache) => {
+//     setAusgewählteSprache(sprache);
+//     setDropdownSichtbar(false);
+//     const navigate = useNavigate();
+//     switch (sprache) {
+//       case "Python":
+//         navigate("/python-seite");
+//         break;
+//       case "Javascript":
+//         navigate("/javascript-seite");
+//         break;
+//       case "HTML":
+//         navigate("/html-seite");
+//         break;
+//       case "React":
+//         navigate("/react-seite");
+//         break;
+//     }
+//   };
 
   const toggleDropdown = () => {
     setDropdownSichtbar(!dropdownSichtbar);
   };
 
-  const handleQuizKlick = () => {
-    navigate("/Quiz");
-    console.log("Quiz geklickt");
-  };
+//   const handleQuizKlick = () => {
+//     navigate("/Quiz");
+//     console.log("Quiz geklickt");
+//   };
 
   const convertPoints = () => {
     let points = profile.points;
@@ -111,15 +112,15 @@ const ProfilePage = () => {
         </button>
         {dropdownSichtbar && (
           <div className={styles.dropdowncontent}>
-            <button onClick={() => handleSprachauswahl("Python")}>
+            {/* <button onClick={() => handleSprachauswahl("Python")}>
               Python
             </button>
             <button onClick={() => handleSprachauswahl("Javascript")}>
               Javascript
             </button>
             <button onClick={() => handleSprachauswahl("HTML")}>HTML</button>
-            <button onClick={() => handleSprachauswahl("React")}>React</button>
-            <button onClick={handleQuizKlick}>Quiz</button>
+            <button onClick={() => handleSprachauswahl("React")}>React</button> */}
+            {/* <button onClick={handleQuizKlick}>Quiz</button> */}
           </div>
         )}
       </div>
