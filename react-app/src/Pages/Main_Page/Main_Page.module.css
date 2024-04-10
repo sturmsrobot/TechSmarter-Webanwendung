@@ -2,6 +2,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: #f8f8f8;
+  padding-bottom: 20px;
+  overflow: hidden;
+  min-height: 100vh;
 }
 
 .header {
@@ -11,14 +15,36 @@
   align-items: center;
   width: 100%;
   padding: 20px;
-  background-color: rgb(81, 78, 78);
+  background-color: #000000;
+  border-bottom: 2px solid #222;
+}
+
+.headerButtons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.headerButtons button {
+  background-color: #ffffff;
+  color: #333;
+  margin-left: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  font-family: verdana, sans-serif;
 }
 
 .content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
+  flex-grow: 1;
+  margin-bottom: auto;
+  background-color: #ff0000;
+  padding: 180px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 
 .logo {
@@ -26,52 +52,70 @@
   height: 100px;
 }
 
-textarea {
-  width: 300px;
-  height: 100px;
-  margin-top: 20px;
-}
-
 button {
   margin-top: 10px;
   padding: 10px 20px;
   cursor: pointer;
+  border: none;
+  border-radius: 5px;
 }
 
 .dropdown {
   position: relative;
   display: inline-block;
+  align-items: center;
+  margin-right: 30px;
 }
 
 .dropbtn {
-  background-color: #f0f0f0;
-  color: #333;
+  background-color: #ffffff;
+  color: #000;
   padding: 10px 20px;
   font-size: 16px;
   border: none;
   cursor: pointer;
+  border-radius: 5px;
+  font-family: verdana, sans-serif;
 }
 
-.dropdowncontent {
-  display: flex;
-  flex-direction: column;
+.dropdownContent {
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
-.dropdown-content a {
-  color: #333;
-  padding: 12px 16px;
-  text-decoration: none;
+.showDropdown {
   display: block;
 }
 
-.dropdown-content a:hover {
-  background-color: #f0f0f0;
+.hideDropdown {
+  display: none;
 }
-
-.dropdown:hover .dropdown-content {
+.dropdownContent button {
   display: block;
+  width: 100%;
+  padding: 10px 20px;
+  font-family: verdana, sans-serif;
 }
 
-.dropdown:hover .dropbtn {
+.dropdownContent button:hover {
   background-color: #ddd;
+}
+
+.footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  background-color: #000000;
+  padding: 20px;
+  border-top: 2px solid #222;
+  text-align: center;
+  color: #ffffff;
+  font-family: verdana, sans-serif;
 }
