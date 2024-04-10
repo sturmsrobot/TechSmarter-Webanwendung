@@ -1,37 +1,24 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
 
-const User = sequelize.define("User", {
-  userid: {
+const Quizzes = sequelize.define("Quizzes", {
+  quiz_id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
-  username: {
+  quiz_name: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  email: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true,
-  },
-  password: {
-    type: DataTypes.STRING,
-    allowNull: false,
-  },
-  created_at: {
-    type: DataTypes.DATE,
-    allowNull: false,
-  },
-  last_login: {
-    type: DataTypes.DATETIME,
+  questions_total: {
+    type: DataTypes.INTEGER,
     allowNull: true,
   },
 });
 
 // Definieren der Assoziationen, falls erforderlich
-User.associate = (models) => {
+Quizzes.associate = (models) => {
   // Definition der Assoziationen, falls benötigt
 };
 
@@ -45,4 +32,4 @@ User.findByUsername = async function (username) {
   }
 };
 
-module.exports = User;
+module.exports = Quizzes;
