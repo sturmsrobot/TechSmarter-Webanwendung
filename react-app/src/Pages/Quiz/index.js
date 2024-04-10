@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const Quiz = () => {
   const topics = ['Python', 'HTML', 'JavaScript'];
@@ -24,8 +25,67 @@ const Quiz = () => {
         )}
       </div>
       <button onClick={spinWheel} disabled={isSpinning} style={{ marginTop: '20px' }}>Spin</button>
+
+      {selectedTopic && <QuizQuestion topic={selectedTopic} />}
+    </div>
+  );
+};
+
+const QuizQuestion = ({ topic }) => {
+  const [questionData, setQuestionData] = useState(null);
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+
+  useEffect(() => {
+    if (topic) {
+      axios.get(`your_api_endpoint/questions?topic=${topic}`)
+      // api endpunkt einfügen der quizze
+        .then(response => {
+          setQuestionData(response.data);
+        })
+        .catch(error => {
+          console.error('Error fetching questions:', error);
+        });
+    }
+  }, [topic]);
+
+  const handleAnswerSelection = (option) => {
+    setSelectedAnswer(option);
+  };
+
+  const checkAnswer = () => {
+    if (selectedAnswer === questionData.correctAnswer) {
+      alert('Correct!');
+    } else {
+      alert('Incorrect!');
+    }
+  };
+
+  return (
+    <div style={{ marginTop: '20px' }}>
+      {questionData && (
+        <div>
+          <h2>Frage:</h2>
+          <p>{questionData.question}</p>
+          <h3>Options:</h3>
+          {questionData.options.map((option, index) => (
+            <div key={index}>
+              <input
+                type="radio"
+                id={option}
+                name="answer"
+                value={option}
+                checked={selectedAnswer === option}
+                onChange={() => handleAnswerSelection(option)}
+              />
+              <label htmlFor={option}>{option}</label>
+            </div>
+          ))}
+          <button onClick={checkAnswer}>Prüfen</button>
+        </div>
+      )}
     </div>
   );
 };
 
 export default Quiz;
+
