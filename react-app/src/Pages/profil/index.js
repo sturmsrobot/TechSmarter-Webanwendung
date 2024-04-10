@@ -16,7 +16,6 @@ const ProfilePage = () => {
 
   useEffect(() => {
     fetchUserData();
-    playBackgroundMusic();
   }, []);
 
   const fetchUserData = async () => {
@@ -34,15 +33,22 @@ const ProfilePage = () => {
         progress: progress,
         points: userData.points,
       });
+
+      playBackgroundMusic();
     } catch (error) {
       console.error("Fehler beim Abrufen der Benutzerdaten:", error);
     }
   };
 
   const playBackgroundMusic = () => {
-    const audio = new Audio(backgroundMusic);
-    audio.loop = true;
-    audio.play();
+    // Nur wenn der Benutzer mit der Seite interagiert hat
+    document.addEventListener('click', function playAudio() {
+      const audio = new Audio(backgroundMusic);
+      audio.loop = true;
+      audio.play();
+      // Einmal abgespielt, entfernen Sie das Event-Listener
+      document.removeEventListener('click', playAudio);
+    });
   };
 
   const toggleDropdown = () => {
@@ -77,7 +83,7 @@ const ProfilePage = () => {
         <p>Gesammelte Punkte: {profile.points}</p>
         <button onClick={convertPoints}>Punkte umwandeln</button>
       </div>
-      <div className={styles.dropdown}>
+      <div className={styles.div}>
         <button className="dropbtn" onClick={toggleDropdown}>
           Dropdown
         </button>
@@ -95,4 +101,5 @@ const ProfilePage = () => {
 };
 
 export default ProfilePage;
+
 

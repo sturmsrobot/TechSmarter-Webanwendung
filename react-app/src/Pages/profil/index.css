@@ -76,8 +76,13 @@
   .dropdown:hover .dropbtn {
     background-color: #943e3e;
   }
-  button {
+  .button {
     margin-top: 10px;
     padding: 10px 20px;
     cursor: pointer;
+  }
+  .div {
+    display: flex;
+    justify-content:right;
+    align-items: end;
   }
