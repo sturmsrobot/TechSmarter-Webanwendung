@@ -6,11 +6,11 @@ class Registrierung extends React.Component {
     return (
       <div className={styles.container}>
         <div className={styles.RegistrierungContainer}>
-          <h2>Login</h2>
+          <h2>Registrierung</h2>
           <form className={styles.loginForm} action="#" method="post">
             <input type="text" name="Email" placeholder="Email" required />
             <input type="password" name="password" placeholder="Passwort" required />
-            <input type="submit" value="Registrierung" />
+            <input type="submit" value="Registrieren" />
           </form>
         </div>
       </div>
