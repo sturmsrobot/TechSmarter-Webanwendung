@@ -1,16 +1,16 @@
 import React from 'react';
-import styles from './Login.module.css';
+import styles from './Registrierung.module.css';
 
-class Login extends React.Component {
+class Registrierung extends React.Component {
   render() {
     return (
       <div className={styles.container}>
-        <div className={styles.loginContainer}>
+        <div className={styles.RegistrierungContainer}>
           <h2>Login</h2>
           <form className={styles.loginForm} action="#" method="post">
-            <input type="text" name="username" placeholder="Benutzername" required />
+            <input type="text" name="Email" placeholder="Email" required />
             <input type="password" name="password" placeholder="Passwort" required />
-            <input type="submit" value="Login" />
+            <input type="submit" value="Registrierung" />
           </form>
         </div>
       </div>
@@ -18,4 +18,4 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+export default Registrierung;
