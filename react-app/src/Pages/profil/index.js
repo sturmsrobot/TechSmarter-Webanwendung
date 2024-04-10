@@ -1,26 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import styles from "./index.css";
 
-// Pfade zu den Musikdateien
 const backgroundMusic =
   "../../backgroundmusic/relaxed-vlog-night-street-131746.mp3";
-
 
 const ProfilePage = () => {
   const [profile, setProfile] = useState({
     name: "Max Mustermann",
     profilePicture: "url_zum_profilbild.jpg",
-    progress: 15, // Fortschrittsanzeige in Prozent
-    points: 55, // Gesammelte Punkte
+    progress: 15, 
+    points: 55,
   });
 
   const [dropdownSichtbar, setDropdownSichtbar] = useState(false);
-  const [ausgewählteSprache, setAusgewählteSprache] = useState("");
 
   useEffect(() => {
     fetchUserData();
-    playBackgroundMusic(); // Starte die Hintergrundmusik beim Laden der Seite
+    playBackgroundMusic();
   }, []);
 
   const fetchUserData = async () => {
@@ -45,38 +41,13 @@ const ProfilePage = () => {
 
   const playBackgroundMusic = () => {
     const audio = new Audio(backgroundMusic);
-    audio.loop = true; // Loop die Hintergrundmusik
+    audio.loop = true;
     audio.play();
   };
-
-//   const handleSprachauswahl = (sprache) => {
-//     setAusgewählteSprache(sprache);
-//     setDropdownSichtbar(false);
-//     const navigate = useNavigate();
-//     switch (sprache) {
-//       case "Python":
-//         navigate("/python-seite");
-//         break;
-//       case "Javascript":
-//         navigate("/javascript-seite");
-//         break;
-//       case "HTML":
-//         navigate("/html-seite");
-//         break;
-//       case "React":
-//         navigate("/react-seite");
-//         break;
-//     }
-//   };
 
   const toggleDropdown = () => {
     setDropdownSichtbar(!dropdownSichtbar);
   };
-
-//   const handleQuizKlick = () => {
-//     navigate("/Quiz");
-//     console.log("Quiz geklickt");
-//   };
 
   const convertPoints = () => {
     let points = profile.points;
@@ -112,15 +83,10 @@ const ProfilePage = () => {
         </button>
         {dropdownSichtbar && (
           <div className={styles.dropdowncontent}>
-            {/* <button onClick={() => handleSprachauswahl("Python")}>
-              Python
-            </button>
-            <button onClick={() => handleSprachauswahl("Javascript")}>
-              Javascript
-            </button>
-            <button onClick={() => handleSprachauswahl("HTML")}>HTML</button>
-            <button onClick={() => handleSprachauswahl("React")}>React</button> */}
-            {/* <button onClick={handleQuizKlick}>Quiz</button> */}
+            <button onClick={() => console.log("Python")}>Python</button>
+            <button onClick={() => console.log("Javascript")}>Javascript</button>
+            <button onClick={() => console.log("HTML")}>HTML</button>
+            <button onClick={() => console.log("React")}>React</button>
           </div>
         )}
       </div>
@@ -129,3 +95,4 @@ const ProfilePage = () => {
 };
 
 export default ProfilePage;
+
