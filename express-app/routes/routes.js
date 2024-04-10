@@ -2,6 +2,8 @@ const express = require("express");
 const router = express.Router();
 const { body, validationResult } = require("express-validator");
 const User = require("../models/Users"); // Importiert das User-Modell
+const YourModel = require("../models/YourModel"); // Modell für die benötigten Daten
+const { Data } = require("../models/index");
 const { where } = require("sequelize");
 const { error } = require("winston");
 
@@ -51,7 +53,28 @@ router.delete("/users/:id", (req, res) => {
 
 // Route für die Main_Page
 router.get("/main", (req, res) => {
-  res.json({ message: "Daten für die Main_Page" });
+  YourModel.findAll()
+    .then((data) => {
+      res.json({ message: "Daten für die Main_Page" });
+    })
+    .catch((error) => {
+      console.error("Fehler beim Abrufen der Daten für die Main_Page:", error);
+      res.status(500).json({ message: "Interner Serverfehler!" });
+    });
+});
+
+// Handler für GET-Anfragen
+router.get("/data", (req, res) => {
+  // Code, um Daten aus der Datenbank abzurufen
+  // Daten aus einer Datenbanktabelle abrufen:
+  Data.findAll()
+    .then((data) => {
+      res.json(data); // Sendet die abgerufenen Daten als JSON-Antwort zurück
+    })
+    .catch((err) => {
+      console.error("Fehler beim Abrufen von Daten aus der Datenbank:", err);
+      res.status(500).json({ message: "Interner Serverfehler!" });
+    });
 });
 
 router.get("/users/search", (req, res) => {

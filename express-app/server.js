@@ -7,7 +7,7 @@ const authenticationMiddleware = require("./middleware/authentication");
 const cors = require("cors");
 const sequelize = require("./config/database"); //Datenbankverbindung
 const routes = require("./routes/routes");
-const cors = require("cors");
+const Users = require("./models/Users");
 const app = express();
 const PORT = process.env.PORT || 3000;
 require("dotenv").config();
@@ -26,7 +26,7 @@ sequelize
 
 app.use(bodyParser.json()); // body-parser verwenden, um JSON-Anfragen zu parsen
 app.use(bodyParser.urlencoded({ extended: true })); // body-parser, um URL-codierten Anforderungskörper zu parsen
-app.use(cors);
+app.use(cors());
 app.use(loggerMiddleware); // Verwendung der Middleware für Anfragen-Logging
 app.use(errorHandlingMiddleware); // Verwendung der Middleware für Fehlerbehandlung
 app.use(authenticationMiddleware); // Verwendung der Middleware für Authentifizierung
@@ -57,5 +57,18 @@ app.post(
     }
 
     // Wenn die Validierung erfolgreich ist, fahre ich hier mit der Datenbankoperation fort
+    const { username, email, password } = req.body;
+    User.create({
+      username: username,
+      email: email,
+      password: password,
+    })
+      .then((user) => {
+        res.status(201).json(user); // Erfolgreich erstellt
+      })
+      .catch((error) => {
+        console.error("Fehler beim Erstellen des Benutzers:", error);
+        res.status(500).json({ message: "Interner Serverfehler!" });
+      });
   }
 );
