@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { navigate } from "react-router-dom";import styles from "./index.css";
+;import styles from "./index.css";
 import { useNavigate } from "react-router-dom";
 
 // Pfade zu den Musikdateien
