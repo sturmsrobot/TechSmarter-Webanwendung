@@ -8,10 +8,13 @@ const authenticationMiddleware = require("./middleware/authentication");
 const cors = require("cors");
 const sequelize = require("./config/database");
 const routes = require("./routes/routes");
+const testDatabaseConnection = require("./config/testDatabase");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 const secretKey = process.env.JWT_SECRET || "your-secret-key";
+
+testDatabaseConnection();
 
 require("dotenv").config();
 

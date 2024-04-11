@@ -14,7 +14,16 @@ if (!User) {
 // GET-Anforderungen (Benutzerdaten abrufen):
 router.get("/users", (req, res) => {
   // Code, um Benutzerdaten abzurufen
-  res.send("Benutzerdaten erfolgreich abgerufen!");
+  // Code, um Daten aus der Datenbank abzurufen
+  // Daten aus einer Datenbanktabelle abrufen:
+  User.findAll()
+    .then((user) => {
+      res.json(user); // Sendet die abgerufenen Daten als JSON-Antwort zurück
+    })
+    .catch((err) => {
+      console.error("Fehler beim Abrufen von Daten aus der Datenbank:", err);
+      res.status(500).json({ message: "Interner Serverfehler!" });
+    });
 });
 
 // POST-Anforderungen (Neuen Benutzer erstellen):
@@ -48,32 +57,6 @@ router.put("/users/:id", (req, res) => {
 router.delete("/users/:id", (req, res) => {
   // Code, um Benutzerdaten zu löschen
   res.send("Benutzerdaten erfolgreich gelöscht!");
-});
-
-// Route für die Main_Page
-router.get("/main", (req, res) => {
-  YourModel.findAll()
-    .then((data) => {
-      res.json({ message: "Daten für die Main_Page" });
-    })
-    .catch((error) => {
-      console.error("Fehler beim Abrufen der Daten für die Main_Page:", error);
-      res.status(500).json({ message: "Interner Serverfehler!" });
-    });
-});
-
-// Handler für GET-Anfragen
-router.get("/data", (req, res) => {
-  // Code, um Daten aus der Datenbank abzurufen
-  // Daten aus einer Datenbanktabelle abrufen:
-  Data.findAll()
-    .then((data) => {
-      res.json(data); // Sendet die abgerufenen Daten als JSON-Antwort zurück
-    })
-    .catch((err) => {
-      console.error("Fehler beim Abrufen von Daten aus der Datenbank:", err);
-      res.status(500).json({ message: "Interner Serverfehler!" });
-    });
 });
 
 router.get("/users/search", (req, res) => {
