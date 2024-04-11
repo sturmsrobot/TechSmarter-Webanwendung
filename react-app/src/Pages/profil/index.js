@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { navigate } from "react-router-dom";
-import styles from "./index.css";
+import { navigate } from "react-router-dom";import styles from "./index.css";
+import { useNavigate } from "react-router-dom";
 
 // Pfade zu den Musikdateien
 const backgroundMusic = "../../backgroundmusic/relaxed-vlog-night-street-131746.mp3";
@@ -12,7 +12,7 @@ const ProfilePage = () => {
     progress: 15, // Fortschrittsanzeige in Prozent
     points: 55, // Gesammelte Punkte
   });
-
+  const navigate = useNavigate();
   const [dropdownSichtbar, setDropdownSichtbar] = useState(false);
   const [ausgewählteSprache, setAusgewählteSprache] = useState("");
 
