@@ -51,13 +51,13 @@ const ProfilePage = () => {
     
     switch (sprache) {
       case "Python":
-        navigate("./python/index.js");
+        navigate("/Python");
         break;
       case "Javascript":
-        navigate("/javascript-seite");
+        navigate("/Javascript");
         break;
       case "HTML":
-        navigate("/html-seite");
+        navigate("/HTML");
         break;
     }
   };
