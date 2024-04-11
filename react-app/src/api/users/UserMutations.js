@@ -1,16 +1,16 @@
 import api from "../../config/api";
 
-async function createTodo(newUserId, task, isDone, dueDate) {
-  const result = await api.post("/todos/create", {
+async function createNewUser(newUserId, newUserName, newUserEmail, newUserPassword) {
+  const result = await api.post("/user/create", {
     newUserId: newUserId,
-    newTask: task,
-    newIsDone: isDone,
-    newDueDate: dueDate,
+   newUserName:newUserName,
+   newUserEmail:newUserEmail,
+   newUserPassword:newUserPassword
   });
 
-  const newTodo = result.data.todo;
+  const newUser = result.data.id;
 
-  return newTodo;
+  return newUser;
 }
 
 async function markTodo(todoId, isDone) {
@@ -46,3 +46,5 @@ async function deleteTodo(todoId) {
 
   return deletedTodoId;
 }
+
+export default { createNewUser, }

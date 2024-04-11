@@ -1,45 +1,49 @@
 import React, { useState, useEffect } from "react";
-;import styles from "./index.css";
+
+import styles from "./index.css";
 import { useNavigate } from "react-router-dom";
 
-// Pfade zu den Musikdateien
-const backgroundMusic = "../../backgroundmusic/relaxed-vlog-night-street-131746.mp3";
+const backgroundMusic =
+  "../../backgroundmusic/relaxed-vlog-night-street-131746.mp3";
 
 const ProfilePage = () => {
   const [profile, setProfile] = useState({
     name: "Max Mustermann",
     profilePicture: "url_zum_profilbild.jpg",
-    progress: 15, // Fortschrittsanzeige in Prozent
-    points: 55, // Gesammelte Punkte
+    progress: 15, 
+    points: 55,
   });
   const navigate = useNavigate();
   const [dropdownSichtbar, setDropdownSichtbar] = useState(false);
-  const [ausgewählteSprache, setAusgewählteSprache] = useState("");
 
   useEffect(() => {
     fetchUserData();
-    playBackgroundMusic(); // Starte die Hintergrundmusik beim Laden der Seite
   }, []);
 
   const fetchUserData = async () => {
     try {
-      const response = await fetch('API_Endpunkt/zur/benutzerdaten');
+      const response = await fetch("API_Endpunkt/zur/benutzerdaten");
       const userData = await response.json();
 
-      const answeredQuestions = userData.answers.filter(answer => answer.correct);
+      const answeredQuestions = userData.answers.filter(
+        (answer) => answer.correct
+      );
       const progress = (answeredQuestions.length / 5) * 100;
 
       setProfile({
         ...profile,
         progress: progress,
-        points: userData.points
+        points: userData.points,
       });
+
+      playBackgroundMusic();
     } catch (error) {
-      console.error('Fehler beim Abrufen der Benutzerdaten:', error);
+      console.error("Fehler beim Abrufen der Benutzerdaten:", error);
     }
   };
 
   const playBackgroundMusic = () => {
+
     const audio = new Audio(backgroundMusic);
     audio.loop = true; // Loop die Hintergrundmusik
     audio.play();
@@ -60,15 +64,20 @@ const ProfilePage = () => {
         navigate("/HTML");
         break;
     }
+
+    // Nur wenn der Benutzer mit der Seite interagiert hat
+    document.addEventListener('click', function playAudio() {
+      const audio = new Audio(backgroundMusic);
+      audio.loop = true;
+      audio.play();
+      // Einmal abgespielt, entfernen Sie das Event-Listener
+      document.removeEventListener('click', playAudio);
+    });
+
   };
 
   const toggleDropdown = () => {
     setDropdownSichtbar(!dropdownSichtbar);
-  };
-
-  const handleQuizKlick = () => {
-    navigate("/Quiz");
-    console.log("Quiz geklickt");
   };
 
   const convertPoints = () => {
@@ -99,21 +108,16 @@ const ProfilePage = () => {
         <p>Gesammelte Punkte: {profile.points}</p>
         <button onClick={convertPoints}>Punkte umwandeln</button>
       </div>
-      <div className={styles.dropdown}>
+      <div className={styles.div}>
         <button className="dropbtn" onClick={toggleDropdown}>
           Dropdown
         </button>
         {dropdownSichtbar && (
           <div className={styles.dropdowncontent}>
-            <button onClick={() => handleSprachauswahl("Python")}>
-              Python
-            </button>
-            <button onClick={() => handleSprachauswahl("Javascript")}>
-              Javascript
-            </button>
-            <button onClick={() => handleSprachauswahl("HTML")}>HTML</button>
-            <button onClick={() => handleSprachauswahl("React")}>React</button>
-            <button onClick={handleQuizKlick}>Quiz</button>
+            <button onClick={() => console.log("Python")}>Python</button>
+            <button onClick={() => console.log("Javascript")}>Javascript</button>
+            <button onClick={() => console.log("HTML")}>HTML</button>
+            <button onClick={() => console.log("React")}>React</button>
           </div>
         )}
       </div>
@@ -123,4 +127,3 @@ const ProfilePage = () => {
 
 export default ProfilePage;
 
-// jetzt

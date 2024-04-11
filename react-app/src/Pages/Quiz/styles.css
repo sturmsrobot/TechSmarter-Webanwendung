@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Füllt die gesamte Höhe des Viewports aus */
+  }
+  
+  .quiz-container {
+    text-align: center; /* Zentriert den Text innerhalb des Containers */
+  }
+  
