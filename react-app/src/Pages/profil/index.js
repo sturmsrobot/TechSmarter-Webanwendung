@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
+
 import styles from "./index.css";
+import { useNavigate } from "react-router-dom";
 
 const backgroundMusic =
   "../../backgroundmusic/relaxed-vlog-night-street-131746.mp3";
@@ -11,7 +13,7 @@ const ProfilePage = () => {
     progress: 15, 
     points: 55,
   });
-
+  const navigate = useNavigate();
   const [dropdownSichtbar, setDropdownSichtbar] = useState(false);
 
   useEffect(() => {
@@ -41,6 +43,28 @@ const ProfilePage = () => {
   };
 
   const playBackgroundMusic = () => {
+
+    const audio = new Audio(backgroundMusic);
+    audio.loop = true; // Loop die Hintergrundmusik
+    audio.play();
+  };
+
+  const handleSprachauswahl = (sprache) => {
+    setAusgewählteSprache(sprache);
+    setDropdownSichtbar(false);
+    
+    switch (sprache) {
+      case "Python":
+        navigate("/Python");
+        break;
+      case "Javascript":
+        navigate("/Javascript");
+        break;
+      case "HTML":
+        navigate("/HTML");
+        break;
+    }
+
     // Nur wenn der Benutzer mit der Seite interagiert hat
     document.addEventListener('click', function playAudio() {
       const audio = new Audio(backgroundMusic);
@@ -49,6 +73,7 @@ const ProfilePage = () => {
       // Einmal abgespielt, entfernen Sie das Event-Listener
       document.removeEventListener('click', playAudio);
     });
+
   };
 
   const toggleDropdown = () => {
@@ -101,5 +126,4 @@ const ProfilePage = () => {
 };
 
 export default ProfilePage;
-
 
