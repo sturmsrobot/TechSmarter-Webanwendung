@@ -3,18 +3,20 @@ import axios from "axios";
 import logo from "../../images/Tech.png";
 import styles from "./Main_Page.module.css";
 import { useNavigate } from "react-router-dom";
+
 const Main = () => {
   const [ausgewählteSprache, setAusgewählteSprache] = useState(null);
   const [dropdownSichtbar, setDropdownSichtbar] = useState(false);
   const [data, setData] = useState([]);
   const navigate = useNavigate();
+
   useEffect(() => {
     fetchData();
   }, []);
 
   const fetchData = async () => {
     try {
-      const response = await axios.get("https://example.com/api/data"); //  URL für Datenbank-API
+      const response = await axios.get("https://example.com/api/data");
       setData(response.data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -49,17 +51,19 @@ const Main = () => {
           className="logo"
           style={{ width: "80px", height: "auto" }}
         />
-        <div className="header-buttons">
+        <div className={styles.headerButtons}>
           <button onClick={handleLoginKlick}>Anmelden</button>
           <button onClick={handleRegistrierungKlick}>Registrieren</button>
         </div>
-      </div>
-      <div className={styles.dropdown}>
-        <button className="dropbtn" onClick={toggleDropdown}>
-          Dropdown
-        </button>
-        {dropdownSichtbar && (
-          <div className={styles.dropdowncontent}>
+        <div className={styles.dropdown}>
+          <button className={styles.dropbtn} onClick={toggleDropdown}>
+            Dropdown
+          </button>
+          <div
+            className={`${styles.dropdownContent} ${
+              dropdownSichtbar ? styles.showDropdown : styles.hideDropdown
+            }`}
+          >
             <button onClick={() => handleSprachauswahl("Python")}>
               Python
             </button>
@@ -69,18 +73,21 @@ const Main = () => {
             <button onClick={() => handleSprachauswahl("HTML")}>HTML</button>
             <button onClick={() => handleSprachauswahl("React")}>React</button>
           </div>
-        )}
+        </div>
       </div>
-      {ausgewählteSprache && <p>Ausgewählte Sprache: {ausgewählteSprache}</p>}
-      <div className="content">
+      <div className={styles.content}>
+        {ausgewählteSprache && <p>Ausgewählte Sprache: {ausgewählteSprache}</p>}
         {data.map((item) => (
           <div key={item.id}>{item.name}</div>
         ))}
-        "Willkommen bei TechSmarter - deiner ultimativen Lernplattform für
-        technologisches Know-how und intelligente Lösungen! Hier bist du genau
-        richtig, um deine Fähigkeiten zu erweitern, deine Neugier zu stillen und
-        in die faszinierende Welt der Technologie einzutauchen."
+        <p>
+          "Willkommen bei TechSmarter - deiner ultimativen Lernplattform für
+          technologisches Know-how und intelligente Lösungen! Hier bist du genau
+          richtig, um deine Fähigkeiten zu erweitern, deine Neugier zu stillen
+          und in die faszinierende Welt der Technologie einzutauchen."
+        </p>
       </div>
+      <div className={styles.footer}>{"irgendwas©"}</div>
     </div>
   );
 };
