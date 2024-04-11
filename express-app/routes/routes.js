@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 const { body, validationResult } = require("express-validator");
 const User = require("../models/Users"); // Importiert das User-Modell
-const YourModel = require("../models/YourModel"); // Modell für die benötigten Daten
 const { Data } = require("../models/index");
 const { where } = require("sequelize");
 const { error } = require("winston");
