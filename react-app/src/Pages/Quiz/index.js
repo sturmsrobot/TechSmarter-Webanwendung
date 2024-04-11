@@ -1,5 +1,6 @@
+
 import React, { useState } from 'react';
-import axios from 'axios';
+import questions from './questions'; // Importiere die Fragen
 
 const Quiz = () => {
   const topics = ['Python', 'HTML', 'JavaScript'];
@@ -17,7 +18,7 @@ const Quiz = () => {
 
   return (
     <div>
-      <div className="wheel" style={{ border: '2px solid black', borderRadius: '50%', width: '200px', height: '200px', position: 'relative' }}>
+      <div className="wheel" style={{ border: '2px solid black', borderRadius: '50%', width: '200px', height: '200px', position: 'relative', backgroundColor: 'darkorchid' }}>
         {isSpinning ? (
           <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', fontSize: '20px' }}>Spinning...</div>
         ) : (
@@ -37,14 +38,8 @@ const QuizQuestion = ({ topic }) => {
 
   useEffect(() => {
     if (topic) {
-      axios.get(`your_api_endpoint/questions?topic=${topic}`)
-      // api endpunkt einfügen der quizze
-        .then(response => {
-          setQuestionData(response.data);
-        })
-        .catch(error => {
-          console.error('Error fetching questions:', error);
-        });
+      const randomIndex = Math.floor(Math.random() * questions[topic].length);
+      setQuestionData(questions[topic][randomIndex]);
     }
   }, [topic]);
 
@@ -64,7 +59,7 @@ const QuizQuestion = ({ topic }) => {
     <div style={{ marginTop: '20px' }}>
       {questionData && (
         <div>
-          <h2>Frage:</h2>
+          <h2>Question:</h2>
           <p>{questionData.question}</p>
           <h3>Options:</h3>
           {questionData.options.map((option, index) => (
@@ -80,7 +75,7 @@ const QuizQuestion = ({ topic }) => {
               <label htmlFor={option}>{option}</label>
             </div>
           ))}
-          <button onClick={checkAnswer}>Prüfen</button>
+          <button onClick={checkAnswer}>Check Answer</button>
         </div>
       )}
     </div>
@@ -88,4 +83,5 @@ const QuizQuestion = ({ topic }) => {
 };
 
 export default Quiz;
+
 
