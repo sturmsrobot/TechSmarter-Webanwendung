@@ -1,4 +1,5 @@
 
+
 import React, { useState } from 'react';
 import questions from './questions'; // Importiere die Fragen
 
@@ -83,5 +84,3 @@ const QuizQuestion = ({ topic }) => {
 };
 
 export default Quiz;
-
-
