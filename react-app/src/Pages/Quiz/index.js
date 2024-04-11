@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import questions from './questions'; // Importiere die Fragen
-
+import './styles.css';
 const Quiz = () => {
   const topics = ['Python', 'HTML', 'JavaScript'];
   const [isSpinning, setIsSpinning] = useState(false);
