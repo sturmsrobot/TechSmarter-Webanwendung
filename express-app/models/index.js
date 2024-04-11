@@ -21,23 +21,6 @@ if (config.use_env_variable) {
   );
 }
 
-fs.readdirSync(__dirname)
-  .filter((file) => {
-    return (
-      file.indexOf(".") !== 0 &&
-      file !== basename &&
-      file.slice(-3) === ".js" &&
-      file.indexOf(".test.js") === -1
-    );
-  })
-  .forEach((file) => {
-    const modelFilePath = path.join(__dirname, file);
-    console.log("Loading model from:", modelFilePath);
-    const modelDef = require(modelFilePath);
-    const model = modelDef.init(sequelize, Sequelize); // Übergeben Sie die Sequelize-Instanz hier
-    db[model.name] = model;
-  });
-
 Object.keys(db).forEach((modelName) => {
   if (db[modelName].associate) {
     db[modelName].associate(db);

@@ -1,16 +1,19 @@
-const Answer = sequelize.define('Answer', {
-    answerText: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    isCorrect: {
-      type: DataTypes.BOOLEAN,
-      allowNull: false,
-      defaultValue: false, 
-    },
-  });
-  
+const { DataTypes, Model } = require("sequelize");
+const sequelize = require("../config/database");
+const Question = require("./Question");
 
-  Answer.belongsTo(Question);
-  
-  module.exports = Answer;
+const Answer = sequelize.define("Answer", {
+  answerText: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  isCorrect: {
+    type: DataTypes.BOOLEAN,
+    allowNull: false,
+    defaultValue: false,
+  },
+});
+
+Answer.belongsTo(Question);
+
+module.exports = Answer;
