@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
-
 import styles from "./index.css";
 import { useNavigate } from "react-router-dom";
-
-const backgroundMusic =
-  "../../backgroundmusic/relaxed-vlog-night-street-131746.mp3";
 
 const ProfilePage = () => {
   const [profile, setProfile] = useState({
@@ -35,22 +31,12 @@ const ProfilePage = () => {
         progress: progress,
         points: userData.points,
       });
-
-      playBackgroundMusic();
     } catch (error) {
       console.error("Fehler beim Abrufen der Benutzerdaten:", error);
     }
   };
 
-  const playBackgroundMusic = () => {
-
-    const audio = new Audio(backgroundMusic);
-    audio.loop = true; // Loop die Hintergrundmusik
-    audio.play();
-  };
-
   const handleSprachauswahl = (sprache) => {
-    setAusgewählteSprache(sprache);
     setDropdownSichtbar(false);
     
     switch (sprache) {
@@ -64,16 +50,6 @@ const ProfilePage = () => {
         navigate("/HTML");
         break;
     }
-
-    // Nur wenn der Benutzer mit der Seite interagiert hat
-    document.addEventListener('click', function playAudio() {
-      const audio = new Audio(backgroundMusic);
-      audio.loop = true;
-      audio.play();
-      // Einmal abgespielt, entfernen Sie das Event-Listener
-      document.removeEventListener('click', playAudio);
-    });
-
   };
 
   const toggleDropdown = () => {
@@ -114,10 +90,10 @@ const ProfilePage = () => {
         </button>
         {dropdownSichtbar && (
           <div className={styles.dropdowncontent}>
-            <button onClick={() => console.log("Python")}>Python</button>
-            <button onClick={() => console.log("Javascript")}>Javascript</button>
-            <button onClick={() => console.log("HTML")}>HTML</button>
-            <button onClick={() => console.log("React")}>React</button>
+            <button onClick={() => handleSprachauswahl("Python")}>Python</button>
+            <button onClick={() => handleSprachauswahl("Javascript")}>Javascript</button>
+            <button onClick={() => handleSprachauswahl("HTML")}>HTML</button>
+            <button onClick={() => handleSprachauswahl("React")}>React</button>
           </div>
         )}
       </div>
@@ -126,4 +102,3 @@ const ProfilePage = () => {
 };
 
 export default ProfilePage;
-
