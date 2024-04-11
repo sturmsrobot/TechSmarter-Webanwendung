@@ -188,3 +188,41 @@ Wir haben eine angemessene Fehlerbehandlung implementiert, um sicherzustellen, d
 - Implementierung weiterer Routen und Endpunkte, um die Funktionalität der Anwendung zu erweitern.
 - Hinzufügen von Middleware für Sicherheit und Authentifizierung.
 - Dokumentation der durchgeführten Änderungen und Aktualisierung der Projektdokumentation.
+
+
+
+# Express-App Dokumentation - Mittwoch, 10. April 2024
+
+## Was ist heute passiert?
+- Recherche zu JWT in Express für die Implementierung von Authentifizierung.
+- Installation und Integration von JWT in unsere Express-Anwendung.
+- Überarbeitung und Strukturierung der server.js-Datei, um JWT-Authentifizierung zu implementieren.
+- Installation von Jest und Faker zur Durchführung von Unit-Tests.
+- Konfiguration von Jest für die Testausführung.
+- Schreiben eines Testfalls für die Authentifizierung in der Datei authentication.test.js.
+- Durchführung der Testfallausführung, die jedoch zu Fehlern führte.
+- Installation von Supertest zur Integration von Jest für das Testen von Express-Endpunkten.
+- Auftreten eines Problems, bei dem das Sequelize-Objekt nicht korrekt an die init-Methode in unseren Modelldateien übergeben wurde.
+
+## Welche Probleme sind aufgetreten/Lösungsansätze?
+Das Hauptproblem, das heute aufgetreten ist, war das Fehlen der korrekten Übertragung des Sequelize-Objekts an die init-Methode in unseren Modelldateien. Die Lösung bestand darin, sicherzustellen, dass das Sequelize-Objekt ordnungsgemäß an die init-Methode übergeben wird.
+
+## Womit beschäftige ich mich morgen?
+- Klärung des Problems mit der Testfallausführung und Behebung der Fehler.
+- Recherche zum CSRF-Schutz für die Passwortsicherheit und Implementierung entsprechender Maßnahmen in der Express-Anwendung.
+- Mögliche Verbesserungen oder Erweiterungen der Authentifizierungsfunktionen in der Anwendung.
+- Weiterführung der Unit-Tests für verschiedene Funktionen und Endpunkte der Anwendung.
+
+
+# Express-App Dokumentation - Donnerstag, 11. April 2024
+
+## Was ist heute passiert?
+Wir haben die Datenbankprobleme behoben und eine neue Datenbank erstellt oder repariert. Zusätzlich haben wir gemeinsam mit Julius an der Implementierung von Sitzungen gearbeitet und das Frontend-Design weiter verbessert. Dabei wurden verschiedene Seiten angelegt, darunter auch eine Quizseite mit zufälligen Fragen.
+
+## Welche Probleme sind aufgetreten/Lösungsansätze?
+Es gab einige Herausforderungen bei der Verbindung zwischen unserer API und der Datenbank, die nicht ganz klar war. Wir mussten uns mit allgemeinen Datenbankproblemen auseinandersetzen und einige davon beheben. Außerdem haben wir die MySQL-App bearbeitet, um die Funktionalität zu verbessern.
+
+## Womit beschäftige ich mich morgen?
+Morgen werde ich mich wahrscheinlich weiterhin mit der Datenbank und der API beschäftigen, um sicherzustellen, dass alles reibungslos funktioniert. Außerdem plant das Frontend, an der Benutzeroberfläche zu arbeiten und möglicherweise weitere Seiten oder Funktionen hinzuzufügen.
+
+
