@@ -1,21 +1,23 @@
 import api from "../../config/api";
 
-async function fetchAllTodos() {
-  const result = await api.get("/todos/all");
-
-  const todos = result.data;
-
-  return todos;
+export async function fetchAllUsers() {
+  try {
+    const result = await api.get("/api/users/all");
+    const users = result.data;
+    return users;
+  } catch (error) {
+    console.error("Fehler beim Abrufen aller Benutzer:", error);
+    throw error;
+  }
 }
 
-async function fetchTodoById(todoId) {
-  const result = await api.get("/todos/byid", { params: { todoId } });
-
-  const todo = result.data.todo;
-
-  console.log("Mein Todo /byid", todo);
-
-  return todo;
+export async function fetchUserById(userId) {
+  try {
+    const result = await api.get(`/api/users/${userId}`);
+    const user = result.data;
+    return user;
+  } catch (error) {
+    console.error("Fehler beim Abrufen des Benutzers nach ID:", error);
+    throw error;
+  }
 }
-
-export default { fetchAllTodos, fetchTodoById };

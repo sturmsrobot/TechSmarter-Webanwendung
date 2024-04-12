@@ -1,7 +1,9 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
 
-const Quizzes = sequelize.define("Quizzes", {
+const Quizzes = sequelize.define(
+  "Quiz", 
+  {
   quiz_id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -17,19 +19,17 @@ const Quizzes = sequelize.define("Quizzes", {
   },
 });
 
-// Definieren der Assoziationen, falls erforderlich
 Quizzes.associate = (models) => {
-  // Definition der Assoziationen, falls benötigt
 };
 
-// Statische Methode für Benutzersuche nach Benutzernamen
-User.findByUsername = async function (username) {
+
+User.findByQuiz_Id = async function (quiz_id) {
   try {
-    const users = await User.findAll({ where: { username } });
-    return users;
+    const quizzes = await Quiz.findAll({ where: { quiz_id } });
+    return quizzes;
   } catch (error) {
-    throw new Error("Fehler beim Suchen von Benutzern: " + error);
+    throw new Error("Fehler beim Suchen von Quizzes: " + error);
   }
 };
 
-module.exports = Quizzes;
+module.exports = Quiz;
