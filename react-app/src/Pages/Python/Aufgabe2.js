@@ -10,6 +10,14 @@ function Aufgabe2() {
 }
 
 function TaskDescription() {
+  const handleLoginKlick = () => {
+    // Hier kannst du den Code für den Klick-Handler hinzufügen
+    console.log("Der Button wurde geklickt!");
+    // Zum Beispiel:
+    // Gib einen Hinweis für die Aufgabe aus
+    alert("Hier ist ein Hinweis für die Aufgabe!");
+  };
+
   return (
     <div className="task-description">
       <h2>Aufgabe2 </h2>
@@ -21,14 +29,15 @@ function TaskDescription() {
       <p>
         Schritte:
         <ol>
-          Erhalte das Eingabewort vom Benutzer. Überprüfe, ob das Wort vorwärts
-          und rückwärts gelesen dasselbe ist. Gib eine entsprechende Nachricht
-          aus, ob das Wort ein Palindrom ist oder nicht.
+          <li>
+            Erhalte das Eingabewort vom Benutzer. Überprüfe, ob das Wort
+            vorwärts und rückwärts gelesen dasselbe ist. Gib eine entsprechende
+            Nachricht aus, ob das Wort ein Palindrom ist oder nicht.
+          </li>
         </ol>
       </p>
       <button onClick={handleLoginKlick}>Hint 2 python</button>
     </div>
-    
   );
 }
 

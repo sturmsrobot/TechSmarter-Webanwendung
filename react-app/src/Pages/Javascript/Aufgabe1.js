@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-
+import hint1 from "../../images/hint1_javascript.png";
+import hint2 from "../../images/hint2_javascript.png";
 function Aufgabe1() {
   return (
     <div className="App">
@@ -37,23 +38,19 @@ function TaskDescription() {
             Erstelle eine HTML-Datei mit einem Eingabefeld für den Namen und
             einem Button, um die Begrüßung auszulösen. Verwende JavaScript, um
             den eingegebenen Namen zu erfassen, wenn der Benutzer auf den Button
-            klickt. Schreibe eine Funktion, die den eingegebenen Namen verwendet,
-            um eine personalisierte Begrüßung zu erstellen. Zeige die Begrüßung
-            auf der Webseite an, nachdem der Benutzer den Button geklickt hat.
+            klickt. Schreibe eine Funktion, die den eingegebenen Namen
+            verwendet, um eine personalisierte Begrüßung zu erstellen. Zeige die
+            Begrüßung auf der Webseite an, nachdem der Benutzer den Button
+            geklickt hat.
           </li>
         </ol>
       </p>
       <button onClick={handleHint1Click}>Hint 1 </button>
       <button onClick={handleHint2Click}>Hint 2 </button>
-      {hint1Visible && (
-        <img src="../../images/hint1 javascript.png" alt="Hint 1" />
-      )}
-      {hint2Visible && (
-        <img src="../images/hint2 javascript.png" alt="Hint 2" />
-      )}
+      {hint1Visible && <img src={hint1} alt="Hint 1" />}
+      {hint2Visible && <img src={hint2} alt="Hint 2" />}
     </div>
   );
 }
 
 export default Aufgabe1;
-
