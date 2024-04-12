@@ -49,6 +49,9 @@ const ProfilePage = () => {
       case "HTML":
         navigate("/HTML");
         break;
+        case "Quiz":
+        navigate("/Quiz");
+        break;
     }
   };
 
@@ -93,7 +96,7 @@ const ProfilePage = () => {
             <button onClick={() => handleSprachauswahl("Python")}>Python</button>
             <button onClick={() => handleSprachauswahl("Javascript")}>Javascript</button>
             <button onClick={() => handleSprachauswahl("HTML")}>HTML</button>
-            <button onClick={() => handleSprachauswahl("React")}>React</button>
+            <button onClick={() => handleSprachauswahl("Quiz")}>Quiz</button>
           </div>
         )}
       </div>
