@@ -40,6 +40,10 @@ const Javascript = () => {
     }
   };
 
+  const redirectToLink = (link) => {
+    window.location.href = link;
+  };
+
   return (
     <div className="container">
       <h1>{text}</h1>
@@ -58,14 +62,14 @@ const Javascript = () => {
             Aufgabe 2 importieren
           </button>
           <button
-              onClick={() =>
-                redirectToLink(
-                  "https://wiki.selfhtml.org/wiki/JavaScript/Tutorials"
-                )
-              }
-            >
-              Externer Link
-            </button>
+            onClick={() =>
+              redirectToLink(
+                "https://wiki.selfhtml.org/wiki/JavaScript/Tutorials"
+              )
+            }
+          >
+            Externer Link
+          </button>
         </div>
       )}
     </div>
