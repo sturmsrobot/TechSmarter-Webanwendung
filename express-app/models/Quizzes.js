@@ -23,7 +23,7 @@ Quizzes.associate = (models) => {
 };
 
 
-User.findByQuiz_Id = async function (quiz_id) {
+Quizzes.findByQuiz_Id = async function (quiz_id) {
   try {
     const quizzes = await Quiz.findAll({ where: { quiz_id } });
     return quizzes;
@@ -32,4 +32,4 @@ User.findByQuiz_Id = async function (quiz_id) {
   }
 };
 
-module.exports = Quiz;
+module.exports = Quizzes;
