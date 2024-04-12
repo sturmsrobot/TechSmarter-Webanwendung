@@ -1,10 +1,14 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
-import "./JavaScript.module.css";
+import "./JavaScript.module.css"; // Importiere die CSS-Datei ohne Klammern
+import Aufgabe1 from "./Aufgabe1";
+import Aufgabe2 from "./Aufgabe2";
 
 const Javascript = () => {
   const [text, setText] = useState("");
   const welcomeText = "Willkommen zum Javascript Lernen!";
+  const [aufgabe1Imported, setAufgabe1Imported] = useState(false); // Zustand für den Importstatus von Aufgabe 1
+  const [aufgabe2Imported, setAufgabe2Imported] = useState(false); // Zustand für den Importstatus von Aufgabe 2
 
   let interval;
 
@@ -29,36 +33,41 @@ const Javascript = () => {
   const importTask = (taskName) => {
     console.log(`Importiere Aufgabe: ${taskName}`);
     // Hier könntest du die Logik für den Import der Aufgaben implementieren
-  };
-
-  const redirectToLink = (link) => {
-    window.location.href = link;
+    if (taskName === "Aufgabe 1") {
+      setAufgabe1Imported(true); // Setze den Zustand, um anzuzeigen, dass Aufgabe 1 importiert wurde
+    } else if (taskName === "Aufgabe 2") {
+      setAufgabe2Imported(true); // Setze den Zustand, um anzuzeigen, dass Aufgabe 2 importiert wurde
+    }
   };
 
   return (
     <div className="container">
       <h1>{text}</h1>
-      <h2>
-        JavaScript ist eine verbreitete Programmiersprache.Als clientseitige
+      <h2 style={{ marginTop: 0 }}>
+        JavaScript ist eine verbreitete Programmiersprache. Als clientseitige
         Skriptsprache ist sie eine der Kerntechnologien des World Wide Web.
       </h2>
-      <div className="buttons">
-        <button onClick={() => importTask("Aufgabe 1")}>
-          Aufgabe 1 importieren
-        </button>
-        <button onClick={() => importTask("Aufgabe 2")}>
-          Aufgabe 2 importieren
-        </button>
-        <button
-          onClick={() =>
-            redirectToLink(
-              "https://wiki.selfhtml.org/wiki/JavaScript/Tutorials"
-            )
-          }
-        >
-          Externer Link
-        </button>
-      </div>
+      {aufgabe1Imported && <Aufgabe1 />} {/* Aufgabe 1 anzeigen, wenn sie importiert wurde */}
+      {aufgabe2Imported && <Aufgabe2 />} {/* Aufgabe 2 anzeigen, wenn sie importiert wurde */}
+      {!aufgabe1Imported && !aufgabe2Imported && ( // Wenn keine Aufgabe importiert wurde
+        <div className="buttons">
+          <button onClick={() => importTask("Aufgabe 1")}>
+            Aufgabe 1 importieren
+          </button>
+          <button onClick={() => importTask("Aufgabe 2")}>
+            Aufgabe 2 importieren
+          </button>
+          <button
+              onClick={() =>
+                redirectToLink(
+                  "https://wiki.selfhtml.org/wiki/JavaScript/Tutorials"
+                )
+              }
+            >
+              Externer Link
+            </button>
+        </div>
+      )}
     </div>
   );
 };
@@ -71,3 +80,4 @@ ReactDOM.render(
 );
 
 export default Javascript;
+
