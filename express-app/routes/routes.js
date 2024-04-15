@@ -1,21 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const { body, validationResult } = require("express-validator");
-const Quizzes = require("../models/Quizzes");
 const Answer = require("../models/Answer");
 const Question = require("../models/Question");
 
 
-router.get("/quizzes", (req, res) => {
-  Quizzes.findAll()
-    .then((quizzes) => {
-      res.json(quizzes);
-    })
-    .catch((err) => {
-      console.error("Fehler beim Abrufen von Daten aus der Datenbank:", err);
-      res.status(500).json({ message: "Interner Serverfehler!" });
-    });
-});
 
 router.get("/question", (req, res) => {
   Question.findAll()
