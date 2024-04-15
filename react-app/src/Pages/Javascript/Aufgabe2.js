@@ -1,16 +1,20 @@
-import React from 'react';
-
+import React, { useState } from 'react';
+import hint3 from "../../images/hint3.png";
 function Aufgabe2() {
+  const [hintImageVisible, setHintImageVisible] = useState(false);
+
   const handleHintClick = () => {
-    // Hier wird die HTML-Seite angezeigt
-    window.location.href = '../../Hints/javascript-hint.html';
+    // Hier den Zustand des Bildes aktualisieren, um es anzuzeigen
+    setHintImageVisible(true);
   };
 
   return (
     <div className="App">
       <h1>Jacascript </h1>
       <TaskDescription />
-      <button onClick={handleHintClick}>Hint 3 Javascript </button>
+      {/* Überprüfen, ob das Bild sichtbar ist, und es anzeigen, wenn nötig */}
+      {hintImageVisible && <img src={hint3} alt="Hint Image" />}
+      <button onClick={handleHintClick}>Hint</button>
     </div>
   );
 }
@@ -44,4 +48,5 @@ function TaskDescription() {
 }
 
 export default Aufgabe2;
+
 
