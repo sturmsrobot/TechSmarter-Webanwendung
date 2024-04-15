@@ -4,15 +4,18 @@ const sequelize = require("../config/database");
 const Stats = sequelize.define(
   "Stats", 
   {
-  quiz_id: {
+  stats_id: {
     type: DataTypes.INTEGER,
     allowNull: false,
     primaryKey: true,
   },
+  quiz_id: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
   username: {
     type: DataTypes.INTEGER,
     allowNull: false,
-    primaryKey: true,
   },
   progress: {
     type: DataTypes.DECIMAL,
