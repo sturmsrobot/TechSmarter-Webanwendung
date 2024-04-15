@@ -11,6 +11,7 @@ const sequelize = require("./config/database");
 const routes = require("./routes/routes");
 const testDatabaseConnection = require("./config/testDatabase");
 const Stats = require("./models/Stats");
+const { Game } = require("gamification");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -93,10 +94,27 @@ app.post(
   }
 );
 
-app.listen(PORT, () => {
-  console.log(`Dieser Server läuft auf Port ${PORT}`); // Serverstart
-});
-
 // sequelize.queryInterface
 //   .describeTable("Stats")
 //   .then((result) => console.log(result));
+
+//Gamification:
+// Initialisiere ein neues Spiel
+const game = new Game();
+
+// Füge einem Benutzer Punkte hinzu
+game.addPoints("username", 100); // Fügt dem Benutzer 'username' 100 Punkte hinzu
+
+// Ziehe einem Benutzer Punkte ab
+game.subtractPoints("username", 50); // Zieht dem Benutzer 'username' 50 Punkte ab
+
+// Überprüfe die Punkteanzahl eines Benutzers
+const userPoints = game.getPoints("username"); // Ruft die Punkte des Benutzers 'username' ab
+
+// Verwalte Trophäen für Benutzer
+game.addAchievement("username", "High Score"); // Vergibt dem Benutzer 'username' die Trophäe 'High Score'
+game.removeAchievement("username", "High Score"); // Entfernt die Trophäe 'High Score' vom Benutzer 'username'
+
+app.listen(PORT, () => {
+  console.log(`Dieser Server läuft auf Port ${PORT}`); // Serverstart
+});
