@@ -38,7 +38,7 @@ app.use(authenticationMiddleware); // Verwendung der Middleware für Authentifiz
 app.use(authenticateToken); // Verwendung der Middleware für Authentifizierung JWT
 
 // Beispiel-Route, die eine authentifizierte Anfrage erfordert (JWT)
-app.get("/api/protected", verifyToken, (req, res) => {
+app.get("/api/protected", (req, res) => {
   res.json({ message: "Access granted", user: req.user });
 });
 
@@ -63,7 +63,6 @@ app.get("/", (req, res) => {
 
 app.post(
   "/api/users",
-  verifyToken, // Hinzufügen der Middleware für JWT-Authentifizierung
   [
     // Hinzufügen der Validierungsregeln:
     body("username").notEmpty().isString(),
@@ -98,6 +97,6 @@ app.listen(PORT, () => {
   console.log(`Dieser Server läuft auf Port ${PORT}`); // Serverstart
 });
 
-sequelize.queryInterface
-  .describeTable("Stats")
-  .then((result) => console.log(result));
+// sequelize.queryInterface
+//   .describeTable("Stats")
+//   .then((result) => console.log(result));
