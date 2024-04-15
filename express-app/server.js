@@ -5,6 +5,7 @@ const { body, validationResult } = require("express-validator");
 const loggerMiddleware = require("./middleware/loggingMiddleware");
 const errorHandlingMiddleware = require("./middleware/errorHandlingMiddleware");
 const authenticationMiddleware = require("./middleware/authentication");
+const authenticateToken = require("./middleware/authenticateToken");
 const cors = require("cors");
 const sequelize = require("./config/database");
 const routes = require("./routes/routes");
@@ -13,7 +14,6 @@ const Stats = require("./models/Stats");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const secretKey = process.env.JWT_SECRET || "your-secret-key";
 
 testDatabaseConnection();
 
@@ -35,23 +35,7 @@ app.use(cors());
 app.use(loggerMiddleware); // Verwendung der Middleware für Anfragen-Logging
 app.use(errorHandlingMiddleware); // Verwendung der Middleware für Fehlerbehandlung
 app.use(authenticationMiddleware); // Verwendung der Middleware für Authentifizierung
-
-// Middleware-Funktion zur Überprüfung des JWT-Tokens
-const verifyToken = (req, res, next) => {
-  const token = req.headers["authorization"]; // Token aus dem Header erhalten
-
-  if (!token) {
-    return res.status(403).json({ message: "No token provided" });
-  }
-
-  jwt.verify(token, secretKey, (err, decoded) => {
-    if (err) {
-      return res.status(401).json({ message: "Failed to authenticate token" });
-    }
-    req.user = decoded; // Decodierte Nutzerinformationen an die Anfrage anhängen
-    next(); // Nächste Middleware aufrufen
-  });
-};
+app.use(authenticateToken); // Verwendung der Middleware für Authentifizierung JWT
 
 // Beispiel-Route, die eine authentifizierte Anfrage erfordert (JWT)
 app.get("/api/protected", verifyToken, (req, res) => {
