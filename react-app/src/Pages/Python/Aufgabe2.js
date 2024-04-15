@@ -1,26 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
+import Hint from "../../images/hint2_python.png";
 
 function Aufgabe2() {
+  const [hintImageVisible, setHintImageVisible] = useState(false);
+
+  const handleHintClick = () => {
+    // Hier den Zustand des Bildes aktualisieren, um es anzuzeigen
+    setHintImageVisible(true);
+  };
+
   return (
     <div className="App">
-      <h1>Python </h1>
-      <TaskDescription />
+      <h1>Python</h1>
+      <TaskDescription handleHintClick={handleHintClick} />
+      {/* Überprüfen, ob das Bild sichtbar ist, und es anzeigen, wenn nötig */}
+      {hintImageVisible && <img src={Hint} alt="Hint Image" />}
+      <button onClick={handleHintClick}>Hint</button>
     </div>
   );
 }
 
-function TaskDescription() {
-  const handleLoginKlick = () => {
-    // Hier kannst du den Code für den Klick-Handler hinzufügen
-    console.log("Der Button wurde geklickt!");
-    // Zum Beispiel:
-    // Gib einen Hinweis für die Aufgabe aus
-    alert("Hier ist ein Hinweis für die Aufgabe!");
-  };
-
+function TaskDescription({ handleHintClick }) {
   return (
     <div className="task-description">
-      <h2>Aufgabe2 </h2>
+      <h2>Aufgabe2</h2>
       <p>
         Schreibe ein Python-Programm, das überprüft, ob ein eingegebenes Wort
         ein Palindrom ist oder nicht. Ein Palindrom ist ein Wort, das vorwärts
@@ -36,9 +39,9 @@ function TaskDescription() {
           </li>
         </ol>
       </p>
-      <button onClick={handleLoginKlick}>Hint 2 python</button>
     </div>
   );
 }
 
 export default Aufgabe2;
+

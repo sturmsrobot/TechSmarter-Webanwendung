@@ -1,16 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
+import Hint from "../../images/hint1_Python.png";
 
 function Aufgabe1() {
+  const [hintImageVisible, setHintImageVisible] = useState(false);
+
+  const handleHintClick = () => {
+    // Hier den Zustand des Bildes aktualisieren, um es anzuzeigen
+    setHintImageVisible(true);
+  };
+
   return (
     <div className="App">
-      <h1>Python </h1>
-      <TaskDescription />
+      <h1>Python</h1>
+      <TaskDescription handleHintClick={handleHintClick} />
+      {/* Überprüfen, ob das Bild sichtbar ist, und es anzeigen, wenn nötig */}
+      {hintImageVisible && <img src={Hint} alt="Hint Image" />}
+      <button onClick={handleHintClick}>Hint</button>
     </div>
   );
 }
 
-function TaskDescription() {
-  const handleLoginKlick = () => {
+function TaskDescription({ handleHintClick }) {
+  const handleLoginClick = () => {
     // Hier kannst du den Code für den Klick-Handler hinzufügen
     console.log("Der Button wurde geklickt!");
     // Zum Beispiel:
@@ -20,7 +31,7 @@ function TaskDescription() {
 
   return (
     <div className="task-description">
-      <h2>Aufgabe1 </h2>
+      <h2>Aufgabe1</h2>
       <p>
         Schreibe ein Python-Programm, das den Durchschnitt von einer Liste von
         Zahlen berechnet.
@@ -34,7 +45,6 @@ function TaskDescription() {
           </li>
         </ol>
       </p>
-      <button onClick={handleLoginKlick}>Hint 1 python</button>
     </div>
   );
 }
