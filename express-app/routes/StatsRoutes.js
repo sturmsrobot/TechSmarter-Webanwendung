@@ -3,7 +3,6 @@ const router = express.Router();
 const Stats = require("../models/Stats");
 
 
-
 router.get("/stats", (req, res) => {
     Stats.findAll()
       .then((stats) => {
@@ -16,23 +15,48 @@ router.get("/stats", (req, res) => {
   });  
 
 
-router.put("/:id", (req, res) => {
-  const statId = req.params.id; // ID der zu aktualisierenden Statistik
+router.post(
+    "/stats",
+    [
+      body("stats_id").isString,
+      body("quiz_id").isString,
+      body("username").trim().not().isEmpty().isString(),
+      body("progress").notEmpty().isEmail(),
+      body("right_answers").isString(),
+      body("wrong_answers").isString(),
+      body("score")
+    ],
+    (req, res) => {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        return res.status(400).json({ errors: errors.array() });
+      }
+  
+      res.send("Neue User-Statistik erfolgreich erstellt!");
+    }
+  );
+  
 
-  // Code zum Aktualisieren der Statistikdaten
-  // Daten aus dem Anfragekörper verwenden
+  router.put("/stats/:stats_id", (req, res) => {
+    res.send("User-Statistik erfolgreich aktualisiert!");
+  });
+  
 
-  // Beispiel: Statistikdaten aus dem Anfragekörper holen
-  const { score } = req.body;
-
-  Stats.update({ score }, { where: { id: statId } })
-    .then(() => {
-      res.status(200).json({ message: "Statistik erfolgreich aktualisiert!" });
-    })
-    .catch((err) => {
-      console.error("Fehler beim Aktualisieren der Statistik:", err);
-      res.status(500).json({ message: "Interner Serverfehler!" });
-    });
-});
-
+  router.delete("/stats/:stats_id", (req, res) => {
+    res.send("User-Statistik erfolgreich gelöscht!");
+  });
+  
+  router.get("/stats/search", (req, res) => {
+    const { username } = req.query; 
+    console.log("Hello World");
+    Stats.findAll({ where: { username } })
+      .then((users) => {
+        res.json(Stats);
+      })
+      .catch((err) => {
+        console.error("Fehler bei der Suche nach Benutzern:", err);
+        res.status(500).json({ message: "Interner Serverfehler!" });
+      });
+  });
+  
 module.exports = router;
