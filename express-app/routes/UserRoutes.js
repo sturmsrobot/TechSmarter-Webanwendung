@@ -1,11 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const User = require("../models/Users");
-const { Data } = require("../models/index");
-const { where } = require("sequelize");
-const { error } = require("winston");
-
-
 
   // GET-Anforderungen (Benutzerdaten abrufen):
   router.get("/users", (req, res) => {
@@ -28,6 +23,7 @@ router.post(
     "/users",
     [
       // Hier fügst du die Validierungsregeln hinzu
+      body("id").notEmpty(),
       body("username").trim().not().isEmpty().isString(),
       body("email").notEmpty().isEmail(),
       body("password").notEmpty().isString().isLength({ min: 6 }),
