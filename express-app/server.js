@@ -9,7 +9,7 @@ const cors = require("cors");
 const sequelize = require("./config/database");
 const routes = require("./routes/routes");
 const testDatabaseConnection = require("./config/testDatabase");
-const Stats = require("./models/Stats")
+const Stats = require("./models/Stats");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -79,8 +79,9 @@ app.get("/", (req, res) => {
 
 app.post(
   "/api/users",
+  verifyToken, // Hinzufügen der Middleware für JWT-Authentifizierung
   [
-    // Hier fügst du die Validierungsregeln hinzu
+    // Hinzufügen der Validierungsregeln:
     body("username").notEmpty().isString(),
     body("email").notEmpty().isEmail(),
     body("password").notEmpty().isString().isLength({ min: 6 }),
@@ -113,4 +114,6 @@ app.listen(PORT, () => {
   console.log(`Dieser Server läuft auf Port ${PORT}`); // Serverstart
 });
 
-sequelize.queryInterface.describeTable("Stats").then(result => console.log(result))
+sequelize.queryInterface
+  .describeTable("Stats")
+  .then((result) => console.log(result));
