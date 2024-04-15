@@ -226,3 +226,40 @@ Es gab einige Herausforderungen bei der Verbindung zwischen unserer API und der 
 Morgen werde ich mich wahrscheinlich weiterhin mit der Datenbank und der API beschäftigen, um sicherzustellen, dass alles reibungslos funktioniert. Außerdem plant das Frontend, an der Benutzeroberfläche zu arbeiten und möglicherweise weitere Seiten oder Funktionen hinzuzufügen.
 
 
+# Express-App Dokumentation - Freitag, 12. April 2024
+
+1. **Was ist heute passiert?**
+   - Datenbank überarbeitet
+   - Frontend-Design fortgesetzt und Seiten angelegt
+   - Implementierung der Quizseite und zufällige Auswahl
+   - Routen für Benutzer im Backend erstellt
+   - Fehlerbehebungen bei der API und der Datenbankverbindung
+   - Sprint review 
+
+2. **Welche Probleme sind aufgetreten/Lösungsansätze?**
+   - Zeitmanagement 
+
+3. **Womit beschäftige ich mich am Montag?**
+   - Überprüfung und mögliche Anpassungen der API- und Datenbankverbindung
+   - Fortsetzung der Backend-Entwicklung und Implementierung weiterer Routen und JWT
+   - Fehlerbehebung und Verbesserungen basierend auf dem Feedback vom heutigen Tag
+
+
+# Express-App Dokumentation - Montag, 15. April 2024
+
+## Was ist heute passiert?
+- Ein Authentifizierungsmiddleware für Express wurde implementiert, um JWT-Token zu überprüfen.
+- Es wurden Routen für die Authentifizierung und Generierung von JWT-Token erstellt.
+- Ein Testfall für die Authentifizierungsmiddleware wurde erstellt.
+- Wir haben begonnen, ein Punktesystem mit einer Gamification-Bibliothek zu integrieren.
+- Die Sequelize-Modelle für Benutzerpunkte wurden erstellt.
+- Die Integration der Gamification-Bibliothek hat zu einem Fehler geführt.
+
+## Welche Probleme sind aufgetreten/Lösungsansätze?
+- Die Integration der Gamification-Bibliothek war nicht erfolgreich, da die Bibliothek nicht gefunden wurde. Wir haben versucht, eine alternative Bibliothek zu installieren, die jedoch nicht verfügbar war. 
+- Eine Lösung war die Suche nach einer anderen Gamification-Bibliothek und die Behebung des Installationsproblems.
+
+## Womit beschäftige ich mich morgen?
+- Fortsetzung der Integration der Gamification-Bibliothek.
+- Implementierung von Endpunkten in der Express-App, um mit dem Punktesystem zu interagieren.
+- Weitere Tests für die Authentifizierungsmiddleware und die Implementierung von Belohnungssystemen in der React-Frontend-Anwendung.
