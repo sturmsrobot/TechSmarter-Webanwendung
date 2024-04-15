@@ -6,11 +6,12 @@ const ProfilePage = () => {
   const [profile, setProfile] = useState({
     name: "Max Mustermann",
     profilePicture: "url_zum_profilbild.jpg",
-    progress: 15, 
+    progress: 15,
     points: 55,
   });
   const navigate = useNavigate();
   const [dropdownSichtbar, setDropdownSichtbar] = useState(false);
+  const [band, setBand] = useState("");
 
   useEffect(() => {
     fetchUserData();
@@ -31,6 +32,9 @@ const ProfilePage = () => {
         progress: progress,
         points: userData.points,
       });
+
+      // Konvertiere die Punkte und setze das Band
+      convertPoints(userData.points);
     } catch (error) {
       console.error("Fehler beim Abrufen der Benutzerdaten:", error);
     }
@@ -38,7 +42,7 @@ const ProfilePage = () => {
 
   const handleSprachauswahl = (sprache) => {
     setDropdownSichtbar(false);
-    
+
     switch (sprache) {
       case "Python":
         navigate("/Python");
@@ -49,7 +53,7 @@ const ProfilePage = () => {
       case "HTML":
         navigate("/HTML");
         break;
-        case "Quiz":
+      case "Quiz":
         navigate("/Quiz");
         break;
     }
@@ -59,23 +63,23 @@ const ProfilePage = () => {
     setDropdownSichtbar(!dropdownSichtbar);
   };
 
-  const convertPoints = () => {
-    let points = profile.points;
-    let band = "";
+  const convertPoints = (points) => {
+    let newBand = "";
 
     if (points >= 100) {
-      band = "Platinband";
+      newBand = "Platinband";
     } else if (points >= 75) {
-      band = "Goldband";
+      newBand = "Goldband";
     } else if (points >= 40) {
-      band = "Silberband";
+      newBand = "Silberband";
     } else if (points >= 15) {
-      band = "Bronzeband";
+      newBand = "Bronzeband";
     } else {
-      band = "Kein Band erreicht";
+      newBand = "Kein Band erreicht";
     }
 
-    alert(`Herzlichen Glückwunsch! Du hast das ${band} erreicht!`);
+    // Setze das neue Band
+    setBand(newBand);
   };
 
   return (
@@ -85,6 +89,7 @@ const ProfilePage = () => {
         <h2>{profile.name}</h2>
         <p>Fortschritt: {profile.progress.toFixed(2)}%</p>
         <p>Gesammelte Punkte: {profile.points}</p>
+        <p>Aktuelles Band: {band}</p>
         <button onClick={convertPoints}>Punkte umwandeln</button>
       </div>
       <div className={styles.div}>
@@ -93,8 +98,12 @@ const ProfilePage = () => {
         </button>
         {dropdownSichtbar && (
           <div className={styles.dropdowncontent}>
-            <button onClick={() => handleSprachauswahl("Python")}>Python</button>
-            <button onClick={() => handleSprachauswahl("Javascript")}>Javascript</button>
+            <button onClick={() => handleSprachauswahl("Python")}>
+              Python
+            </button>
+            <button onClick={() => handleSprachauswahl("Javascript")}>
+              Javascript
+            </button>
             <button onClick={() => handleSprachauswahl("HTML")}>HTML</button>
             <button onClick={() => handleSprachauswahl("Quiz")}>Quiz</button>
           </div>
