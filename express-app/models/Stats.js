@@ -7,10 +7,12 @@ const Stats = sequelize.define(
   quiz_id: {
     type: DataTypes.INTEGER,
     allowNull: false,
+    primaryKey: true,
   },
   username: {
     type: DataTypes.INTEGER,
     allowNull: false,
+    primaryKey: true,
   },
   progress: {
     type: DataTypes.DECIMAL,
@@ -36,7 +38,7 @@ Stats.associate = (models) => {
 Stats.findByUsername = async function (username) {
   try {
     const users = await Stats.findAll({ where: { username } });
-    return stats;
+    return Stats;
   } catch (error) {
     throw new Error("Fehler beim Suchen von Benutzern: " + error);
   }

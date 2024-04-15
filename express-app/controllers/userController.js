@@ -3,7 +3,7 @@ const User = require("../models/Users");
 // Route zum Abrufen aller Benutzer
 exports.getAllUsers = async (req, res) => {
   try {
-    const users = await Users.findAll();
+    const users = await User.findAll();
     res.json(users);
   } catch (error) {
     console.error("Fehler beim Abrufen des Benutzers:", error);

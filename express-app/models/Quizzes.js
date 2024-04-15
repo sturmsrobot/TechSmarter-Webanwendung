@@ -1,9 +1,7 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
 
-const Quizzes = sequelize.define(
-  "Quiz", 
-  {
+const Quizzes = sequelize.define("Quiz", {
   quiz_id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -19,17 +17,15 @@ const Quizzes = sequelize.define(
   },
 });
 
-Quizzes.associate = (models) => {
-};
+Quizzes.associate = (models) => {};
 
-
-User.findByQuiz_Id = async function (quiz_id) {
+Quizzes.findByQuiz_Id = async function (quiz_id) {
   try {
-    const quizzes = await Quiz.findAll({ where: { quiz_id } });
+    const quizzes = await Quizzes.findAll({ where: { quiz_id } });
     return quizzes;
   } catch (error) {
     throw new Error("Fehler beim Suchen von Quizzes: " + error);
   }
 };
 
-module.exports = Quiz;
+module.exports = Quizzes;
