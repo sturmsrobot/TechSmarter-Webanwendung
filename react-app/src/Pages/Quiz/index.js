@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import questions from "./questions"; // Importiere die Fragen
 import "./styles.css";
+import film from "../../videos/Particle_Tunnel_4K_Motion_Background_Loop.mp4"
+
 const Quiz = () => {
   const topics = ["Python", "HTML", "JavaScript"];
   const [isSpinning, setIsSpinning] = useState(false);
@@ -17,54 +19,21 @@ const Quiz = () => {
 
   return (
     <div className="container">
-      {" "}
-      {/* Container hinzufügen */}
+      <video autoPlay loop muted className="background-video">
+        <source src={film} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
       <div className="quiz-container">
-        <div
-          className="wheel"
-          style={{
-            border: "2px solid black",
-            borderRadius: "50%",
-            width: "200px",
-            height: "200px",
-            position: "relative",
-            backgroundColor: "darkslateblue",
-          }}
-        >
+        <div className="wheel">
           {isSpinning ? (
-            <div
-              style={{
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-                fontSize: "20px",
-              }}
-            >
-              Spinning...
-            </div>
+            <div className="wheel-text">Spinning...</div>
           ) : (
-            <div
-              style={{
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-                fontSize: "20px",
-              }}
-            >
-              {selectedTopic}
-            </div>
+            <div className="wheel-text">{selectedTopic}</div>
           )}
         </div>
-        <button
-          onClick={spinWheel}
-          disabled={isSpinning}
-          style={{ marginTop: "20px" }}
-        >
+        <button className="spin-button" onClick={spinWheel} disabled={isSpinning}>
           Spin
         </button>
-
         {selectedTopic && <QuizQuestion topic={selectedTopic} />}
       </div>
     </div>
@@ -95,7 +64,7 @@ const QuizQuestion = ({ topic }) => {
   };
 
   return (
-    <div style={{ marginTop: "20px" }}>
+    <div className="question-container">
       {questionData && (
         <div>
           <h2>Question:</h2>
@@ -114,7 +83,7 @@ const QuizQuestion = ({ topic }) => {
               <label htmlFor={option}>{option}</label>
             </div>
           ))}
-          <button onClick={checkAnswer}>Check Answer</button>
+          <button className="check-answer" onClick={checkAnswer}>Check Answer</button>
         </div>
       )}
     </div>
