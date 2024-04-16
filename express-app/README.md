@@ -263,3 +263,15 @@ Morgen werde ich mich wahrscheinlich weiterhin mit der Datenbank und der API bes
 - Fortsetzung der Integration der Gamification-Bibliothek.
 - Implementierung von Endpunkten in der Express-App, um mit dem Punktesystem zu interagieren.
 - Weitere Tests für die Authentifizierungsmiddleware und die Implementierung von Belohnungssystemen in der React-Frontend-Anwendung.
+
+
+# Express-App Dokumentation - Dienstag, 16. April 2024
+
+- Integration der Gamification-Bibliothek in eine Express-App
+- Einrichtung von Endpunkten in der Express-App zur Interaktion mit dem Punktesystem
+- Implementierung von Funktionen zur Verwaltung von Benutzerpunkten, Trophäen und Statistiken
+- Fehlerbehebung bei der Installation der Gamification-Bibliothek
+- Aktualisierung von Sequelize-Modellen für die Benutzerpunkte
+- Integration der Gamification-Funktionen in eine React-App
+- Implementierung von API-Anfragen in der React-App, um auf das Punktesystem zuzugreifen
+- Erstellung Testfall Punktesystem-Funktionen
