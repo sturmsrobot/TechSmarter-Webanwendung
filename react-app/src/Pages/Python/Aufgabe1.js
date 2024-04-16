@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Hint from "../../images/hint1_Python.png";
+import Hint from "../../images/super_hint1_Python.png";
 
 function Aufgabe1() {
   const [hintImageVisible, setHintImageVisible] = useState(false);
