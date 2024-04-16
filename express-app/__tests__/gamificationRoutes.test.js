@@ -18,9 +18,8 @@ describe("Gamification Routes", () => {
       .post("/gamification/addPoints")
       .send({ username: "example_user", points: 100 });
 
-    expect(response.statusCode).toBe(200);
-    expect(response.body.message).toBe("Points added successfully");
-    // Hier können weitere Erwartungen hinzugefügt werden:
+    expect(response.statusCode).toBe(200); // Überprüfe den Statuscode
+    expect(response.body).toEqual({ message: "Points added successfully" }); // Überprüfe die gesamte Antwort
   });
 
   it("should remove points from a user", async () => {
@@ -28,8 +27,7 @@ describe("Gamification Routes", () => {
       .post("/gamification/removePoints")
       .send({ username: "example_user", points: 50 });
 
-    expect(response.statusCode).toBe(200);
-    expect(response.body.message).toBe("Points removed successfully");
-    // Hier können weitere Erwartungen hinzugefügt werden:
+    expect(response.statusCode).toBe(200); // Überprüfe den Statuscode
+    expect(response.body).toEqual({ message: "Points removed successfully" }); // Überprüfe die gesamte Antwort
   });
 });
