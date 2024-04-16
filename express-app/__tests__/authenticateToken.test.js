@@ -1,31 +1,20 @@
 const jwt = require("jsonwebtoken");
 const authenticateToken = require("../middleware/authenticateToken");
-const { mockRequest, mockResponse } = require("jest-mock-req-res");
-const app = require("../server");
 
-// Vor dem Ausführen der Tests
-beforeAll(async () => {
-  // Hier den Server starten oder initialisieren
-});
-
-// Nach dem Ausführen der Tests
-afterAll(async () => {
-  // Hier den Server stoppen oder aufräumen
-  await app.close(); // Beispiel: Hier wird der Server über die close-Methode geschlossen
-});
+jest.mock("jsonwebtoken"); // Mocken der jsonwebtoken-Bibliothek
 
 describe("authenticateToken Middleware", () => {
   test("should call next() if token is valid", () => {
-    const req = mockRequest({
+    const req = {
       headers: {
         authorization: "Bearer validtoken",
       },
-    });
-    const res = mockResponse();
+    };
+    const res = {};
     const next = jest.fn();
 
     // Mocken der jwt.verify-Funktion, um einen gültigen Token zu simulieren
-    jwt.verify = jest.fn((token, secretKey, callback) => {
+    jwt.verify.mockImplementation((token, secretKey, callback) => {
       callback(null, { username: "testuser" });
     });
 
@@ -36,8 +25,12 @@ describe("authenticateToken Middleware", () => {
   });
 
   test("should return 401 if no token provided", () => {
-    const req = mockRequest();
-    const res = mockResponse();
+    const req = {
+      headers: {},
+    };
+    const res = {
+      sendStatus: jest.fn(),
+    };
     const next = jest.fn();
 
     authenticateToken(req, res, next);
@@ -46,16 +39,19 @@ describe("authenticateToken Middleware", () => {
   });
 
   test("should return 401 if token is invalid", () => {
-    const req = mockRequest({
+    const req = {
       headers: {
         authorization: "Bearer invalidtoken",
       },
-    });
-    const res = mockResponse();
+    };
+    const res = {
+      status: jest.fn().mockReturnThis(),
+      json: jest.fn(),
+    };
     const next = jest.fn();
 
     // Mocken der jwt.verify-Funktion, um einen ungültigen Token zu simulieren
-    jwt.verify = jest.fn((token, secretKey, callback) => {
+    jwt.verify.mockImplementation((token, secretKey, callback) => {
       callback(new Error("Invalid token"));
     });
 
