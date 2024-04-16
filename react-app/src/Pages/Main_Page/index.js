@@ -55,6 +55,25 @@ const Main = () => {
           <button onClick={handleLoginKlick}>Anmelden</button>
           <button onClick={handleRegistrierungKlick}>Registrieren</button>
         </div>
+        <div className={styles.dropdown}>
+          <button className={styles.dropbtn} onClick={toggleDropdown}>
+            Dropdown
+          </button>
+          <div
+            className={`${styles.dropdownContent} ${
+              dropdownSichtbar ? styles.showDropdown : styles.hideDropdown
+            }`}
+          >
+            <button onClick={() => handleSprachauswahl("Python")}>
+              Python
+            </button>
+            <button onClick={() => handleSprachauswahl("Javascript")}>
+              Javascript
+            </button>
+            <button onClick={() => handleSprachauswahl("HTML")}>HTML</button>
+            <button onClick={() => handleSprachauswahl("React")}>React</button>
+          </div>
+        </div>
       </div>
       <div className={styles.content}>
         {ausgewählteSprache && <p>Ausgewählte Sprache: {ausgewählteSprache}</p>}

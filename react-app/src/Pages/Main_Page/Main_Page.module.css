@@ -16,8 +16,7 @@
   width: 100%;
   padding: 20px;
   background-color: #000000;
-
-  box-shadow: 0px 0px 15px rgb(0, 0, 0.5);
+  border-bottom: 2px solid #222;
 }
 
 .headerButtons {
@@ -50,9 +49,10 @@
   align-items: center;
   flex-grow: 1;
   margin-bottom: auto;
-  background-color: #252525;
-  padding: 320px;
-  /* 320px */
+  background-color: #ff0000;
+  padding: 180px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgb(100, 100, 100);
 }
 
 .logo {
@@ -133,5 +133,4 @@ button {
   text-align: center;
   color: #ffffff;
   font-family: verdana, sans-serif;
-  box-shadow: 0px 0px 15px rgb(0, 0, 0.9);
 }

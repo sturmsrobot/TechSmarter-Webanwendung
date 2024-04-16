@@ -11,6 +11,6 @@ const Point = sequelize.define("Point", {
 });
 
 // Definiere die Beziehung zu Benutzern
-Point.belongsTo(User); // Ein Punkt gehört zu einem Benutzer // Sequelize fragt das ab
+Point.belongsTo(User); // Ein Punkt gehört zu einem Benutzer
 
 module.exports = Point;

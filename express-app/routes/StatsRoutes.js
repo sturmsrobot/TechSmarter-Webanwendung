@@ -18,13 +18,13 @@ router.get("/stats", (req, res) => {
 router.post(
     "/stats",
     [
-      body("stats_id").isString,
-      body("quiz_id").isString,
-      body("username").trim().not().isEmpty().isString(),
-      body("progress").notEmpty().isEmail(),
-      body("right_answers").isString(),
-      body("wrong_answers").isString(),
-      body("score")
+      body("stats_id").trim().isEmpty().isNumeric().notEmpty(),
+      body("quiz_id").trim().isEmpty().isNumeric().notEmpty(),
+      body("username").trim().not().notEmpty().isString(),
+      body("progress").trim().isEmpty().notEmpty().isEmail(),
+      body("right_answers").trim().isNumeric(),
+      body("wrong_answers").trim().isNumeric(),
+      body("score").trim().isNumeric(),
     ],
     (req, res) => {
       const errors = validationResult(req);

@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
 import styles from "./index.css";
-import { useNavigate } from "react-router-dom";
+
+const backgroundMusic =
+  "../../backgroundmusic/relaxed-vlog-night-street-131746.mp3";
 
 const ProfilePage = () => {
   const [profile, setProfile] = useState({
     name: "Max Mustermann",
     profilePicture: "url_zum_profilbild.jpg",
-    progress: 15,
+    progress: 15, 
     points: 55,
   });
-  const navigate = useNavigate();
+
   const [dropdownSichtbar, setDropdownSichtbar] = useState(false);
-  const [band, setBand] = useState("");
 
   useEffect(() => {
     fetchUserData();
@@ -33,53 +34,44 @@ const ProfilePage = () => {
         points: userData.points,
       });
 
-      // Konvertiere die Punkte und setze das Band
-      convertPoints(userData.points);
+      playBackgroundMusic();
     } catch (error) {
       console.error("Fehler beim Abrufen der Benutzerdaten:", error);
     }
   };
 
-  const handleSprachauswahl = (sprache) => {
-    setDropdownSichtbar(false);
-
-    switch (sprache) {
-      case "Python":
-        navigate("/Python");
-        break;
-      case "Javascript":
-        navigate("/Javascript");
-        break;
-      case "HTML":
-        navigate("/HTML");
-        break;
-      case "Quiz":
-        navigate("/Quiz");
-        break;
-    }
+  const playBackgroundMusic = () => {
+    // Nur wenn der Benutzer mit der Seite interagiert hat
+    document.addEventListener('click', function playAudio() {
+      const audio = new Audio(backgroundMusic);
+      audio.loop = true;
+      audio.play();
+      // Einmal abgespielt, entfernen Sie das Event-Listener
+      document.removeEventListener('click', playAudio);
+    });
   };
 
   const toggleDropdown = () => {
     setDropdownSichtbar(!dropdownSichtbar);
   };
 
-  const convertPoints = (points) => {
-    let newBand = "";
+  const convertPoints = () => {
+    let points = profile.points;
+    let band = "";
 
     if (points >= 100) {
-      newBand = "Platinband";
+      band = "Platinband";
     } else if (points >= 75) {
-      newBand = "Goldband";
+      band = "Goldband";
     } else if (points >= 40) {
-      newBand = "Silberband";
+      band = "Silberband";
     } else if (points >= 15) {
-      newBand = "Bronzeband";
+      band = "Bronzeband";
     } else {
-      newBand = "Kein Band erreicht";
+      band = "Kein Band erreicht";
     }
 
-    // Setze das neue Band
-    setBand(newBand);
+    alert(`Herzlichen Glückwunsch! Du hast das ${band} erreicht!`);
   };
 
   return (
@@ -89,7 +81,6 @@ const ProfilePage = () => {
         <h2>{profile.name}</h2>
         <p>Fortschritt: {profile.progress.toFixed(2)}%</p>
         <p>Gesammelte Punkte: {profile.points}</p>
-        <p>Aktuelles Band: {band}</p>
         <button onClick={convertPoints}>Punkte umwandeln</button>
       </div>
       <div className={styles.div}>
@@ -98,14 +89,10 @@ const ProfilePage = () => {
         </button>
         {dropdownSichtbar && (
           <div className={styles.dropdowncontent}>
-            <button onClick={() => handleSprachauswahl("Python")}>
-              Python
-            </button>
-            <button onClick={() => handleSprachauswahl("Javascript")}>
-              Javascript
-            </button>
-            <button onClick={() => handleSprachauswahl("HTML")}>HTML</button>
-            <button onClick={() => handleSprachauswahl("Quiz")}>Quiz</button>
+            <button onClick={() => console.log("Python")}>Python</button>
+            <button onClick={() => console.log("Javascript")}>Javascript</button>
+            <button onClick={() => console.log("HTML")}>HTML</button>
+            <button onClick={() => console.log("React")}>React</button>
           </div>
         )}
       </div>
@@ -114,3 +101,5 @@ const ProfilePage = () => {
 };
 
 export default ProfilePage;
+
+
