@@ -1,6 +1,18 @@
 const jwt = require("jsonwebtoken");
 const authenticateToken = require("../middleware/authenticateToken");
 const { mockRequest, mockResponse } = require("jest-mock-req-res");
+const app = require("../server");
+
+// Vor dem Ausführen der Tests
+beforeAll(async () => {
+  // Hier den Server starten oder initialisieren
+});
+
+// Nach dem Ausführen der Tests
+afterAll(async () => {
+  // Hier den Server stoppen oder aufräumen
+  await app.close(); // Beispiel: Hier wird der Server über die close-Methode geschlossen
+});
 
 describe("authenticateToken Middleware", () => {
   test("should call next() if token is valid", () => {

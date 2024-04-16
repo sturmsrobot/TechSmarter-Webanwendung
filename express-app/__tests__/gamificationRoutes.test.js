@@ -1,5 +1,16 @@
 const request = require("supertest");
-const app = require("../server");
+const { app, server } = require("../server");
+
+// Vor dem Ausführen der Tests
+beforeAll(async () => {
+  // Hier den Server starten oder initialisieren
+});
+
+// Nach dem Ausführen der Tests
+afterAll(async () => {
+  // Hier den Server stoppen oder aufräumen
+  await server.close(); // Beispiel: Hier wird der Server über die close-Methode geschlossen
+});
 
 describe("Gamification Routes", () => {
   it("should add points to a user", async () => {
