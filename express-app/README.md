@@ -274,3 +274,4 @@ Morgen werde ich mich wahrscheinlich weiterhin mit der Datenbank und der API bes
 - Aktualisierung von Sequelize-Modellen für die Benutzerpunkte
 - Integration der Gamification-Funktionen in eine React-App
 - Implementierung von API-Anfragen in der React-App, um auf das Punktesystem zuzugreifen
+- Erstellung Testfall Punktesystem-Funktionen
