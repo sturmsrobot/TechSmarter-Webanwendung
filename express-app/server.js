@@ -8,7 +8,8 @@ const errorHandlingMiddleware = require("./middleware/errorHandlingMiddleware");
 const authenticationMiddleware = require("./middleware/authentication");
 const authenticateToken = require("./middleware/authenticateToken");
 const routes = require("./routes");
-const questionAnswerRoutes = require("./routes/questionAnswerRoutes"); // Hier importieren
+const questionAnswerRoutes = require("./routes/questionAnswerRoutes");
+const gamificationRoutes = require("./routes/gamificationRoutes"); // Ändere den Namen der importierten Variable
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -36,6 +37,7 @@ app.use(authenticationMiddleware);
 app.use(authenticateToken);
 app.use("/api", routes);
 app.use("/", questionAnswerRoutes);
+app.use("/gamification", gamificationRoutes); // Verwende gamificationRoutes hier
 
 app.listen(PORT, () => {
   console.log(`Dieser Server läuft auf Port ${PORT}`);
