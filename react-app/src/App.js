@@ -1,27 +1,27 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import React from "react";
 import "./App.css";
-import Main from "./Pages/Main_Page/index";
-import HTML from "./Pages/HTML/index";
-import JavaScript from "./Pages/Javascript/index";
-import Login from "./Pages/Login/index";
-import Python from "./Pages/Python/index";
-import Registrierung from "./Pages/Registrierung/index";
-import ProfilePage from "./Pages/profil";
-import Quiz from "./Pages/Quiz";
+import Navbar from "./components/navbar/Navbar";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Home from "./components/pages/Home";
+import Quiz from "./components/pages/Quiz";
+import Sandbox from "./components/pages/Sandbox";
+import SignUp from "./components/pages/SignUp";
+import Footer from "./components/footer/Footer";
+
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/Registrierung" element={<Registrierung />} />
-        <Route path="/" element={<Main />} />
-        <Route path="/HTML" element={<HTML />} />
-        <Route path="/Javascript" element={<JavaScript />} />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/Python" element={<Python />} />
-        <Route path="/Profil" element={<ProfilePage />} />
-        <Route path="/Quiz" element={< Quiz/>} />
-      </Routes>
-    </BrowserRouter>
+    <>
+      <Router>
+        <Navbar />
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/quiz" element={<Quiz />} />
+          <Route path="/sandbox" element={<Sandbox />} />
+          <Route path="/sign-up" element={<SignUp />} />
+        </Routes>
+        <Footer />
+      </Router>
+    </>
   );
 }
 
