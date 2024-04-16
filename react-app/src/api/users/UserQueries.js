@@ -1,5 +1,17 @@
 import api from "../../config/api";
 
+// Benutzerpunkte abrufen
+export async function getUserPoints(userId) {
+  try {
+    const result = await api.get(`/api/users/${userId}/points`);
+    const points = result.data;
+    return points;
+  } catch (error) {
+    console.error("Fehler beim Abrufen der Benutzerpunkte:", error);
+    throw error;
+  }
+}
+
 //Benutzer abrufen
 export async function fetchAllUsers() {
   try {
