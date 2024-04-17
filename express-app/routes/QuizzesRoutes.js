@@ -18,9 +18,9 @@ router.get("/quizzes", (req, res) => {
 router.post(
     "/quizzes",
     [
-      body("quiz_id").isString,
-      body("quiz_name").isString,
-      body("questions_total").isString,
+      body("quiz_id").trim().isEmpty().isNumeric().notEmpty(),
+      body("quiz_name").trim().isString(),
+      body("questions_total").trim().isNumeric(),
     ],
     (req, res) => {
       const errors = validationResult(req);
