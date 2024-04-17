@@ -1,22 +1,35 @@
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
-const jwtSecret = process.env.JWT_SECCRET;
+const jwtSecret = process.env.JWT_SECRET;
 
 const authenticateToken = (req, res, next) => {
   const authHeader = req.headers["authorization"];
   const token = authHeader && authHeader.split(" ")[1];
 
-  if (token == null) {
-    return res.sendStatus(401);
+  if (!token) {
+    return res.status(401).json({ message: "Unauthorized: Missing token" });
   }
 
-  jwt.verify(token, secretKey, (err, decoded) => {
+  jwt.verify(token, jwtSecret, (err, decoded) => {
     if (err) {
-      return res.status(401).json({ message: "Failed to authenticate token" });
+      return res.status(401).json({ message: "Unauthorized: Invalid token" });
     }
+
+    // Zusätzliche Überprüfung für Benutzerzugriff
+    if (!checkUserAccess(decoded)) {
+      return res.status(403).json({ message: "Access forbidden" });
+    }
+
     req.user = decoded;
     next();
   });
+};
+
+// Funktion zur Überprüfung von Benutzerzugriffen
+const checkUserAccess = (decodedToken) => {
+  // Hier können wir überprüfen, ob der Benutzer die erforderlichen Berechtigungen hat
+  // Beispiel: return decodedToken.roles.includes("admin");
+  return true; // Rückgabewert für Demonstration, sollte entsprechend angepasst werden
 };
 
 module.exports = authenticateToken;
