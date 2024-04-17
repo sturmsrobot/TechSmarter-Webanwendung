@@ -10,4 +10,4 @@ async function testDatabaseConnection() {
   }
 }
 
-module.exports = { testDatabaseConnection };
+module.exports = testDatabaseConnection;

@@ -10,6 +10,7 @@ const authenticateToken = require("./middleware/authenticateToken");
 const routes = require("./routes");
 const questionAnswerRoutes = require("./routes/questionAnswerRoutes");
 const gamificationRoutes = require("./routes/gamificationRoutes"); // Ändere den Namen der importierten Variable
+const authRoutes = require("./routes/authRoutes");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -38,6 +39,7 @@ app.use(authenticateToken);
 app.use("/api", routes);
 app.use("/", questionAnswerRoutes);
 app.use("/gamification", gamificationRoutes); // Verwendung gamificationRoutes
+app.use("/api/auth", authRoutes);
 
 const server = app.listen(PORT, () => {
   console.log(`Dieser Server läuft auf Port ${PORT}`);
