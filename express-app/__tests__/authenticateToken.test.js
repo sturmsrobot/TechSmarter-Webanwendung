@@ -29,13 +29,17 @@ describe("authenticateToken Middleware", () => {
       headers: {},
     };
     const res = {
-      sendStatus: jest.fn(),
+      status: jest.fn().mockReturnThis(), // Mocken der status-Funktion
+      json: jest.fn(), // Mocken der json-Funktion
     };
     const next = jest.fn();
 
     authenticateToken(req, res, next);
 
-    expect(res.sendStatus).toHaveBeenCalledWith(401);
+    expect(res.status).toHaveBeenCalledWith(401);
+    expect(res.json).toHaveBeenCalledWith({
+      message: "Unauthorized: Missing token",
+    });
   });
 
   test("should return 401 if token is invalid", () => {
@@ -45,8 +49,8 @@ describe("authenticateToken Middleware", () => {
       },
     };
     const res = {
-      status: jest.fn().mockReturnThis(),
-      json: jest.fn(),
+      status: jest.fn().mockReturnThis(), // Mocken der status-Funktion
+      json: jest.fn(), // Mocken der json-Funktion
     };
     const next = jest.fn();
 
@@ -59,7 +63,7 @@ describe("authenticateToken Middleware", () => {
 
     expect(res.status).toHaveBeenCalledWith(401);
     expect(res.json).toHaveBeenCalledWith({
-      message: "Failed to authenticate token",
+      message: "Unauthorized: Invalid token",
     });
   });
 });
