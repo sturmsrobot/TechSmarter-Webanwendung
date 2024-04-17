@@ -1,15 +1,16 @@
 const express = require("express");
 const router = express.Router();
 
-// Definierte Gamification-Routen
+// POST /gamification/addPoints
 router.post("/addPoints", (req, res) => {
-  // Route zum Hinzufügen von Punkten
+  // Hier die Logik zum Hinzufügen von Punkten implementieren
+  res.status(200).json({ message: "Points added successfully" });
 });
 
+// POST /gamification/removePoints
 router.post("/removePoints", (req, res) => {
-  // Route zum Entfernen von Punkten
+  // Hier die Logik zum Entfernen von Punkten implementieren
+  res.status(200).json({ message: "Points removed successfully" });
 });
-
-// Weitere Gamification-Routen hier definieren:
 
 module.exports = router;

@@ -267,6 +267,8 @@ Morgen werde ich mich wahrscheinlich weiterhin mit der Datenbank und der API bes
 
 # Express-App Dokumentation - Dienstag, 16. April 2024
 
+## Was ist heute passiert?
+
 - Integration der Gamification-Bibliothek in eine Express-App
 - Einrichtung von Endpunkten in der Express-App zur Interaktion mit dem Punktesystem
 - Implementierung von Funktionen zur Verwaltung von Benutzerpunkten, Trophäen und Statistiken
@@ -274,4 +276,17 @@ Morgen werde ich mich wahrscheinlich weiterhin mit der Datenbank und der API bes
 - Aktualisierung von Sequelize-Modellen für die Benutzerpunkte
 - Integration der Gamification-Funktionen in eine React-App
 - Implementierung von API-Anfragen in der React-App, um auf das Punktesystem zuzugreifen
-- Erstellung Testfall Punktesystem-Funktionen
+- Erstellung von Testfällen für die Punktesystem-Funktionen
+- Welche Probleme sind aufgetreten/Lösungsansätze?
+
+## Fehler bei der Installation der Gamification-Bibliothek wurden behoben, indem Abhängigkeiten überprüft und Konfigurationen angepasst wurden.
+- Probleme mit der Datenbankverbindung wurden durch das Erstellen von Tests identifiziert und behoben.
+- Sequelize-Modelle wurden aktualisiert, um Änderungen im Datenbankschema zu berücksichtigen.
+
+## Womit beschäftige ich mich morgen?
+
+- Fortsetzung der Arbeit an der Authentifizierungsmiddleware und Erstellung entsprechender Tests.
+- Implementierung von Funktionen zur Benutzeranmeldung und -registrierung.
+- Integration von Authentifizierungsfunktionen in die Express- und React-Apps.
+- Durchführung weiterer Tests und Fehlerbehebung.
+- Dokumentation der implementierten Funktionen und Tests.
