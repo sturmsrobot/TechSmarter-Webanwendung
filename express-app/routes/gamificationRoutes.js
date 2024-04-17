@@ -9,7 +9,7 @@ router.post("/addPoints", (req, res) => {
 
 // Initialisiere das Gamification-System
 const engine = new GameEngine();
-
+})
 // Definiere Routen für Gamification
 router.post("/addPoints", (req, res) => {
   const { playerId, points } = req.body;
