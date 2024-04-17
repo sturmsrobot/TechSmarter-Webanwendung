@@ -6,13 +6,13 @@ const TestDataQuestion = [
     },
     {
       quiz_id: 2,
-      quiz_name: "Python",
-      questions_total: 128,
+      question_id: "1",
+      question_text: "What is a correct syntax to output >Hello World< in Python?",
     },
     {
       quiz_id: 3,
-      quiz_name: "Javaskript",
-      questions_total: 192,
+      question_id: 69,
+      question_text: "Inside which HTML element do we put the JavaScript?",
     },
     {
       quiz_id: 4,
