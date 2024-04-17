@@ -8,6 +8,9 @@
     "dev": "nodemon -r dotenv/config index.js "
   },
   "jest": {
+    "testMatch": [
+      "**/__tests__/**/*.test.js"
+    ],
     "setupFiles": [
       "dotenv/config",
       "./__tests__/setup/jest.setup.js"

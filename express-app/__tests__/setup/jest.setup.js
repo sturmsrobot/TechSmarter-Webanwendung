@@ -21,4 +21,5 @@ module.exports = {
   moduleNameMapper: {
     "^jsonwebtoken$": "<rootDir>/__mocks__/jsonwebtoken.js",
   },
+  testRegex: /\.test\.js$/,
 };

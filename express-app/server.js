@@ -1,8 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const sequelize = require("./config/database");
-const testDatabaseConnection = require("./config/testDatabase");
 const loggerMiddleware = require("./middleware/loggingMiddleware");
 const errorHandlingMiddleware = require("./middleware/errorHandlingMiddleware");
 const authenticationMiddleware = require("./middleware/authentication");
@@ -13,7 +11,6 @@ const gamificationRoutes = require("./routes/gamificationRoutes"); // Ändere de
 const authRoutes = require("./routes/authRoutes");
 
 const app = express();
-
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -27,5 +24,4 @@ app.use("/", questionAnswerRoutes);
 app.use("/gamification", gamificationRoutes); // Verwendung gamificationRoutes
 app.use("/api/auth", authRoutes);
 
-
-module.exports = app
+module.exports = app;
