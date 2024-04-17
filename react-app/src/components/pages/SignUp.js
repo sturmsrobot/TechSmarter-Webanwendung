@@ -24,7 +24,7 @@ function Copyright(props) {
     >
       {"Copyright © "}
       <Link color="inherit" href="https://mui.com/">
-        Your Website
+        TechSmarter
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -78,7 +78,7 @@ export default function SignUp() {
                   required
                   fullWidth
                   id="firstName"
-                  label="First Name"
+                  label="Vorname"
                   autoFocus
                 />
               </Grid>
@@ -87,7 +87,7 @@ export default function SignUp() {
                   required
                   fullWidth
                   id="lastName"
-                  label="Last Name"
+                  label="Nachname"
                   name="lastName"
                   autoComplete="family-name"
                 />
@@ -97,7 +97,7 @@ export default function SignUp() {
                   required
                   fullWidth
                   id="email"
-                  label="Email Address"
+                  label="Email Addresse"
                   name="email"
                   autoComplete="email"
                 />
@@ -107,7 +107,7 @@ export default function SignUp() {
                   required
                   fullWidth
                   name="password"
-                  label="Password"
+                  label="Passwort"
                   type="password"
                   id="password"
                   autoComplete="new-password"
@@ -118,7 +118,7 @@ export default function SignUp() {
                   control={
                     <Checkbox value="allowExtraEmails" color="primary" />
                   }
-                  label="I want to receive inspiration, marketing promotions and updates via email."
+                  label="Ich würde gerne permanent genervt werden mit unnötigen rotz Mails."
                 />
               </Grid>
             </Grid>
@@ -133,7 +133,7 @@ export default function SignUp() {
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="#" variant="body2">
-                  Already have an account? Sign in
+                  Account bereits vorhanden? Sign-in
                 </Link>
               </Grid>
             </Grid>
