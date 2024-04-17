@@ -9,7 +9,7 @@ beforeAll(async () => {
 // Nach dem Ausführen der Tests
 afterAll(async () => {
   // Hier den Server stoppen oder aufräumen
-  await app.close(); // Beispiel: Hier wird der Server über die close-Methode geschlossen
+  await app.close(); // Hier wird der Server geschlossen
 });
 
 describe("Authentication Tests", () => {
