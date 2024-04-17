@@ -2,14 +2,13 @@ const express = require("express");
 const router = express.Router();
 const { GameEngine } = require("@chromeq/age");
 
-
 // POST /gamification/addPoints
 router.post("/addPoints", (req, res) => {
   // Hier die Logik zum Hinzufügen von Punkten implementieren
 
-// Initialisiere das Gamification-System
-const engine = new GameEngine();
-
+  // Initialisiere das Gamification-System
+  const engine = new GameEngine();
+});
 // Definiere Routen für Gamification
 router.post("/addPoints", (req, res) => {
   const { playerId, points } = req.body;
@@ -21,7 +20,6 @@ router.post("/addPoints", (req, res) => {
 
 // POST /gamification/removePoints
 router.post("/removePoints", (req, res) => {
-
   // Hier die Logik zum Entfernen von Punkten implementieren
 
   const { playerId, points } = req.body;

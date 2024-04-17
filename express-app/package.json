@@ -5,12 +5,15 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
-    "dev": "nodemon -r dotenv/config server.js "
+    "dev": "nodemon -r dotenv/config index.js "
   },
   "jest": {
+    "testMatch": [
+      "**/__tests__/**/*.test.js"
+    ],
     "setupFiles": [
       "dotenv/config",
-      "./tests/setup/jest.setup.js"
+      "./__tests__/setup/jest.setup.js"
     ]
   },
   "keywords": [],

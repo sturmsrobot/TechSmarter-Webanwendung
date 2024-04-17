@@ -1,19 +1,25 @@
-require("../../src/server");
-const TodoModel = require("../../src/database/models/TodoModel");
-const todoSequelize = require("../../src/database/setup/database");
-const TestDataTodos = require("./test-data/TestDataTodos");
+const sequelize = require("../../config/database");
+const User = require("../../models/Users");
+const TestDataUsers = require("./test-data/TestDataUsers");
 
-module.exports = async () => {
-  try {
-    // todoSequelize.dropSchema("Todos").then(() => {
-    //   todoSequelize.sync();
-    // });
-    console.log("PRDDD", process.env);
-    await todoSequelize.dropSchema("Todos");
-    await todoSequelize.sync();
-    // DB mit Daten füllen, um DB auf Test Szenarien vorzubereiten
-    await TodoModel.bulkCreate(TestDataTodos);
-  } catch (e) {
-    console.error("MY DB Issue", e);
-  }
+const customTestEnvironment = () => {
+  return async () => {
+    try {
+      await sequelize.dropSchema("users");
+      await sequelize.sync();
+      // DB mit Daten füllen, um DB auf Test Szenarien vorzubereiten
+      await User.bulkCreate(TestDataUsers);
+    } catch (e) {
+      console.error("MY DB Issue", e);
+    }
+    return "node";
+  };
+};
+
+module.exports = {
+  testEnvironment: customTestEnvironment(),
+  moduleNameMapper: {
+    "^jsonwebtoken$": "<rootDir>/__mocks__/jsonwebtoken.js",
+  },
+  testRegex: /\.test\.js$/,
 };

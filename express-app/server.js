@@ -1,8 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const sequelize = require("./config/database");
-const testDatabaseConnection = require("./config/testDatabase");
 const loggerMiddleware = require("./middleware/loggingMiddleware");
 const errorHandlingMiddleware = require("./middleware/errorHandlingMiddleware");
 const authenticationMiddleware = require("./middleware/authentication");
@@ -13,21 +11,6 @@ const gamificationRoutes = require("./routes/gamificationRoutes"); // Ändere de
 const authRoutes = require("./routes/authRoutes");
 
 const app = express();
-const PORT = process.env.PORT || 3000;
-
-testDatabaseConnection();
-
-require("dotenv").config();
-
-// Initialisierung Datenbank
-sequelize
-  .sync()
-  .then(() => {
-    console.log("Datenbankverbindung erfolgreich hergestellt!");
-  })
-  .catch((err) => {
-    console.error("Fehler beim Verbinden mit der Datenbank:", err);
-  });
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -41,8 +24,4 @@ app.use("/", questionAnswerRoutes);
 app.use("/gamification", gamificationRoutes); // Verwendung gamificationRoutes
 app.use("/api/auth", authRoutes);
 
-const server = app.listen(PORT, () => {
-  console.log(`Dieser Server läuft auf Port ${PORT}`);
-});
-
-module.exports = { app, server };
+module.exports = app;
