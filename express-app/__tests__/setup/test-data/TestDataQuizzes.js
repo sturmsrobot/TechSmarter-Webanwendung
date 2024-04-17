@@ -1,4 +1,4 @@
-const TestDataQizzes = [
+const TestDataQuizzes = [
     {
       quiz_id: 1,
       quiz_name: "HTML",
@@ -16,4 +16,4 @@ const TestDataQizzes = [
     },
   ];
   
-  module.exports = TestDataQizzes;
+  module.exports = TestDataQuizzes;
