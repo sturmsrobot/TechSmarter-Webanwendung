@@ -1,6 +1,17 @@
 const request = require("supertest");
 const app = require("../server");
 
+// Vor dem Ausführen der Tests
+beforeAll(async () => {
+  // Hier den Server starten oder initialisieren
+});
+
+// Nach dem Ausführen der Tests
+afterAll(async () => {
+  // Hier den Server stoppen oder aufräumen
+  await app.close(); // Hier wird der Server geschlossen
+});
+
 describe("Authentication Tests", () => {
   it("should return 200 status code when user is authenticated", async () => {
     // Authentifizierung durchführen, um ein JWT-Token zu erhalten
