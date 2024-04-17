@@ -9,6 +9,7 @@ class Registrierung extends React.Component {
           <h2>Registrierung</h2>
           <form className={styles.loginForm} action="#" method="post">
             <input type="text" name="Email" placeholder="Email" required />
+            <input type="text" name="Benutzername" placeholder="Benutzername" required />
             <input type="password" name="password" placeholder="Passwort" required />
             <input type="submit" value="Registrieren" />
           </form>
