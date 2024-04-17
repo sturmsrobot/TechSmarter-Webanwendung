@@ -37,8 +37,10 @@ app.use(authenticationMiddleware);
 app.use(authenticateToken);
 app.use("/api", routes);
 app.use("/", questionAnswerRoutes);
-app.use("/gamification", gamificationRoutes); // Verwende gamificationRoutes hier
+app.use("/gamification", gamificationRoutes); // Verwendung gamificationRoutes
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`Dieser Server läuft auf Port ${PORT}`);
 });
+
+module.exports = { app, server };
