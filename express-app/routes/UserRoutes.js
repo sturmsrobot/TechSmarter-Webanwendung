@@ -19,10 +19,10 @@ router.get("/users", (req, res) => {
 router.post(
   "/users",
   [
-    body("id").notEmpty(),
+    body("id").trim().isEmpty().isNumeric().notEmpty(),
     body("username").trim().not().isEmpty().isString(),
-    body("email").notEmpty().isEmail(),
-    body("password").notEmpty().isString().isLength({ min: 6 }),
+    body("email").trim().isEmpty().notEmpty().isEmail(),
+    body("password").trim().isEmpty().notEmpty().isString().isLength({ min: 6 }),
   ],
   (req, res) => {
     const errors = validationResult(req);
