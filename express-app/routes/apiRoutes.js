@@ -1,6 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const authenticateToken = require("../middleware/authenticateToken");
+
 // Definierte API-Routen
 router.get("/protected", authenticateToken, (req, res) => {
   // Geschützte Route
