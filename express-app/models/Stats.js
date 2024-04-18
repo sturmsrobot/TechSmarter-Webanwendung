@@ -1,9 +1,7 @@
 const { DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
 
-const Stats = sequelize.define(
-  "Stats", 
-  {
+const Stats = sequelize.define("Stats", {
   stats_id: {
     type: DataTypes.INTEGER,
     allowNull: false,
@@ -13,7 +11,7 @@ const Stats = sequelize.define(
     type: DataTypes.INTEGER,
     allowNull: false,
   },
-  username: {
+  userId: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
@@ -34,17 +32,5 @@ const Stats = sequelize.define(
     allowNull: true,
   },
 });
-
-Stats.associate = (models) => {
-};
-
-Stats.findByUsername = async function (username) {
-  try {
-    const users = await Stats.findAll({ where: { username } });
-    return Stats;
-  } catch (error) {
-    throw new Error("Fehler beim Suchen von Benutzern: " + error);
-  }
-};
 
 module.exports = Stats;
