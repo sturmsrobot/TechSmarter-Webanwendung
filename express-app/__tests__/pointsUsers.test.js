@@ -51,7 +51,10 @@ describe("Points System Tests", () => {
   // Testen des Vergebens von Trophäen an einen Benutzer
   it("should add achievement to a user", async () => {
     // Erstelle einen gültigen JWT-Token für einen Benutzer
-    const token = jwt.sign({ userId: "testUserId" }, process.env.JWT_SECRET);
+    const token = jwt.sign(
+      { userId: "ChristianeKrise" },
+      process.env.JWT_SECRET
+    );
 
     // Füge den Token dem Authorization-Header der Anfrage hinzu
     const response = await request(app)
