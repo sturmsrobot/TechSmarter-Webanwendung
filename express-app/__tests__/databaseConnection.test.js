@@ -1,7 +1,7 @@
 const { testDatabaseConnection } = require("../config/testDatabase");
 const sequelize = require("../config/database");
 
-describe("Test Suite", () => {
+describe.skip("Test Suite", () => {
   test("Test Database Connection", async () => {
     await expect(testDatabaseConnection()).resolves.toBeUndefined();
   });

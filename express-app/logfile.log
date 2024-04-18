@@ -206,3 +206,14 @@
 {"level":"info","message":"GET /api/getPoints?username=testUser","timestamp":"2024-04-18T07:34:00.252Z"}
 {"level":"info","message":"POST /api/addAchievement","timestamp":"2024-04-18T07:34:00.255Z"}
 {"level":"info","message":"POST /api/removeAchievement","timestamp":"2024-04-18T07:34:00.257Z"}
+{"level":"info","message":"POST /gamification/addPoints","timestamp":"2024-04-18T08:30:09.010Z"}
+{"level":"info","message":"POST /gamification/removePoints","timestamp":"2024-04-18T08:30:09.141Z"}
+{"level":"info","message":"POST /api/login","timestamp":"2024-04-18T08:30:09.142Z"}
+{"level":"info","message":"POST /api/addPoints","timestamp":"2024-04-18T08:30:09.159Z"}
+{"level":"info","message":"GET /api/protected","timestamp":"2024-04-18T08:30:09.284Z"}
+{"level":"info","message":"GET /api/protected","timestamp":"2024-04-18T08:30:09.480Z"}
+{"level":"info","message":"POST /api/subtractPoints","timestamp":"2024-04-18T08:30:09.499Z"}
+{"level":"info","message":"GET /api/getPoints?username=testUser","timestamp":"2024-04-18T08:30:09.689Z"}
+{"level":"info","message":"GET /api/protected","timestamp":"2024-04-18T08:30:09.689Z"}
+{"level":"info","message":"POST /api/addAchievement","timestamp":"2024-04-18T08:30:09.727Z"}
+{"level":"info","message":"POST /api/removeAchievement","timestamp":"2024-04-18T08:30:09.814Z"}

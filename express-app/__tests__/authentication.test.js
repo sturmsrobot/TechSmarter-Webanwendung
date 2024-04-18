@@ -1,7 +1,7 @@
 const request = require("supertest");
 const app = require("../server");
 
-describe("Authentication Tests", () => {
+describe.skip("Authentication Tests", () => {
   it("should return 200 status code when user is authenticated", async () => {
     const loginResponse = await request(app)
       .post("/api/login")

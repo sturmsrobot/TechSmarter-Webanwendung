@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const Stats = require("../models/Stats");
+const { body } = require("express-validator");
 
-router.get("/stats", (req, res) => {
+router.get("/", (req, res) => {
   Stats.findAll()
     .then((stats) => {
       res.json(stats);
@@ -14,11 +15,11 @@ router.get("/stats", (req, res) => {
 });
 
 router.post(
-  "/stats",
+  "/",
   [
     body("stats_id").trim().isEmpty().isNumeric().notEmpty(),
     body("quiz_id").trim().isEmpty().isNumeric().notEmpty(),
-    body("username").trim().not().notEmpty().isString(),
+    body("userId").trim().not().notEmpty().isNumeric(),
     body("progress").trim().isEmpty().notEmpty().isEmail(),
     body("right_answers").trim().isNumeric(),
     body("wrong_answers").trim().isNumeric(),
@@ -34,15 +35,15 @@ router.post(
   }
 );
 
-router.put("/stats/:stats_id", (req, res) => {
+router.put("/:stats_id", (req, res) => {
   res.send("User-Statistik erfolgreich aktualisiert!");
 });
 
-router.delete("/stats/:stats_id", (req, res) => {
+router.delete("/:stats_id", (req, res) => {
   res.send("User-Statistik erfolgreich gelöscht!");
 });
 
-router.get("/stats/search", (req, res) => {
+router.get("/search", (req, res) => {
   const { username } = req.query;
   console.log("Hello World");
   Stats.findAll({ where: { username } })
