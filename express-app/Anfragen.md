@@ -1,6 +1,15 @@
 ## Benutzerregistrierung:
 Methode: POST
 URL: /register
+Anfrage: http://localhost:5050/api/auth/register
+### BeispielBody (funktioniert):
+```
+{
+    "username": "horst",
+    "email": "horsit@web.de",
+    "password": "horst123"
+}
+```
 
 ## Benutzeranmeldung:
 Methode: POST

@@ -304,5 +304,4 @@ Morgen werde ich mich wahrscheinlich weiterhin mit der Datenbank und der API bes
 
 ## Was ist heute passiert?
 - Routen und Controller im Backend für die Benutzerregistrierung, Anmeldung, Aktualisierung und Abmeldung implementiert (UserRoutes, authRoutes, apiRoutes, gamificationRoutes, index, PointsRoutes);
-
-
+- eine Middleware zur Überprüfung und Extraktion von JWT-Token aus den Anfragen wurde implementiert; `authenticateToken`, ermöglicht die Authentifizierung von Benutzeranforderungen durch Überprüfung des JWT-Tokens.

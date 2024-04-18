@@ -217,3 +217,7 @@
 {"level":"info","message":"GET /api/protected","timestamp":"2024-04-18T08:30:09.689Z"}
 {"level":"info","message":"POST /api/addAchievement","timestamp":"2024-04-18T08:30:09.727Z"}
 {"level":"info","message":"POST /api/removeAchievement","timestamp":"2024-04-18T08:30:09.814Z"}
+{"level":"info","message":"POST /api/auth/register","timestamp":"2024-04-18T10:13:30.676Z"}
+{"level":"info","message":"POST /api/auth/register","timestamp":"2024-04-18T10:16:05.310Z"}
+{"level":"info","message":"POST /api/auth/register","timestamp":"2024-04-18T10:17:43.906Z"}
+{"level":"info","message":"POST /api/auth/register","timestamp":"2024-04-18T10:17:54.940Z"}
