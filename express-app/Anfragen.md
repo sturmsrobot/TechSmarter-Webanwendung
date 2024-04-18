@@ -1,6 +1,6 @@
 ## Benutzerregistrierung:
 Methode: POST
-URL: /register
+URL: /auth/register
 Anfrage: http://localhost:5050/api/auth/register
 ### BeispielBody (funktioniert):
 ```
@@ -13,7 +13,7 @@ Anfrage: http://localhost:5050/api/auth/register
 
 ## Benutzeranmeldung:
 Methode: POST
-URL: /login
+URL: /auth/login
 Anfrage: http://localhost:5050/api/auth/login
 ### BeispielBody (funktioniert):
 ```
@@ -25,7 +25,7 @@ Anfrage: http://localhost:5050/api/auth/login
 
 ## Hinzufügen von Benutzerpunkten:
 Methode: POST
-URL: /addPoints
+URL: /user/addPoints
 Anfrage:  http://localhost:5050/user/addPoints
 ### BeispielBody(funktioniert):
 ```
@@ -37,7 +37,7 @@ Anfrage:  http://localhost:5050/user/addPoints
 
 ## Subtrahieren von Benutzerpunkten:
 Methode: POST
-URL: /api/subtractPoints
+URL: /user/subtractPoints
 Anfrage: http://localhost:5050/user/subtractPoints
 ### BeispielBody():
 ```
@@ -49,14 +49,14 @@ Anfrage: http://localhost:5050/user/subtractPoints
 
 ## Abrufen von Benutzerdaten:
 Methode: GET
-URL: /users
-Anfrage: http://localhost:5050/api/users
+URL: /user
+Anfrage: http://localhost:5050/api/user
 
 
 ## Aktualisieren von Benutzerdaten:
 Methode: PUT
-URL: /users/:id
-Anfrage: http://localhost:5050/users/123
+URL: /user/:id
+Anfrage: http://localhost:5050/user/123
 ### BeispielBody():
 ```
 {
@@ -69,7 +69,7 @@ Anfrage: http://localhost:5050/users/123
 ## Löschen von Benutzerdaten:
 Methode: DELETE
 URL: /users/:id
-Anfrage:  http://localhost:5050/users/123
+Anfrage:  http://localhost:5050/user/123
 ### BeispielBody():
 ```
 {
@@ -77,13 +77,13 @@ Anfrage:  http://localhost:5050/users/123
 }
 ```
 
-## Geschützte API-Routen:
+<!-- ## Geschützte API-Routen:
 Methode: GET
 URL: /api/protected
-Anfrage: http://localhost:5050/api/protected
+Anfrage: http://localhost:5050/api/protected -->
 
 
-## Hinzufügen von Punkten zu einem Benutzer (Gamification):
+<!-- ## Hinzufügen von Punkten zu einem Benutzer (Gamification):
 Methode: POST
 URL: /gamification/addPoints
 Anfrage: http://localhost:5050/gamification/addPoints
@@ -105,4 +105,4 @@ Anfrage: http://localhost:5050/gamification/removePoints
 "playerId": "12345",
 "points": 20
 }
-```
+``` -->
