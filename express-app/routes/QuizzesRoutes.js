@@ -3,7 +3,7 @@ const router = express.Router();
 const { body, validationResult } = require("express-validator");
 const Quizzes = require("../models/Quizzes");
 
-router.get("/quizzes", (req, res) => {
+router.get("/", (req, res) => {
   Quizzes.findAll()
     .then((quizzes) => {
       res.json(quizzes);
@@ -15,7 +15,7 @@ router.get("/quizzes", (req, res) => {
 });
 
 router.post(
-  "/quizzes",
+  "/",
   [
     body("quiz_id").trim().isEmpty().isNumeric().notEmpty(),
     body("quiz_name").trim().isString(),
@@ -27,19 +27,19 @@ router.post(
       return res.status(400).json({ errors: errors.array() });
     }
 
-    res.send("Neue Quiz-Statistik erfolgreich erstellt!");
+    res.send("Neues Quiz erfolgreich erstellt!");
   }
 );
 
-router.put("/quizzes/:quiz_id", (req, res) => {
-  res.send("Quiz-Statistik erfolgreich aktualisiert!");
+router.put("/:quiz_id", (req, res) => {
+  res.send("Quiz erfolgreich aktualisiert!");
 });
 
-router.delete("/quizzes/:quiz_id", (req, res) => {
-  res.send("Quiz-Statistik erfolgreich gelöscht!");
+router.delete("/:quiz_id", (req, res) => {
+  res.send("Quiz erfolgreich gelöscht!");
 });
 
-router.get("/quizzes/search", (req, res) => {
+router.get("/search", (req, res) => {
   const { quiz_name } = req.query;
   console.log("Hello World");
   Quizzes.findAll({ where: { quiz_name } })

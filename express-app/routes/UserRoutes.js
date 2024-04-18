@@ -22,12 +22,8 @@ router.post(
     body("id").trim().isEmpty().isNumeric().notEmpty(),
     body("username").trim().not().isEmpty().isString(),
     body("email").trim().isEmpty().notEmpty().isEmail(),
-    body("password")
-      .trim()
-      .isEmpty()
-      .notEmpty()
-      .isString()
-      .isLength({ min: 6 }),
+    body("password").trim().isEmpty().notEmpty().isString().isLength({ min: 6 }),
+    body("points").trim().isEmpty().isNumeric(),
   ],
   (req, res) => {
     const errors = validationResult(req);
