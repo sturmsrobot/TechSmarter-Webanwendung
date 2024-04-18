@@ -305,3 +305,25 @@ Morgen werde ich mich wahrscheinlich weiterhin mit der Datenbank und der API bes
 ## Was ist heute passiert?
 - Routen und Controller im Backend für die Benutzerregistrierung, Anmeldung, Aktualisierung und Abmeldung implementiert (UserRoutes, authRoutes, apiRoutes, gamificationRoutes, index, PointsRoutes);
 - eine Middleware zur Überprüfung und Extraktion von JWT-Token aus den Anfragen wurde implementiert; `authenticateToken`, ermöglicht die Authentifizierung von Benutzeranforderungen durch Überprüfung des JWT-Tokens.
+- Implementierung der Routen und Controller im Backend für Benutzerregistrierung, Anmeldung, Aktualisierung und Löschung durchgeführt.
+- Middleware zum Überprüfen und Extrahieren von JWT-Token aus Anforderungen erstellt.
+- Logik für das Hinzufügen und Subtrahieren von Benutzerpunkten implementiert.
+- Überarbeitung der Backend-Struktur, um sie besser zu organisieren.
+- POSTMAN-Abfragen
+
+## Welche Probleme sind aufgetreten/Lösungsansätze?
+- Fehler beim Testen der Authentifizierungsfunktionen aufgetreten, die behoben werden mussten.
+- Herausforderungen beim Implementieren der Middleware für die Authentifizierung und Fehlerbehebung bei der Validierung von JWT-Token.
+- Probleme beim Arbeiten mit Postman
+
+## Womit beschäftige ich mich morgen?
+- Behebung von Fehlern und Optimierung der Middleware für die Authentifizierung.
+- Fortsetzung der Arbeit an der Gamification-Funktionalität, einschließlich der Implementierung weiterer Funktionen wie das Zurücksetzen von Punkten.
+
+
+
+
+
+
+
+
