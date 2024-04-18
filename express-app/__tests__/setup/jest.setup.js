@@ -1,10 +1,10 @@
 const sequelize = require("../../config/database");
-const User = require("../../models/Users");
+const { User, Stats, Quizzes } = require("../../models");
+const TestDataUsers = require("./test-data/TestDataUsers");
+const TestDataStats = require("./test-data/TestDataStats");
+const TestDataQuizzes = require("./test-data/TestDataQuizzes");
 const TestDataAnswer = require("./test-data/TestDataAnswer");
 const TestDataQuestion = require("./test-data/TestDataQuestion");
-const TestDataQuizzes = require("./test-data/TestDataQuizzes");
-const TestDataStats = require("./test-data/TestDataStats");
-const TestDataUsers = require("./test-data/TestDataUsers");
 
 const customTestEnvironment = () => {
   return async () => {
@@ -15,7 +15,7 @@ const customTestEnvironment = () => {
       await sequelize.dropSchema("questions");
       await sequelize.dropSchema("answers");
       await sequelize.sync();
-      // DB mit Daten füllen, um DB auf Test Szenarien vorzubereiten
+      // Daten für Tests einfügen
       await User.bulkCreate(TestDataUsers);
       await User.bulkCreate(TestDataStats);
       await User.bulkCreate(TestDataQuizzes);

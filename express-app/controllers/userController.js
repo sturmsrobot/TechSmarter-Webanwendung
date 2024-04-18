@@ -1,7 +1,7 @@
 const User = require("../models/Users");
 
 // Funktion zum Hinzufügen von Punkten zu einem Benutzer
-exports.addPoints = async (req, res) => {
+const addPoints = async (req, res) => {
   const { username, points } = req.body;
   try {
     // Finde den Benutzer in der Datenbank
@@ -20,7 +20,7 @@ exports.addPoints = async (req, res) => {
 };
 
 // Funktion zum Subtrahieren von Punkten von einem Benutzer
-exports.subtractPoints = async (req, res) => {
+const subtractPoints = async (req, res) => {
   const { username, points } = req.body;
   try {
     // Finde den Benutzer in der Datenbank
