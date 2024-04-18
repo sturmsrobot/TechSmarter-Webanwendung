@@ -27,7 +27,7 @@ Anfrage: http://localhost:5050/api/auth/login
 Methode: POST
 URL: /addPoints
 Anfrage:  http://localhost:5050/user/addPoints
-### BeispielBody():
+### BeispielBody(funktioniert):
 ```
 {
     "username": "ChristianeKrise",
