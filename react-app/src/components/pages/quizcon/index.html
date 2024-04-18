@@ -9,7 +9,7 @@
   </head>
   <body>
     <div class="container">
-      <div class="start-screen">
+      <div class="start-screen hide">
         <h1 class="heading">Quiz</h1>
         <div class="setting">
           <label for="num-questions">Number of Questions</label>
@@ -53,11 +53,39 @@
         <div class="timer">
           <div class="progress">
             <div class="progress-bar"></div>
-            <span class="progress-text"></span>
+            <span class="progress-text">50</span>
+          </div>
+        </div>
+        <div class="question-wrapper">
+          <div class="number">
+            Frage <span class="current">1</span>
+            <span class="total">/10</span>
+          </div>
+          <div class="question">Das hier ist eine Frage später</div>
+        </div>
+        <div class="answer-wrapper">
+          <div class="answer selected">
+            <span class="text">Und das eine Antwort</span>
+            <span class="checkbox">
+              <span class="icon">✓</span>
+            </span>
+          </div>
+          <div class="answer">
+            <span class="text">das auch Antwort</span>
+            <span class="checkbox">
+              <span class="icon">✓</span>
+            </span>
+          </div>
+          <div class="answer">
+            <span class="text">und das Antwort</span>
+            <span class="checkbox">
+              <span class="icon">✓</span>
+            </span>
           </div>
         </div>
       </div>
     </div>
+
     <script src="script.js"></script>
   </body>
 </html>
