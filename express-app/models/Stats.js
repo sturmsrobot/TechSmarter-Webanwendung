@@ -13,7 +13,7 @@ const Stats = sequelize.define(
     type: DataTypes.INTEGER,
     allowNull: false,
   },
-  username: {
+  userId: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
