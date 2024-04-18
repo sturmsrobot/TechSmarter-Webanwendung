@@ -4,7 +4,7 @@ const { body, validationResult } = require("express-validator");
 const User = require("../models/Users");
 
 // GET-Anforderungen (Benutzerdaten abrufen):
-router.get("/users", (req, res) => {
+router.get("/", (req, res) => {
   User.findAll()
     .then((user) => {
       res.json(user);
@@ -17,12 +17,17 @@ router.get("/users", (req, res) => {
 
 // POST-Anforderungen (Neuen Benutzer erstellen):
 router.post(
-  "/users",
+  "/",
   [
     body("id").trim().isEmpty().isNumeric().notEmpty(),
     body("username").trim().not().isEmpty().isString(),
     body("email").trim().isEmpty().notEmpty().isEmail(),
-    body("password").trim().isEmpty().notEmpty().isString().isLength({ min: 6 }),
+    body("password")
+      .trim()
+      .isEmpty()
+      .notEmpty()
+      .isString()
+      .isLength({ min: 6 }),
   ],
   (req, res) => {
     const errors = validationResult(req);
@@ -35,19 +40,19 @@ router.post(
 );
 
 // PUT-Anforderungen (Benutzerdaten aktualisieren):
-router.put("/users/:id", (req, res) => {
+router.put("/:id", (req, res) => {
   // Code, um Benutzerdaten zu aktualisieren
   res.send("Benutzerdaten erfolgreich aktualisiert!");
 });
 
 // DELETE-Anforderungen (Benutzerdaten löschen):
-router.delete("/users/:id", (req, res) => {
+router.delete("/:id", (req, res) => {
   // Code, um Benutzerdaten zu löschen
   res.send("Benutzerdaten erfolgreich gelöscht!");
 });
 
 // Benutzerpunkte hinzufügen:
-router.post("/api/addPoints", async (req, res) => {
+router.post("/addPoints", async (req, res) => {
   const { username, points } = req.body;
   try {
     // Finde den Benutzer in der Datenbank
@@ -66,7 +71,7 @@ router.post("/api/addPoints", async (req, res) => {
 });
 
 // Benutzerpunkte subtrahieren:
-router.post("/api/subtractPoints", async (req, res) => {
+router.post("/subtractPoints", async (req, res) => {
   const { username, points } = req.body;
   try {
     // Finde den Benutzer in der Datenbank

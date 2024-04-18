@@ -5,7 +5,6 @@ require("dotenv").config();
 const jwtSecret = process.env.JWT_SECRET;
 
 exports.registerUser = async (req, res) => {
-  console.log("Hallo1");
   try {
     // Extract user data from request body
     const { username, email, password } = req.body;
