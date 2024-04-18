@@ -4,6 +4,7 @@ const cors = require("cors");
 const loggerMiddleware = require("./middleware/loggingMiddleware");
 const errorHandlingMiddleware = require("./middleware/errorHandlingMiddleware");
 const authenticationMiddleware = require("./middleware/authentication");
+const authenticateUser = require("./middleware/authenticateUser");
 const authenticateToken = require("./middleware/authenticateToken");
 const routes = require("./routes");
 const questionAnswerRoutes = require("./routes/questionAnswerRoutes");
@@ -23,5 +24,10 @@ app.use("/api", routes);
 app.use("/", questionAnswerRoutes);
 app.use("/gamification", gamificationRoutes); // Verwendung gamificationRoutes
 app.use("/api/auth", authRoutes);
+
+app.post("/api/login", authenticateUser, (req, res) => {
+  // Benutzeranmeldung erfolgreich authentifiziert
+  res.json({ message: "Benutzer erfolgreich angemeldet", user: req.user });
+});
 
 module.exports = app;

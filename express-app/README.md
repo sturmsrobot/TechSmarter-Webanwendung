@@ -299,3 +299,10 @@ Morgen werde ich mich wahrscheinlich weiterhin mit der Datenbank und der API bes
 - Middleware-Datei aktualisiert: Die authenticateToken.js-Datei wurde aktualisiert, um sicherzustellen, dass die Middleware das JWT-Token ordnungsgemäß aus dem Authorization-Header extrahiert und überprüft, ob es gültig ist.
 - Testdatei erstellt: Es wurde eine neue Testdatei authenticateToken.test.js erstellt, um die Funktionalität der aktualisierten Middleware zu testen. 
 -Tests geschrieben und ausgeführt.
+
+# Express-App Dokumentation - Donnerstag, 18. April 2024
+
+## Was ist heute passiert?
+- Routen und Controller im Backend für die Benutzerregistrierung, Anmeldung, Aktualisierung und Abmeldung implementiert (UserRoutes, authRoutes, apiRoutes, gamificationRoutes, index, PointsRoutes);
+
+
