@@ -174,3 +174,42 @@ select {
 .answer.selected .checkbox .icon {
   opacity: 1;
 }
+
+.answer.correct {
+  border-color: #0cef2a;
+}
+
+.answer.wrong {
+  border-color: #fc3939;
+}
+
+.question-wrapper,
+.answer-wrapper {
+  margin-bottom: 50px;
+}
+
+.btn.next {
+  display: none;
+}
+
+.end-screen .score {
+  color: #fff;
+  font-size: 25px;
+  font-weight: 500;
+  margin-bottom: 80px;
+  text-align: center;
+}
+
+.end-screen .score-text {
+  color: #a2aace;
+  font-size: 16px;
+  margin-bottom: 120px;
+}
+
+@media (max-width: 468) {
+  .container {
+    min-height: 100vh;
+    max-width: 100%;
+    border-radius: 0;
+  }
+}

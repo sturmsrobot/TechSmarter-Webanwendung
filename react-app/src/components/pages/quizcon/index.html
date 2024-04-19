@@ -49,7 +49,7 @@
         </div>
         <button class="btn start">Let's go!</button>
       </div>
-      <div class="quiz">
+      <div class="quiz hide">
         <div class="timer">
           <div class="progress">
             <div class="progress-bar"></div>
@@ -70,19 +70,32 @@
               <span class="icon">✓</span>
             </span>
           </div>
-          <div class="answer">
+          <div class="answer correct">
             <span class="text">das auch Antwort</span>
             <span class="checkbox">
               <span class="icon">✓</span>
             </span>
           </div>
-          <div class="answer">
+          <div class="answer wrong">
             <span class="text">und das Antwort</span>
             <span class="checkbox">
               <span class="icon">✓</span>
             </span>
           </div>
         </div>
+        <button class="btn submit" disabled>Senden</button>
+        <button class="btn next">Nächste Frage</button>
+      </div>
+      <div class="end-screen">
+        <h1 class="heading">SUPER QUIZ</h1>
+        <div class="score">
+          <span class="score-text">Punktestand:</span>
+          <div>
+            <div class="final-score">0</div>
+            <div class="total-score">/10</div>
+          </div>
+        </div>
+        <button class="btn restart">Neustart</button>
       </div>
     </div>
 
