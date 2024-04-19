@@ -9,11 +9,11 @@
   </head>
   <body>
     <div class="container">
-      <div class="start-screen hide">
+      <div class="start-screen">
         <h1 class="heading">Quiz</h1>
         <div class="setting">
           <label for="num-questions">Number of Questions</label>
-          <select name="" id="num0questions">
+          <select name="" id="numquestions">
             <option value="5">5</option>
             <option value="10">10</option>
             <option value="15">15</option>
@@ -86,16 +86,16 @@
         <button class="btn submit" disabled>Senden</button>
         <button class="btn next">Nächste Frage</button>
       </div>
-      <div class="end-screen">
+      <div class="end-screen hide">
         <h1 class="heading">SUPER QUIZ</h1>
         <div class="score">
           <span class="score-text">Punktestand:</span>
           <div>
-            <div class="final-score">0</div>
-            <div class="total-score">/10</div>
+            <span class="final-score">0</span>
+            <span class="total-score">/10</span>
           </div>
+          <button class="btn restart">Neustart</button>
         </div>
-        <button class="btn restart">Neustart</button>
       </div>
     </div>
 

@@ -19,7 +19,7 @@ body {
   position: relative;
   width: 100%;
   max-width: 400px;
-  background-color: #1f2847;
+  background-color: #242424;
   padding: 30px;
   overflow: hidden;
   border-radius: 10px;
@@ -55,7 +55,7 @@ select {
 .btn {
   width: 100%;
   height: 60px;
-  background-color: #0c80ef;
+  background-color: #1f2847;
   border-radius: 10px;
   font-size: 18px;
   color: #fff;
