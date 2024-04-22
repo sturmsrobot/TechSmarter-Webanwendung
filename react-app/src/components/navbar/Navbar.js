@@ -75,23 +75,6 @@ function Navbar() {
               SIGN UP
             </Button>
           )}
-          {/* {button && <Button buttonStyle="btn--outline">SIGN UP</Button>}
-          {button && <Button buttonStyle="btn--outline">SIGN IN</Button>} */}
-
-          {/* {button && (
-            <Link to="/sign-in" className="btn-mobile">
-              <button className="btn btn--outline" onClick={closeMobileMenu}>
-                SIGN IN
-              </button>
-            </Link>
-          )}
-          {button && (
-            <Link to="/sign-up" className="btn-mobile">
-              <button className="btn btn--outline" onClick={closeMobileMenu}>
-                SIGN UP
-              </button>
-            </Link>
-          )} */}
         </div>
       </nav>
     </>
