@@ -7,20 +7,20 @@ const progress = (value) => {
   progressText.innerHTML = `${value}`;
 };
 
-let questions = [],
-  time = 30,
-  score = 0,
-  currentQuestion,
-  timer;
 const startBtn = document.querySelector(".start"),
   numQuestions = document.querySelector("#numquestions"),
   category = document.querySelector("#category"),
   difficulty = document.querySelector("#difficulty"),
   timePerQuestion = document.querySelector("#time"),
   quiz = document.querySelector(".quiz"),
-  startscreen = document.querySelector(".start-screen");
-
+  startScreen = document.querySelector(".start-screen");
 // progress(1);
+
+let questions = [],
+  time = 30,
+  score = 0,
+  currentQuestion,
+  timer;
 
 const startQuiz = () => {
   const num = numQuestions.value,
@@ -32,7 +32,7 @@ const startQuiz = () => {
     .then((res) => res.json())
     .then((data) => {
       questions = data.results;
-      startscreen.classList.add("hide");
+      startScreen.classList.add("hide");
       quiz.classList.remove("hide");
       currentQuestion = 1;
       showQuestion(questions[0]);
@@ -40,11 +40,13 @@ const startQuiz = () => {
 };
 
 startBtn.addEventListener("click", startQuiz);
+const submitBtn = document.querySelector(".submit");
+const nextBtn = document.querySelector(".next");
 
 const showQuestion = (question) => {
-  const questionText = document.querySelector(".question"),
-    answersWrapper = document.querySelector(".answer-wrapper");
-  questionNumber = document.querySelector(".number");
+  const questionText = document.querySelector(".question");
+  const answersWrapper = document.querySelector(".answer-wrapper");
+  const questionNumber = document.querySelector(".number");
 
   questionText.innerHTML = question.question;
 
@@ -64,4 +66,40 @@ const showQuestion = (question) => {
           </div>
         `;
   });
+
+  questionNumber.innerHTML = `
+Frage <span class="current">${
+    questions.indexOf(question) + 1
+  }</span><span class="total">/${questions.lenght}</span>
+`;
+
+  const answersDiv = document.querySelectorAll(".answer");
+  answersDiv.forEach((answer) => {
+    answer.addEventListener("click", () => {
+      if (!answer.classList.contains("checked")) {
+        answersDiv.forEach((answer) => {
+          answer.classList.remove("selected");
+        });
+        answer.classList.add("selected");
+        submitBtn.disabled = false;
+      }
+    });
+  });
+
+  time = timePerQuestion.value;
+  startTimer(time);
+};
+
+const startTimer = (time) => {
+  timer = setInterval(() => {
+    if (time === 3) {
+      playAdudio("countdown.mp3");
+
+    if (time >= 0) {
+      progress(time);
+      time--;
+    } else {
+      checkAnswer();
+    }
+  }, 1000);
 };
