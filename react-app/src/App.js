@@ -8,7 +8,7 @@ import Sandbox from "./components/pages/Sandbox";
 import SignUp from "./components/pages/SignUp";
 import Footer from "./components/footer/Footer";
 import SignIn from "./components/pages/SignIn";
-import Game from "./components/pages/Game";
+// import Game from "./components/pages/Game";
 
 function App() {
   return (

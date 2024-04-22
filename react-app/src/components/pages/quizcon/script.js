@@ -93,8 +93,8 @@ Frage <span class="current">${
 const startTimer = (time) => {
   timer = setInterval(() => {
     if (time === 3) {
-      playAdudio("countdown.mp3");
-
+      // playAdudio("countdown.mp3");
+    }
     if (time >= 0) {
       progress(time);
       time--;
@@ -102,4 +102,26 @@ const startTimer = (time) => {
       checkAnswer();
     }
   }, 1000);
+};
+
+submitBtn.addEventListener("click", () => {
+  checkAnswer();
+});
+
+const checkAnswer = () => {
+  clearInterval(timer);
+
+  const selectedAnswer = document.querySelector(".answer.selected");
+
+  if (selectedAnswer) {
+    const answer = selectedAnswer.querySelector(".text");
+    if(answer === question[currentQuestion -1].correct_answer) {
+      score++;
+      selectedAnswer.classList.add("corret");
+    } else{
+      const correctAnswer = document.querySelector(".answer").forEach((answer)=>{
+        if(answer.q)
+      })
+    }
+  }
 };
