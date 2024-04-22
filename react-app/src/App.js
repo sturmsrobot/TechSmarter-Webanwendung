@@ -10,10 +10,10 @@ import Footer from "./components/footer/Footer";
 import SignIn from "./components/pages/SignIn";
 import { AuthProvider } from "./api/auth/AuthProvider";
 
-
 function App() {
   return (
     <>
+      <Router>
         <AuthProvider>
           <Navbar />
           <Routes>
