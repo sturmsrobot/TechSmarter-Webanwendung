@@ -21,11 +21,18 @@ router.post(
     body("quiz_name").trim().isString(),
     body("questions_total").trim().isNumeric(),
   ],
-  (req, res) => {
+ async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
+
+    const { quiz_id, quiz_name, questions_total } = req.body;
+    const quiz = await Quizzes.create({
+      quiz_id: Quiz_id,
+      quiz_name: quiz_name,
+      questions_total: questions_total,
+  });
 
     res.send("Neues Quiz erfolgreich erstellt!");
   }

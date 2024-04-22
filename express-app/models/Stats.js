@@ -2,12 +2,12 @@ const { DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
 
 const Stats = sequelize.define("Stats", {
-  stats_id: {
+  statsId: {
     type: DataTypes.INTEGER,
     allowNull: false,
     primaryKey: true,
   },
-  quiz_id: {
+  quizId: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
@@ -19,11 +19,11 @@ const Stats = sequelize.define("Stats", {
     type: DataTypes.DECIMAL,
     allowNull: true,
   },
-  right_answers: {
+  rightAnswers: {
     type: DataTypes.INTEGER,
     allowNull: true,
   },
-  wrong_answers: {
+  wrongAnswers: {
     type: DataTypes.INTEGER,
     allowNull: true,
   },

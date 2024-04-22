@@ -17,19 +17,30 @@ router.get("/", (req, res) => {
 router.post(
   "/",
   [
-    body("stats_id").trim().isEmpty().isNumeric().notEmpty(),
-    body("quiz_id").trim().isEmpty().isNumeric().notEmpty(),
+    body("statsId").trim().isEmpty().isNumeric().notEmpty(),
+    body("quizId").trim().isEmpty().isNumeric().notEmpty(),
     body("userId").trim().not().notEmpty().isNumeric(),
     body("progress").trim().isEmpty().notEmpty().isEmail(),
-    body("right_answers").trim().isNumeric(),
-    body("wrong_answers").trim().isNumeric(),
+    body("rightAnswers").trim().isNumeric(),
+    body("wrongAnswers").trim().isNumeric(),
     body("score").trim().isNumeric(),
   ],
-  (req, res) => {
+ async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
+
+    const { statsId, quizId, userId, progress, rightAnswers, wrongAnswers, score } = req.body;
+    const stat = await Stats.create({
+      statsId: statsId,
+      quizId: quizId,
+      userId: userId,
+      progress: progress,
+      rightAnswers: rightAnswers,
+      wrongAnswers: wrongAnswers,
+      score: score,
+  });
 
     res.send("Neue User-Statistik erfolgreich erstellt!");
   }
