@@ -1,5 +1,7 @@
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../api/auth/AuthProvider"; // Stelle sicher, dass du die useAuth-Hook importierst
 import "../../App.css";
-import * as React from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -14,40 +16,35 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-function Copyright(props) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {"Copyright © "}
-      <Link color="inherit" href="https://mui.com/">
-        TechSmarter
-      </Link>{" "}
-      {new Date().getFullYear()}
-      {"."}
-    </Typography>
-  );
-}
+const SignUp = () => {
+  const navigate = useNavigate();
+  const { signUp } = useAuth(); // Verwende die signUp-Funktion aus der useAuth-Hook
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    allowExtraEmails: false,
+  });
 
-// TODO remove, this demo shouldn't need to reset the theme.
+  const handleChange = (e) => {
+    const { name, value, checked } = e.target;
+    const val = name === "allowExtraEmails" ? checked : value;
+    setFormData({ ...formData, [name]: val });
+  };
 
-const defaultTheme = createTheme();
-
-export default function SignUp() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await signUp(formData.email, formData.password); // Benutze die signUp-Funktion, um den Benutzer zu registrieren
+      navigate("/"); // Leite den Benutzer nach der Registrierung zur Startseite weiter
+    } catch (error) {
+      console.error("Registrierung fehlgeschlagen:", error);
+    }
   };
 
   return (
-    <ThemeProvider theme={defaultTheme}>
+    <ThemeProvider theme={createTheme()}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -80,6 +77,7 @@ export default function SignUp() {
                   id="firstName"
                   label="Vorname"
                   autoFocus
+                  onChange={handleChange}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -90,6 +88,7 @@ export default function SignUp() {
                   label="Nachname"
                   name="lastName"
                   autoComplete="family-name"
+                  onChange={handleChange}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -100,6 +99,7 @@ export default function SignUp() {
                   label="Email Addresse"
                   name="email"
                   autoComplete="email"
+                  onChange={handleChange}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -111,12 +111,17 @@ export default function SignUp() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                  onChange={handleChange}
                 />
               </Grid>
               <Grid item xs={12}>
                 <FormControlLabel
                   control={
-                    <Checkbox value="allowExtraEmails" color="primary" />
+                    <Checkbox
+                      name="allowExtraEmails"
+                      color="primary"
+                      onChange={handleChange}
+                    />
                   }
                   label="Ich würde gerne permanent genervt werden mit unnötigen rotz Mails."
                 />
@@ -139,8 +144,9 @@ export default function SignUp() {
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 5 }} />
       </Container>
     </ThemeProvider>
   );
-}
+};
+
+export default SignUp;
