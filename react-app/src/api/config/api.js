@@ -16,4 +16,26 @@ export async function getUserPoints(userId) {
   }
 }
 
+// Benutzer anmelden
+export async function login(credentials) {
+  try {
+    const response = await api.post("/login", credentials);
+    return response.data;
+  } catch (error) {
+    console.error("Fehler beim Einloggen:", error);
+    throw error;
+  }
+}
+
+// Benutzer registrieren
+export async function register(userData) {
+  try {
+    const response = await api.post("/register", userData);
+    return response.data;
+  } catch (error) {
+    console.error("Fehler bei der Registrierung:", error);
+    throw error;
+  }
+}
+
 export default api;

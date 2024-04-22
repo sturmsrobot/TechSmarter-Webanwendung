@@ -14,17 +14,17 @@ function App() {
   return (
     <>
       <Router>
-        <AuthProvider />
-        <Navbar />
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/quiz" element={<Quiz />} />
-          <Route path="/sandbox" element={<Sandbox />} />
-          <Route path="/sign-up" element={<SignUp />} />
-          <Route path="/sign-in" element={<SignIn />} />
-        </Routes>
-        <Footer />
-        <AuthProvider />
+        <AuthProvider>
+          <Navbar />
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route path="/quiz" element={<Quiz />} />
+            <Route path="/sandbox" element={<Sandbox />} />
+            <Route path="/sign-up" element={<SignUp />} />
+            <Route path="/sign-in" element={<SignIn />} />
+          </Routes>
+          <Footer />
+        </AuthProvider>
       </Router>
     </>
   );
