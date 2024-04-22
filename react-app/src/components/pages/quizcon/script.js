@@ -70,7 +70,7 @@ const showQuestion = (question) => {
   questionNumber.innerHTML = `
 Frage <span class="current">${
     questions.indexOf(question) + 1
-  }</span><span class="total">/${questions.lenght}</span>
+  }</span><span class="total">/${questions.length}</span>
 `;
 
   const answersDiv = document.querySelectorAll(".answer");
@@ -110,18 +110,59 @@ submitBtn.addEventListener("click", () => {
 
 const checkAnswer = () => {
   clearInterval(timer);
-
   const selectedAnswer = document.querySelector(".answer.selected");
-
   if (selectedAnswer) {
-    const answer = selectedAnswer.querySelector(".text");
-    if(answer === question[currentQuestion -1].correct_answer) {
+    const answer = selectedAnswer.querySelector(".text").innerHTML;
+    console.log(currentQuestion);
+    if (answer === questions[currentQuestion - 1].correct_answer) {
       score++;
-      selectedAnswer.classList.add("corret");
-    } else{
-      const correctAnswer = document.querySelector(".answer").forEach((answer)=>{
-        if(answer.q)
-      })
+      selectedAnswer.classList.add("correct");
+    } else {
+      selectedAnswer.classList.add("wrong");
+      const correctAnswer = document
+        .querySelectorAll(".answer")
+        .forEach((answer) => {
+          if (
+            answer.querySelector(".text").innerHTML ===
+            questions[currentQuestion - 1].correct_answer
+          ) {
+            answer.classList.add("correct");
+          }
+        });
     }
+  } else {
+    const correctAnswer = document
+      .querySelectorAll(".answer")
+      .forEach((answer) => {
+        if (
+          answer.querySelector(".text").innerHTML ===
+          questions[currentQuestion - 1].correct_answer
+        ) {
+          answer.classList.add("correct");
+        }
+      });
+  }
+
+  const answerDiv = document.querySelectorAll(".answer");
+  answerDiv.forEach((answer) => {
+    answer.classList.add("checked");
+  });
+
+  submitBtn.style.display = "none";
+  nextBtn.style.display = "block";
+};
+
+nextBtn.addEventListener("click", () => {
+  nextQuestion();
+  nextBtn.style.display = "none";
+  submitBtn.style.display = "block";
+});
+
+const nextQuestion = () => {
+  if (currentQuestion < questions.length) {
+    currentQuestion++;
+    showQuestion(questions[currentQuestion - 1]);
+  } else {
+    // showScore();
   }
 };

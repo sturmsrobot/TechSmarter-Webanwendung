@@ -165,7 +165,7 @@ select {
   opacity: 0;
 }
 
-.answer:hover .checkbox,
+.answer:hover:not(.checked) .checkbox,
 .answer.selected .checkbox {
   background-color: #0c80ef;
   border-color: #0c80ef;
