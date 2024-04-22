@@ -267,6 +267,8 @@ Morgen werde ich mich wahrscheinlich weiterhin mit der Datenbank und der API bes
 
 # Express-App Dokumentation - Dienstag, 16. April 2024
 
+## Was ist heute passiert?
+
 - Integration der Gamification-Bibliothek in eine Express-App
 - Einrichtung von Endpunkten in der Express-App zur Interaktion mit dem Punktesystem
 - Implementierung von Funktionen zur Verwaltung von Benutzerpunkten, Trophäen und Statistiken
@@ -274,4 +276,84 @@ Morgen werde ich mich wahrscheinlich weiterhin mit der Datenbank und der API bes
 - Aktualisierung von Sequelize-Modellen für die Benutzerpunkte
 - Integration der Gamification-Funktionen in eine React-App
 - Implementierung von API-Anfragen in der React-App, um auf das Punktesystem zuzugreifen
-- Erstellung Testfall Punktesystem-Funktionen
+- Erstellung von Testfällen für die Punktesystem-Funktionen
+
+## Welche Probleme sind aufgetreten/Lösungsansätze?
+
+- Fehler bei der Installation der Gamification-Bibliothek wurden behoben, indem Abhängigkeiten überprüft und Konfigurationen angepasst wurden.
+- Probleme mit der Datenbankverbindung wurden durch das Erstellen von Tests identifiziert und behoben.
+- Sequelize-Modelle wurden aktualisiert, um Änderungen im Datenbankschema zu berücksichtigen.
+
+## Womit beschäftige ich mich morgen?
+
+- Fortsetzung der Arbeit an der Authentifizierungsmiddleware und Erstellung entsprechender Tests.
+- Implementierung von Funktionen zur Benutzeranmeldung und -registrierung.
+- Integration von Authentifizierungsfunktionen in die Express- und React-Apps.
+- Durchführung weiterer Tests und Fehlerbehebung.
+- Dokumentation der implementierten Funktionen und Tests.
+
+
+# Express-App Dokumentation - Mittwoch, 17. April 2024
+
+## Was ist heute passiert?
+- Middleware-Datei aktualisiert: Die authenticateToken.js-Datei wurde aktualisiert, um sicherzustellen, dass die Middleware das JWT-Token ordnungsgemäß aus dem Authorization-Header extrahiert und überprüft, ob es gültig ist.
+- Testdatei erstellt: Es wurde eine neue Testdatei authenticateToken.test.js erstellt, um die Funktionalität der aktualisierten Middleware zu testen. 
+-Tests geschrieben und ausgeführt.
+
+# Express-App Dokumentation - Donnerstag, 18. April 2024
+
+## Was ist heute passiert?
+- Routen und Controller im Backend für die Benutzerregistrierung, Anmeldung, Aktualisierung und Abmeldung implementiert (UserRoutes, authRoutes, apiRoutes, gamificationRoutes, index, PointsRoutes);
+- eine Middleware zur Überprüfung und Extraktion von JWT-Token aus den Anfragen wurde implementiert; `authenticateToken`, ermöglicht die Authentifizierung von Benutzeranforderungen durch Überprüfung des JWT-Tokens.
+- Implementierung der Routen und Controller im Backend für Benutzerregistrierung, Anmeldung, Aktualisierung und Löschung durchgeführt.
+- Middleware zum Überprüfen und Extrahieren von JWT-Token aus Anforderungen erstellt.
+- Logik für das Hinzufügen und Subtrahieren von Benutzerpunkten implementiert.
+- Überarbeitung der Backend-Struktur, um sie besser zu organisieren.
+- POSTMAN-Abfragen
+
+## Welche Probleme sind aufgetreten/Lösungsansätze?
+- Fehler beim Testen der Authentifizierungsfunktionen aufgetreten, die behoben werden mussten.
+- Herausforderungen beim Implementieren der Middleware für die Authentifizierung und Fehlerbehebung bei der Validierung von JWT-Token.
+- Probleme beim Arbeiten mit Postman
+
+## Womit beschäftige ich mich morgen?
+- Behebung von Fehlern und Optimierung der Middleware für die Authentifizierung.
+- Fortsetzung der Arbeit an der Gamification-Funktionalität, einschließlich der Implementierung weiterer Funktionen wie das Zurücksetzen von Punkten.
+
+
+# Express-App Dokumentation - Freitag, 19. April 2024
+
+## Was ist heute passiert?
+- Sprint Review und Sprint Retrospektive durchgeführt, jedoch eingeschränkt aufgrund von nicht vollständiger Teambesetzung
+- Diskussion über abgeschlossene Aufgaben und erreichte Ziele
+## Welche Probleme sind aufgetreten/Lösungsansätze?
+- beeinträchtigte Effektivität der Reviews und Retrospektive
+- Lücken in der Bewertung des Sprints
+## Womit beschäftige ich mich Montag?
+- Abarbeitung der Tickets aus dem Sprint Backlog
+- Priorisierung der ausstehenden Tickets und Festlegung von klaren Zielen für den nächsten Sprint
+
+
+# Express-App Dokumentation - Montag, 22. April 2024
+
+## Was ist heute passiert?
+
+### Implementierung von Authentifizierungsfunktionen:
+- Registrierung (`registerUser`):
+Ich überprüfe, ob ein Benutzer mit derselben E-Mail bereits existiert, und gebe eine entsprechende Fehlermeldung zurück.
+Das Passwort wird vor dem Speichern in der Datenbank gehasht, was sicher ist.
+Nach erfolgreicher Registrierung wird ein JWT-Token generiert und an den Client zurückgegeben.
+- Login (`loginUser`):
+Ich überprüfe, ob ein Benutzer mit der angegebenen E-Mail existiert und ob das Passwort übereinstimmt.
+Ein JWT-Token wird generiert und an den Client zurückgegeben, wenn die Anmeldeinformationen korrekt sind.
+- JWT-Token-Generierung und Überprüfung:
+In der `authController.js`-Datei wird `jsonwebtoken` verwendet, um JWT-Token zu generieren und zu überprüfen.
+Ich habe eine separate Middleware 'authenticateToken.js' erstellt, um den JWT-Token in eingehenden Anforderungen zu überprüfen.
+- Hashen von Passwörtern:
+Ich verwende `bcrypt` zum sicheren Hashen von Passwörtern, bevor sie in der Datenbank gespeichert werden.
+
+### Authentifizierungsfunktionen Frontend:
+- `AuthProvider.js` erstellt
+- Durch das Einbetten aller Routen in den `AuthProvider` wird der Authentifizierungskontext über die gesamte Anwendung hinweg verfügbar gemacht
+- Import von `AuthProvider` in der `App.js`
+
