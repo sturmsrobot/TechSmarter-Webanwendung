@@ -17,15 +17,4 @@ const Quizzes = sequelize.define("Quiz", {
   },
 });
 
-Quizzes.associate = (models) => {};
-
-Quizzes.findByQuiz_Id = async function (quiz_id) {
-  try {
-    const quizzes = await Quizzes.findAll({ where: { quiz_id } });
-    return quizzes;
-  } catch (error) {
-    throw new Error("Fehler beim Suchen von Quizzes: " + error);
-  }
-};
-
 module.exports = Quizzes;
