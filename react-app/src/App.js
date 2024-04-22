@@ -8,11 +8,13 @@ import Sandbox from "./components/pages/Sandbox";
 import SignUp from "./components/pages/SignUp";
 import Footer from "./components/footer/Footer";
 import SignIn from "./components/pages/SignIn";
+import { AuthProvider } from "./api/auth/AuthProvider";
 
 function App() {
   return (
     <>
       <Router>
+        <AuthProvider />
         <Navbar />
         <Routes>
           <Route exact path="/" element={<Home />} />
@@ -22,6 +24,7 @@ function App() {
           <Route path="/sign-in" element={<SignIn />} />
         </Routes>
         <Footer />
+        <AuthProvider />
       </Router>
     </>
   );
