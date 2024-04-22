@@ -268,3 +268,4 @@
 {"level":"info","message":"DELETE /user/123","timestamp":"2024-04-18T12:41:09.441Z"}
 {"level":"info","message":"GET /api/protected","timestamp":"2024-04-18T12:41:32.414Z"}
 {"level":"info","message":"POST /gamification/addPoints","timestamp":"2024-04-18T12:44:26.613Z"}
+{"level":"info","message":"POST /auth/register","timestamp":"2024-04-20T22:51:17.327Z"}
