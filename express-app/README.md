@@ -321,9 +321,35 @@ Morgen werde ich mich wahrscheinlich weiterhin mit der Datenbank und der API bes
 - Fortsetzung der Arbeit an der Gamification-Funktionalität, einschließlich der Implementierung weiterer Funktionen wie das Zurücksetzen von Punkten.
 
 
+# Express-App Dokumentation - Freitag, 19. April 2024
+
+## Was ist heute passiert?
+- Sprint Review und Sprint Retrospektive durchgeführt, jedoch eingeschränkt aufgrund von nicht vollständiger Teambesetzung
+- Diskussion über abgeschlossene Aufgaben und erreichte Ziele
+## Welche Probleme sind aufgetreten/Lösungsansätze?
+- beeinträchtigte Effektivität der Reviews und Retrospektive
+- Lücken in der Bewertung des Sprints
+## Womit beschäftige ich mich Montag?
+- Abarbeitung der Tickets aus dem Sprint Backlog
+- Priorisierung der ausstehenden Tickets und Festlegung von klaren Zielen für den nächsten Sprint
 
 
+# Express-App Dokumentation - Montag, 22. April 2024
 
+## Was ist heute passiert?
 
+### Implementierung von Authentifizierungsfunktionen:
+- Registrierung ('registerUser'):
+Ich überprüfe, ob ein Benutzer mit derselben E-Mail bereits existiert, und gebe eine entsprechende Fehlermeldung zurück.
+Das Passwort wird vor dem Speichern in der Datenbank gehasht, was sicher ist.
+Nach erfolgreicher Registrierung wird ein JWT-Token generiert und an den Client zurückgegeben.
+- Login ('loginUser'):
+Ich überprüfe, ob ein Benutzer mit der angegebenen E-Mail existiert und ob das Passwort übereinstimmt.
+Ein JWT-Token wird generiert und an den Client zurückgegeben, wenn die Anmeldeinformationen korrekt sind.
+- JWT-Token-Generierung und Überprüfung:
+In der 'authController.js'-Datei wird 'jsonwebtoken' verwendet, um JWT-Token zu generieren und zu überprüfen.
+Ich habe eine separate Middleware 'authenticateToken.js' erstellt, um den JWT-Token in eingehenden Anforderungen zu überprüfen.
+- Hashen von Passwörtern:
+Ich verwende 'bcrypt' zum sicheren Hashen von Passwörtern, bevor sie in der Datenbank gespeichert werden.
 
 
