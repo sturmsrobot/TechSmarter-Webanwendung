@@ -97,7 +97,7 @@ select {
 }
 
 .timer .progress .progress-bar {
-  width: 50%;
+  width: 100%;
   height: 100%;
   border-radius: 30px;
   overflow: hidden;
@@ -165,7 +165,7 @@ select {
   opacity: 0;
 }
 
-.answer:hover .checkbox,
+.answer:hover:not(.checked) .checkbox,
 .answer.selected .checkbox {
   background-color: #0c80ef;
   border-color: #0c80ef;
