@@ -163,6 +163,24 @@ const nextQuestion = () => {
     currentQuestion++;
     showQuestion(questions[currentQuestion - 1]);
   } else {
-    // showScore();
+    showScore();
   }
 };
+
+// BIS HIER FUNKTIONIERT ALLES VERDAMMT
+
+const endScreen = document.querySelector(".end-screen"),
+  finalScore = document.querySelector(".final-score");
+totalScore = document.querySelector(".total-score");
+
+const showScore = () => {
+  endScreen.classList.remove("hide");
+  quiz.classList.add("hide");
+  finalScore.innerHTML = score;
+  totalScore.innerHTML = `/${questions.length}`;
+};
+
+const restartBtn = document.querySelector(".restart");
+restartBtn.addEventListener("click", () => {
+  window.location.reload();
+});
