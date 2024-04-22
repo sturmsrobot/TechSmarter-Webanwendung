@@ -339,17 +339,21 @@ Morgen werde ich mich wahrscheinlich weiterhin mit der Datenbank und der API bes
 ## Was ist heute passiert?
 
 ### Implementierung von Authentifizierungsfunktionen:
-- Registrierung ('registerUser'):
+- Registrierung (`registerUser`):
 Ich überprüfe, ob ein Benutzer mit derselben E-Mail bereits existiert, und gebe eine entsprechende Fehlermeldung zurück.
 Das Passwort wird vor dem Speichern in der Datenbank gehasht, was sicher ist.
 Nach erfolgreicher Registrierung wird ein JWT-Token generiert und an den Client zurückgegeben.
-- Login ('loginUser'):
+- Login (`loginUser`):
 Ich überprüfe, ob ein Benutzer mit der angegebenen E-Mail existiert und ob das Passwort übereinstimmt.
 Ein JWT-Token wird generiert und an den Client zurückgegeben, wenn die Anmeldeinformationen korrekt sind.
 - JWT-Token-Generierung und Überprüfung:
-In der 'authController.js'-Datei wird 'jsonwebtoken' verwendet, um JWT-Token zu generieren und zu überprüfen.
+In der `authController.js`-Datei wird `jsonwebtoken` verwendet, um JWT-Token zu generieren und zu überprüfen.
 Ich habe eine separate Middleware 'authenticateToken.js' erstellt, um den JWT-Token in eingehenden Anforderungen zu überprüfen.
 - Hashen von Passwörtern:
-Ich verwende 'bcrypt' zum sicheren Hashen von Passwörtern, bevor sie in der Datenbank gespeichert werden.
+Ich verwende `bcrypt` zum sicheren Hashen von Passwörtern, bevor sie in der Datenbank gespeichert werden.
 
+### Authentifizierungsfunktionen Frontend:
+- `AuthProvider.js` erstellt
+- Durch das Einbetten aller Routen in den `AuthProvider` wird der Authentifizierungskontext über die gesamte Anwendung hinweg verfügbar gemacht
+- Import von `AuthProvider` in der `App.js`
 
