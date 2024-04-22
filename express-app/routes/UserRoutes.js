@@ -4,8 +4,19 @@ const { body, validationResult } = require("express-validator");
 const User = require("../models/Users");
 
 // GET-Anforderungen (Benutzerdaten abrufen):
-router.get("/", (req, res) => {
+router.get("/all", (req, res) => {
   User.findAll()
+    .then((user) => {
+      res.json(user);
+    })
+    .catch((err) => {
+      console.error("Fehler beim Abrufen von Daten aus der Datenbank:", err);
+      res.status(500).json({ message: "Interner Serverfehler!" });
+    });
+});
+router.get("/", (req, res) => {
+  const { id, username } = req.query;
+  User.findOne({ where: { id: id } })
     .then((user) => {
       res.json(user);
     })
@@ -19,18 +30,26 @@ router.get("/", (req, res) => {
 router.post(
   "/",
   [
-    body("id").trim().isEmpty().isNumeric().notEmpty(),
-    body("username").trim().not().isEmpty().isString(),
-    body("email").trim().isEmpty().notEmpty().isEmail(),
-    body("password").trim().isEmpty().notEmpty().isString().isLength({ min: 6 }),
-    body("points").trim().isEmpty().isNumeric(),
+    body("id").trim().isNumeric().notEmpty(),
+    body("username").trim().isString(),
+    body("email").trim().notEmpty().isEmail(),
+    body("password").trim().notEmpty().isString().isLength({ min: 6 }),
+    body("points").trim().isNumeric(),
   ],
-  (req, res) => {
+  async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
     // Code, um einen Benutzer zu erstellen
+    const { id, username, email, password, points } = req.body;
+    const user = await User.create({
+      id: id,
+      username: username,
+      email: email,
+      password: password,
+      points: points,
+  });
     res.send("Neuer Benutzer erfolgreich erstellt!");
   }
 );

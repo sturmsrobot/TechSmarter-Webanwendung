@@ -13,6 +13,6 @@ router.use("/auth", authRoutes);
 router.use("/question-answer", QuestionAnswerRoutes);
 router.use("/quizzes", QuizzesRoutes);
 router.use("/stats", StatsRoutes);
-router.use("/user", UserRoutes);
+router.use("/users", UserRoutes);
 
 module.exports = router;
