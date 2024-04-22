@@ -8,6 +8,7 @@ import Sandbox from "./components/pages/Sandbox";
 import SignUp from "./components/pages/SignUp";
 import Footer from "./components/footer/Footer";
 import SignIn from "./components/pages/SignIn";
+import Game from "./components/pages/Game";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/sandbox" element={<Sandbox />} />
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/sign-in" element={<SignIn />} />
+          {/* <Route path="/game" element={<Game />} /> */}
         </Routes>
         <Footer />
       </Router>

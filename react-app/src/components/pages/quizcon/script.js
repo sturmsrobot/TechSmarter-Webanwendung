@@ -32,8 +32,36 @@ const startQuiz = () => {
     .then((res) => res.json())
     .then((data) => {
       questions = data.results;
-      console.log(questions);
+      startscreen.classList.add("hide");
+      quiz.classList.remove("hide");
+      currentQuestion = 1;
+      showQuestion(questions[0]);
     });
 };
 
 startBtn.addEventListener("click", startQuiz);
+
+const showQuestion = (question) => {
+  const questionText = document.querySelector(".question"),
+    answersWrapper = document.querySelector(".answer-wrapper");
+  questionNumber = document.querySelector(".number");
+
+  questionText.innerHTML = question.question;
+
+  const answers = [
+    ...question.incorrect_answers,
+    question.correct_answer.toString(),
+  ];
+  answersWrapper.innerHTML = "";
+  answers.sort(() => Math.random() - 0.5);
+  answers.forEach((answer) => {
+    answersWrapper.innerHTML += `
+                  <div class="answer ">
+            <span class="text">${answer}</span>
+            <span class="checkbox">
+              <i class="fas fa-check"></i>
+            </span>
+          </div>
+        `;
+  });
+};
