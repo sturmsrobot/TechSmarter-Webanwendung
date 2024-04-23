@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "../buttons/Button";
 import "./Navbar.css";
+import { useAuth } from "../../api/auth/AuthProvider";
 
 function Navbar() {
+  const { user, handleLogout } = useAuth();
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -65,14 +67,19 @@ function Navbar() {
               </Link>
             </li>
           </ul>
-          {button && (
+          {button && !user && (
             <Button buttonStyle="btn--outline" path="/sign-in">
               SIGN IN
             </Button>
           )}
-          {button && (
+          {button && !user && (
             <Button buttonStyle="btn--outline" path="/sign-up">
               SIGN UP
+            </Button>
+          )}
+          {button && user && (
+            <Button onClick={handleLogout} buttonStyle="btn--outline" path="/">
+              Logout
             </Button>
           )}
         </div>
