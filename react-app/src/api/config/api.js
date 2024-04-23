@@ -5,9 +5,9 @@ const api = axios.create({
 });
 
 // Benutzerpunkte abrufen
-export async function getUserPoints(username) {
+export async function getUserPoints(userId) {
   try {
-    const result = await api.get(`/api/user/${username}/points`);
+    const result = await api.get(`/user/${userId}/points`);
     const points = result.data;
     return points;
   } catch (error) {

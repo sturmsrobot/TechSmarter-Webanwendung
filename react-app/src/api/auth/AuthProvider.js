@@ -1,6 +1,7 @@
 // Verwaltet die Authentifizierungszustände und -aktionen
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { login, register, UserDashboard } from "../config/api"; // Importiert die API-Funktionen
+import { login, register } from "../config/api"; // Importiert die API-Funktionen
+import { useNavigate } from "react-router-dom";
 
 const AuthContext = createContext();
 
@@ -8,6 +9,7 @@ export const useAuth = () => useContext(AuthContext);
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Überprüfe beim Laden der App, ob der Benutzer bereits eingeloggt ist
@@ -21,9 +23,11 @@ export const AuthProvider = ({ children }) => {
   const handleLogin = async (credentials) => {
     try {
       const response = await login(credentials);
-      const token = response.data.token;
+      const token = response.token;
       localStorage.setItem("token", token);
-      setUser({ token });
+      console.log("response bitte", response);
+      setUser(response.user);
+      navigate("/dashboard");
     } catch (error) {
       console.error("Login error:", error);
       // Handle login error
@@ -46,7 +50,9 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, handleLogin, signUp, handleLogout }}>
+    <AuthContext.Provider
+      value={{ user, setUser, handleLogin, signUp, handleLogout }}
+    >
       {children}
     </AuthContext.Provider>
   );

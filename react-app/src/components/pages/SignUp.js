@@ -36,7 +36,7 @@ export function SignUp() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await signUp(formData.email, formData.password); // Benutze die signUp-Funktion, um den Benutzer zu registrieren
+      await signUp(formData); // Benutze die signUp-Funktion, um den Benutzer zu registrieren
       navigate("/"); // Leite den Benutzer nach der Registrierung zur Startseite weiter
     } catch (error) {
       console.error("Registrierung fehlgeschlagen:", error);
