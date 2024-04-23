@@ -47,3 +47,21 @@ function spaceKeyPressed() {
     app.stage.removeChild(bug);
   });
 }
+
+// Setze den Hintergrund auf weiß
+app.renderer.backgroundColor = 0xffffff; // Weiß
+
+// Zentriere das Spiel auf dem Bildschirm
+const screenWidth = window.innerWidth;
+const screenHeight = window.innerHeight;
+const gameWidth = 800; // Breite des Spiels
+const gameHeight = 600; // Höhe des Spiels
+
+// Berechne die Position des Spiels
+const gamePosX = (screenWidth - gameWidth) / 2;
+const gamePosY = (screenHeight - gameHeight) / 2;
+
+// Setze die Position des Spielcontainers
+app.view.style.position = "absolute";
+app.view.style.left = `${gamePosX}px`;
+app.view.style.top = `${gamePosY}px`;

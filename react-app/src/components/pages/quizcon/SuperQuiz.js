@@ -7,7 +7,7 @@ const QuizFrame = () => {
         src="quizcon/index.html"
         title="Quiz"
         width="100%"
-        height="600px"
+        height="1000vh"
         style={{ border: "none" }}
       />
     </div>

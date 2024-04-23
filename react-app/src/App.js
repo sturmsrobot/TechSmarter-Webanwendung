@@ -19,7 +19,7 @@ function App() {
           <Navbar />
           <Routes>
             <Route exact path="/" element={<Home />} />
-            <Route path="quiz" element={<QuizFrame />} />
+            <Route path="/quiz" element={<QuizFrame />} />
             <Route path="/sandbox" element={<Sandbox />} />
             <Route path="/sign-up" element={<SignUp />} />
             <Route path="/sign-in" element={<SignIn />} />

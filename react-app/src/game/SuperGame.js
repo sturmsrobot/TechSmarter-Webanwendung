@@ -5,7 +5,7 @@ const GameFrame = () => {
     <div>
       <iframe
         src="game/index-spiel.html"
-        title="Quiz"
+        title="GTA VI"
         width="100%"
         height="600px"
         style={{ border: "none" }}
