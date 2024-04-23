@@ -276,3 +276,4 @@
 {"level":"info","message":"POST /auth/login","timestamp":"2024-04-23T07:39:17.974Z"}
 {"level":"info","message":"POST /auth/login","timestamp":"2024-04-23T07:39:30.539Z"}
 {"level":"info","message":"POST /auth/register","timestamp":"2024-04-23T07:53:50.531Z"}
+{"level":"info","message":"POST /auth/register","timestamp":"2024-04-23T08:41:00.913Z"}

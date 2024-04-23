@@ -16,7 +16,7 @@ import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-const SignUp = () => {
+export function SignUp() {
   const navigate = useNavigate();
   const { signUp } = useAuth(); // Verwende die signUp-Funktion aus der useAuth-Hook
   const [formData, setFormData] = useState({
@@ -147,6 +147,6 @@ const SignUp = () => {
       </Container>
     </ThemeProvider>
   );
-};
+}
 
 export default SignUp;
