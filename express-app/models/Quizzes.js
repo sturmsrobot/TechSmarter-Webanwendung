@@ -2,16 +2,16 @@ const { DataTypes } = require("sequelize");
 const sequelize = require("../config/database");
 
 const Quizzes = sequelize.define("Quiz", {
-  quiz_id: {
+    quizId: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
-  quiz_name: {
+    quizName: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  questions_total: {
+    questionsTotal: {
     type: DataTypes.INTEGER,
     allowNull: true,
   },

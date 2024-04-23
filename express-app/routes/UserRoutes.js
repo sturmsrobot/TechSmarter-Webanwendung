@@ -14,9 +14,20 @@ router.get("/all", (req, res) => {
       res.status(500).json({ message: "Interner Serverfehler!" });
     });
 });
-router.get("/", (req, res) => {
-  const { id, username } = req.query;
+router.get("/byId", (req, res) => {
+  const { id } = req.query;
   User.findOne({ where: { id: id } })
+    .then((user) => {
+      res.json(user);
+    })
+    .catch((err) => {
+      console.error("Fehler beim Abrufen von Daten aus der Datenbank:", err);
+      res.status(500).json({ message: "Interner Serverfehler!" });
+    });
+});
+router.get("/byName", (req, res) => {
+  const { username } = req.query;
+  User.findOne({ where: { username: username } })
     .then((user) => {
       res.json(user);
     })
@@ -43,7 +54,7 @@ router.post(
     }
     // Code, um einen Benutzer zu erstellen
     const { id, username, email, password, points } = req.body;
-    const user = await User.create({
+    const User = await User.create({
       id: id,
       username: username,
       email: email,
@@ -55,19 +66,67 @@ router.post(
 );
 
 // PUT-Anforderungen (Benutzerdaten aktualisieren):
-router.put("/:id", (req, res) => {
-  // Code, um Benutzerdaten zu aktualisieren
-  res.send("Benutzerdaten erfolgreich aktualisiert!");
+router.put(
+  "/:userId",
+  [
+    body("id").trim().isNumeric().notEmpty(),
+    body("username").trim().isString(),
+    body("email").trim().notEmpty().isEmail(),
+    body("password").trim().notEmpty().isString().isLength({ min: 6 }),
+    body("points").trim().isNumeric(),
+  ],
+  async (req, res) => {
+    const { userId  } = req.params;
+    const { username, email, password, points } = req.body;
+
+  try {
+    // Finde das Quiz mit der angegebenen ID
+    const user = await User.findOne({ where: { userId: userId } });
+
+    if (!user) {
+      return res.status(404).json({ message: "User nicht gefunden!" });
+    }
+
+    // Aktualisiere die Userdaten
+    username = username;
+    email = email;
+    password = password;
+    points = points;
+
+    res.json(quiz);
+  } catch (error) {
+    console.error("Fehler beim Aktualisieren des Quizzes:", error);
+    res.status(500).json({ message: "Interner Serverfehler!" });
+  }
 });
 
 // DELETE-Anforderungen (Benutzerdaten löschen):
-router.delete("/:id", (req, res) => {
-  // Code, um Benutzerdaten zu löschen
-  res.send("Benutzerdaten erfolgreich gelöscht!");
+router.delete("/:userId", async (req, res) => {
+  const { userId } = req.params;
+
+  try {
+    // Finde den User mit der angegebenen userId
+    const User = await User.findOne({ where: { userId: userId } });
+
+    if (!User) {
+      return res.status(404).json({ message: "User nicht gefunden!" });
+    }
+
+    // Lösche den User
+    await user.destroy();
+
+    res.json({ message: "User erfolgreich gelöscht!" });
+  } catch (error) {
+    console.error("Fehler beim Löschen des Users:", error);
+    res.status(500).json({ message: "Interner Serverfehler!" });
+  }
 });
 
+
 // Benutzerpunkte hinzufügen:
-router.post("/addPoints", async (req, res) => {
+router.post(
+  "/addPoints",  
+  async (req, res) => {
   const { username, points } = req.body;
   try {
     // Finde den Benutzer in der Datenbank

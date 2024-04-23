@@ -3,10 +3,32 @@ const router = express.Router();
 const { body, validationResult } = require("express-validator");
 const Quizzes = require("../models/Quizzes");
 
-router.get("/", (req, res) => {
+router.get("/all", (req, res) => {
   Quizzes.findAll()
     .then((quizzes) => {
       res.json(quizzes);
+    })
+    .catch((err) => {
+      console.error("Fehler beim Abrufen von Daten aus der Datenbank:", err);
+      res.status(500).json({ message: "Interner Serverfehler!" });
+    });
+});
+router.get("/byId", (req, res) => {
+  const { quizId } = req.query;
+  Quizzes.findOne({ where: { quizId: quizId } })
+    .then((quiz) => {
+      res.json(quiz);
+    })
+    .catch((err) => {
+      console.error("Fehler beim Abrufen von Daten aus der Datenbank:", err);
+      res.status(500).json({ message: "Interner Serverfehler!" });
+    });
+});
+router.get("/byName", (req, res) => {
+  const { quizName } = req.query;
+  Quizzes.findOne({ where: { quizName: quizName } })
+    .then((quiz) => {
+      res.json(quiz);
     })
     .catch((err) => {
       console.error("Fehler beim Abrufen von Daten aus der Datenbank:", err);
@@ -17,40 +39,83 @@ router.get("/", (req, res) => {
 router.post(
   "/",
   [
-    body("quiz_id").trim().isEmpty().isNumeric().notEmpty(),
-    body("quiz_name").trim().isString(),
-    body("questions_total").trim().isNumeric(),
+    body("quizId").trim().isNumeric().notEmpty(),
+    body("quizName").trim().isString(),
+    body("questionsTotal").trim().isNumeric(),
   ],
- async (req, res) => {
+  async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
 
-    const { quiz_id, quiz_name, questions_total } = req.body;
+    const { quizId, quizName, questionsTotal } = req.body;
     const quiz = await Quizzes.create({
-      quiz_id: Quiz_id,
-      quiz_name: quiz_name,
-      questions_total: questions_total,
+      quizId: quizId,
+      quizName: quizName,
+      questionsTotal: questionsTotal,
   });
 
     res.send("Neues Quiz erfolgreich erstellt!");
   }
 );
 
-router.put("/:quiz_id", (req, res) => {
-  res.send("Quiz erfolgreich aktualisiert!");
+router.put(
+  "/:quizId",
+  [
+    body("quizId").trim().isNumeric().notEmpty(),
+    body("quizName").trim().isString(),
+    body("questionsTotal").trim().isNumeric(),
+  ],
+  async (req, res) => {
+    const { quizId } = req.params;
+    const { quizName, questionsTotal } = req.body;
+
+  try {
+    // Finde das Quiz mit der angegebenen ID
+    const quiz = await Quizzes.findOne({ where: { quizId: quizId } });
+
+    if (!quiz) {
+      return res.status(404).json({ message: "Quiz nicht gefunden!" });
+    }
+
+    // Aktualisiere die Quizdaten
+    quizName = quizName;
+    questionsTotal = questionsTotal;
+
+    res.json(quiz);
+  } catch (error) {
+    console.error("Fehler beim Aktualisieren des Quizzes:", error);
+    res.status(500).json({ message: "Interner Serverfehler!" });
+  }
 });
 
-router.delete("/:quiz_id", (req, res) => {
-  res.send("Quiz erfolgreich gelöscht!");
+router.delete("/:quizId", async (req, res) => {
+  const { quizId } = req.params;
+
+  try {
+    // Finde das Quiz mit der angegebenen QuizId
+    const quiz = await Quizzes.findOne({ where: { quizId: quizId } });
+
+    if (!Quizzes) {
+      return res.status(404).json({ message: "Quiz nicht gefunden!" });
+    }
+
+    // Lösche das Quiz
+    await quiz.destroy();
+
+    res.json({ message: "Quiz erfolgreich gelöscht!" });
+  } catch (error) {
+    console.error("Fehler beim Löschen des Quizzes:", error);
+    res.status(500).json({ message: "Interner Serverfehler!" });
+  }
 });
 
 router.get("/search", (req, res) => {
-  const { quiz_name } = req.query;
+  const { quizName } = req.query;
   console.log("Hello World");
-  Quizzes.findAll({ where: { quiz_name } })
-    .then((users) => {
+  Quizzes.findAll({ where: { quizName } })
+    .then((Quizzes) => {
       res.json(Quizzes);
     })
     .catch((err) => {
