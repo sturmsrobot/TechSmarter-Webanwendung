@@ -8,7 +8,7 @@ const UserDashboard = () => {
   useEffect(() => {
     // Funktion zum Abrufen der Benutzerdaten aufrufen, wenn die Komponente montiert ist
     fetchUserData();
-  }, []);
+  });
 
   const fetchUserData = async () => {
     try {
