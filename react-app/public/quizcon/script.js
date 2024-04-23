@@ -93,7 +93,7 @@ Frage <span class="current">${
 const startTimer = (time) => {
   timer = setInterval(() => {
     if (time === 3) {
-      // playAdudio("countdown.mp3");
+      playAudio("countdown.mp3");
     }
     if (time >= 0) {
       progress(time);
@@ -184,3 +184,8 @@ const restartBtn = document.querySelector(".restart");
 restartBtn.addEventListener("click", () => {
   window.location.reload();
 });
+
+const playAudio = (src) => {
+  const audio = new Audio(src);
+  audio.play();
+};

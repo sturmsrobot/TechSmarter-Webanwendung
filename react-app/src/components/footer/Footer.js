@@ -55,7 +55,9 @@ function Footer() {
             <Link to="/">Super Secret's</Link>
             <Link to="/">Findet niemand!</Link>
             <Link to="/">hoffentlich...</Link>
-            <Link to="/">1337</Link>
+            <Link to="/GTAVI" className="game-link">
+              1337
+            </Link>
           </div>
         </div>
       </div>
