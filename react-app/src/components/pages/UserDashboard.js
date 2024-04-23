@@ -7,18 +7,21 @@ const UserDashboard = () => {
 
   useEffect(() => {
     // Funktion zum Abrufen der Benutzerdaten aufrufen, wenn die Komponente montiert ist
-    fetchUserData();
-  }, []);
 
-  const fetchUserData = async () => {
-    try {
-      const response = await getUserPoints(user.id);
-      console.log("Hallöchen", response.data);
-      setUser({ ...user, ...response });
-    } catch (error) {
-      console.error("Fehler beim Abrufen der Benutzerdaten:", error);
+    const fetchUserData = async () => {
+      try {
+        const response = await getUserPoints(user.id);
+        console.log("Hallöchen", response.data);
+        setUser({ ...user, ...response });
+      } catch (error) {
+        console.error("Fehler beim Abrufen der Benutzerdaten:", error);
+      }
+    };
+
+    if (user) {
+      fetchUserData();
     }
-  };
+  }, [user, setUser]);
 
   return (
     <div className="user-dashboard">
