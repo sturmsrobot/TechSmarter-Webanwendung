@@ -3,8 +3,30 @@ const router = express.Router();
 const Stats = require("../models/Stats");
 const { body } = require("express-validator");
 
-router.get("/", (req, res) => {
+router.get("/all", (req, res) => {
   Stats.findAll()
+    .then((stats) => {
+      res.json(stats);
+    })
+    .catch((err) => {
+      console.error("Fehler beim Abrufen von Daten aus der Datenbank:", err);
+      res.status(500).json({ message: "Interner Serverfehler!" });
+    });
+});
+router.get("/byId", (req, res) => {
+  const { statsId} = req.query;
+  Stats.findOne({ where: { statsId: statsId } })
+    .then((stats) => {
+      res.json(stats);
+    })
+    .catch((err) => {
+      console.error("Fehler beim Abrufen von Daten aus der Datenbank:", err);
+      res.status(500).json({ message: "Interner Serverfehler!" });
+    });
+});
+router.get("/byUserId", (req, res) => {
+  const { userId } = req.query;
+  Stats.findOne({ where: { userId: userId } })
     .then((stats) => {
       res.json(stats);
     })
@@ -17,10 +39,10 @@ router.get("/", (req, res) => {
 router.post(
   "/",
   [
-    body("statsId").trim().isEmpty().isNumeric().notEmpty(),
-    body("quizId").trim().isEmpty().isNumeric().notEmpty(),
+    body("statsId").trim().isNumeric().notEmpty(),
+    body("quizId").trim().isNumeric().notEmpty(),
     body("userId").trim().not().notEmpty().isNumeric(),
-    body("progress").trim().isEmpty().notEmpty().isEmail(),
+    body("progress").trim().notEmpty().isEmail(),
     body("rightAnswers").trim().isNumeric(),
     body("wrongAnswers").trim().isNumeric(),
     body("score").trim().isNumeric(),
@@ -46,25 +68,60 @@ router.post(
   }
 );
 
-router.put("/:stats_id", (req, res) => {
-  res.send("User-Statistik erfolgreich aktualisiert!");
+router.put(
+  "/:statsId", 
+  [
+    body("statsId").trim().isNumeric().notEmpty(),
+    body("quizId").trim().isNumeric().notEmpty(),
+    body("userId").trim().not().notEmpty().isNumeric(),
+    body("progress").trim().notEmpty().isEmail(),
+    body("rightAnswers").trim().isNumeric(),
+    body("wrongAnswers").trim().isNumeric(),
+    body("score").trim().isNumeric(),
+  ],
+  async (req, res) => {
+    const { statsId  } = req.params;
+    const { quizId, userId, progress, rightAnswers, wrongAnswers, score } = req.body;
+
+  try {
+
+    const stats = await Stats.findOne({ where: { statsId: statsId } });
+
+    if (!stats) {
+      return res.status(404).json({ message: "Statistik nicht gefunden!" });
+    }
+
+    stats.quizId = quizId,
+    stats.userId = userId,
+    stats.progress = progress,
+    stats.rightAnswers = rightAnswers,
+    stats.wrongAnswers = wrongAnswers,
+    stats.score = score,
+    await stats.save
+
+    res.json(stats);
+  } catch (error) {
+    console.error("Fehler beim Aktualisieren der Statistik:", error);
+    res.status(500).json({ message: "Interner Serverfehler!" });
+  }
 });
 
-router.delete("/:stats_id", (req, res) => {
-  res.send("User-Statistik erfolgreich gelöscht!");
-});
+router.delete("/:statsId", async (req, res) => {
+  const { statsId } = req.params;
 
-router.get("/search", (req, res) => {
-  const { username } = req.query;
-  console.log("Hello World");
-  Stats.findAll({ where: { username } })
-    .then((users) => {
-      res.json(Stats);
-    })
-    .catch((err) => {
-      console.error("Fehler bei der Suche nach Benutzern:", err);
-      res.status(500).json({ message: "Interner Serverfehler!" });
-    });
+  try {
+    const stats = await Stats.findOne({ where: { statsId: statsId } });
+
+    if (!Stats) {
+      return res.status(404).json({ message: "Statistik nicht gefunden!" });
+    }
+    await stats.destroy();
+
+    res.json({ message: "Statistik erfolgreich gelöscht!" });
+  } catch (error) {
+    console.error("Fehler beim Löschen der Statistik:", error);
+    res.status(500).json({ message: "Interner Serverfehler!" });
+  }
 });
 
 module.exports = router;

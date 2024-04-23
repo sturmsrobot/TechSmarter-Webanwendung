@@ -72,14 +72,12 @@ router.put(
     const { quizName, questionsTotal } = req.body;
 
   try {
-    // Finde das Quiz mit der angegebenen ID
     const quiz = await Quizzes.findOne({ where: { quizId: quizId } });
 
     if (!quiz) {
       return res.status(404).json({ message: "Quiz nicht gefunden!" });
     }
 
-    // Aktualisiere die Quizdaten
     quiz.quizName = quizName;
     quiz.questionsTotal = questionsTotal;
     await quiz.save()
@@ -95,14 +93,13 @@ router.delete("/:quizId", async (req, res) => {
   const { quizId } = req.params;
 
   try {
-    // Finde das Quiz mit der angegebenen QuizId
+
     const quiz = await Quizzes.findOne({ where: { quizId: quizId } });
 
     if (!Quizzes) {
       return res.status(404).json({ message: "Quiz nicht gefunden!" });
     }
 
-    // Lösche das Quiz
     await quiz.destroy();
 
     res.json({ message: "Quiz erfolgreich gelöscht!" });

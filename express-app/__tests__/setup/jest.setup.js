@@ -5,8 +5,8 @@ const TestDataStats = require("./test-data/TestDataStats");
 const TestDataQuizzes = require("./test-data/TestDataQuizzes");
 const TestDataAnswer = require("./test-data/TestDataAnswer");
 const TestDataQuestion = require("./test-data/TestDataQuestion");
-const Question = require("../../models/Question");
-const Answer = require("../../models/Answer");
+const Questions = require("../../models/Questions");
+const Answers = require("../../models/Answers");
 const User = require("../../models/Users");
 const Stats = require("../../models/Stats");
 const Quizzes = require("../../models/Quizzes");
@@ -23,8 +23,8 @@ module.exports = async () => {
       await User.bulkCreate(TestDataUsers);
       await Stats.bulkCreate(TestDataStats);
       await Quizzes.bulkCreate(TestDataQuizzes);
-      await Question.bulkCreate(TestDataQuestion);
-      await Answer.bulkCreate(TestDataAnswer);
+      await Questions.bulkCreate(TestDataQuestion);
+      await Answers.bulkCreate(TestDataAnswer);
     } catch (e) {
       console.error("MY DB Issue", e);
     }
