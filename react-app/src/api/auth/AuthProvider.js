@@ -1,6 +1,6 @@
 // Verwaltet die Authentifizierungszustände und -aktionen
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { login, register } from "../config/api"; // Importiert die API-Funktionen
+import { login, register, UserDashboard } from "../config/api"; // Importiert die API-Funktionen
 
 const AuthContext = createContext();
 

@@ -43,3 +43,17 @@
   color: #fff;
   font-size: 100px;
 }
+
+.user-dashboard {
+  background-color: #e7e7e7; /* Dunkelgrauer Hintergrund */
+  color: #232323; /* Weiße Schrift */
+  font-family: Arial, sans-serif; /* Serifenlose Schriftart */
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Schatten für einen modernen Look */
+  width: 100%;
+  height: 100%;
+}
+
+.user-info {
+  margin-top: 20px;
+}
