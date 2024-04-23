@@ -269,3 +269,9 @@
 {"level":"info","message":"GET /api/protected","timestamp":"2024-04-18T12:41:32.414Z"}
 {"level":"info","message":"POST /gamification/addPoints","timestamp":"2024-04-18T12:44:26.613Z"}
 {"level":"info","message":"POST /auth/register","timestamp":"2024-04-20T22:51:17.327Z"}
+{"level":"info","message":"POST /login","timestamp":"2024-04-23T07:36:26.845Z"}
+{"level":"info","message":"POST /login","timestamp":"2024-04-23T07:36:27.982Z"}
+{"level":"info","message":"POST /login","timestamp":"2024-04-23T07:36:29.199Z"}
+{"level":"info","message":"POST /login","timestamp":"2024-04-23T07:36:37.402Z"}
+{"level":"info","message":"POST /auth/login","timestamp":"2024-04-23T07:39:17.974Z"}
+{"level":"info","message":"POST /auth/login","timestamp":"2024-04-23T07:39:30.539Z"}
