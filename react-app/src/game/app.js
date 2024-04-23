@@ -1,4 +1,5 @@
 const app = new PIXI.Application();
+const bugList = [];
 document.body.appendChild(app.view);
 
 const hacker = PIXI.Sprite.from("assets/hacker.png");
@@ -9,12 +10,13 @@ hacker.scale.y = 0.1;
 app.stage.addChild(hacker);
 
 gameInterval(function () {
-  const bug = PIXI.Sprite.from("assets/bug.png");
+  const bug = PIXI.Sprite.from("assets/bug" + random(1, 3) + ".png");
   bug.x = random(0, 700);
   bug.y = -25;
   bug.scale.x = 0.1;
   bug.scale.y = 0.1;
   app.stage.addChild(bug);
+  bugList.push(bug);
   flyDown(bug, 1);
 
   waitForCollision(bug, hacker).then(function () {
@@ -31,16 +33,17 @@ function rightKeyPressed() {
   hacker.x = hacker.x + 5;
 }
 
-// const spider = PIXI.Sprite.from("assets/spider.png");
-// spider.x = 200;
-// spider.y = 150;
-// spider.scale.x = 0.1;
-// spider.scale.y = 0.1;
-// app.stage.addChild(spider);
+function spaceKeyPressed() {
+  const bullet = PIXI.Sprite.from("assets/bullet.png");
+  bullet.x = hacker.x + 13;
+  bullet.y = hacker.y - 20;
+  bullet.scale.x = 0.05;
+  bullet.scale.y = 0.05;
+  flyUp(bullet);
+  app.stage.addChild(bullet);
 
-// const bugc = PIXI.Sprite.from("assets/bugc.png");
-// bugc.x = 350;
-// bugc.y = 80;
-// bugc.scale.x = 0.1;
-// bugc.scale.y = 0.1;
-// app.stage.addChild(bugc);
+  waitForCollision(bullet, bugList).then(function ([bullet, bug]) {
+    app.stage.removeChild(bullet);
+    app.stage.removeChild(bug);
+  });
+}
