@@ -288,3 +288,11 @@
 {"level":"info","message":"GET /users/all","timestamp":"2024-04-19T10:30:37.992Z"}
 {"level":"info","message":"GET /users/69","timestamp":"2024-04-19T10:30:52.380Z"}
 {"level":"info","message":"GET /users/?id=69","timestamp":"2024-04-19T10:31:19.554Z"}
+{"level":"info","message":"POST /users","timestamp":"2024-04-23T12:44:17.164Z"}
+{"level":"info","message":"POST /users","timestamp":"2024-04-23T12:44:41.803Z"}
+{"level":"info","message":"POST /user","timestamp":"2024-04-23T12:45:36.127Z"}
+{"level":"info","message":"POST /users","timestamp":"2024-04-23T12:48:03.959Z"}
+{"level":"info","message":"GET /quizzes","timestamp":"2024-04-23T12:49:57.158Z"}
+{"level":"info","message":"GET /quizzes/all","timestamp":"2024-04-23T12:50:24.063Z"}
+{"level":"info","message":"GET /quizzes/byId?quizId=2","timestamp":"2024-04-23T12:50:35.135Z"}
+{"level":"info","message":"PUT /quizzes/2","timestamp":"2024-04-23T12:54:37.238Z"}

@@ -80,8 +80,9 @@ router.put(
     }
 
     // Aktualisiere die Quizdaten
-    quizName = quizName;
-    questionsTotal = questionsTotal;
+    quiz.quizName = quizName;
+    quiz.questionsTotal = questionsTotal;
+    await quiz.save()
 
     res.json(quiz);
   } catch (error) {
