@@ -2,7 +2,6 @@ import React from "react";
 import "../../App";
 import { Button } from "../buttons/Button";
 import "./TopV.css";
-import { Link } from "react-router-dom";
 
 function eyecatch() {
   return (
@@ -11,16 +10,16 @@ function eyecatch() {
       <h1>Ready?</h1>
       <p>Test your knowledge...</p>
       <div className="eyecatch-btns">
-        <Link to="/quiz">
-          <Button
-            className="btns"
-            buttonStyle="btn--outline"
-            buttonSize="btn--large"
-          >
-            {" "}
-            Lets go!
-          </Button>
-        </Link>
+        <Button
+          className="btns"
+          buttonStyle="btn--outline"
+          buttonSize="btn--large"
+          path="/quiz"
+        >
+          {" "}
+          Lets go!
+        </Button>
+
         <Button
           className="btns"
           buttonStyle="btn--primary"
