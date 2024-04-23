@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Home from "./components/pages/Home";
 import Quiz from "./components/pages/Quiz";
 import Sandbox from "./components/pages/Sandbox";
-import SignUp from "./components/pages/SignUp";
+import { SignUp } from "./components/pages/SignUp";
 import Footer from "./components/footer/Footer";
 import SignIn from "./components/pages/SignIn";
 import { AuthProvider } from "./api/auth/AuthProvider";

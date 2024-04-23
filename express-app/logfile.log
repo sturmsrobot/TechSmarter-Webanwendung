@@ -275,12 +275,4 @@
 {"level":"info","message":"POST /login","timestamp":"2024-04-23T07:36:37.402Z"}
 {"level":"info","message":"POST /auth/login","timestamp":"2024-04-23T07:39:17.974Z"}
 {"level":"info","message":"POST /auth/login","timestamp":"2024-04-23T07:39:30.539Z"}
-{"level":"info","message":"POST /auth/login","timestamp":"2024-04-23T11:00:23.907Z"}
-{"level":"info","message":"GET /api/user/undefined/points","timestamp":"2024-04-23T11:44:14.235Z"}
-{"level":"info","message":"GET /api/user/undefined/points","timestamp":"2024-04-23T11:44:14.247Z"}
-{"level":"info","message":"POST /auth/login","timestamp":"2024-04-23T11:44:35.410Z"}
-{"level":"info","message":"POST /auth/login","timestamp":"2024-04-23T11:45:50.981Z"}
-{"level":"info","message":"POST /auth/login","timestamp":"2024-04-23T11:46:07.511Z"}
-{"level":"info","message":"POST /auth/login","timestamp":"2024-04-23T11:47:59.596Z"}
-{"level":"info","message":"POST /auth/login","timestamp":"2024-04-23T11:50:12.997Z"}
-{"level":"info","message":"POST /auth/login","timestamp":"2024-04-23T11:53:40.639Z"}
+
