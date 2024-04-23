@@ -1,15 +1,9 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useEffect } from "react";
 import { getUserPoints } from "../../api/config/api";
+import { useAuth } from "../../api/auth/AuthProvider";
 
 const UserDashboard = () => {
-  // Simuliere Testdaten für den Benutzer
-  const initialUserData = {
-    username: "ChristianeKrise",
-    points: 100,
-    // Weitere Felder hier hinzufügen, falls erforderlich
-  };
-  const [userData, setUserData] = useState(initialUserData);
+  const { user, setUser } = useAuth();
 
   useEffect(() => {
     // Funktion zum Abrufen der Benutzerdaten aufrufen, wenn die Komponente montiert ist
@@ -18,9 +12,9 @@ const UserDashboard = () => {
 
   const fetchUserData = async () => {
     try {
-      const response = await getUserPoints();
+      const response = await getUserPoints(user.id);
       console.log("Hallöchen", response.data);
-      setUserData(response.data);
+      setUser({ ...user, ...response });
     } catch (error) {
       console.error("Fehler beim Abrufen der Benutzerdaten:", error);
     }
@@ -29,10 +23,10 @@ const UserDashboard = () => {
   return (
     <div className="user-dashboard">
       <h2>User Dashboard</h2>
-      {userData ? (
+      {user ? (
         <div className="user-info">
-          <p>Name: {userData.username}</p>
-          <p>Punkte: {userData.points}</p>
+          <p>Name: {user.username}</p>
+          <p>Punkte: {user.points}</p>
           {/* Weitere Benutzerdaten anzeigen */}
         </div>
       ) : (

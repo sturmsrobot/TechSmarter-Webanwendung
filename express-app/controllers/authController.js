@@ -7,7 +7,7 @@ const jwtSecret = process.env.JWT_SECRET;
 exports.registerUser = async (req, res) => {
   try {
     // Extract user data from request body
-    const { username, email, password } = req.body;
+    const { firstName, lastName, email, password, allowExtraEmails } = req.body;
 
     // Check if user with the same email already exists
     const existingUser = await User.findOne({ where: { email } });
@@ -20,7 +20,7 @@ exports.registerUser = async (req, res) => {
 
     // Create new user
     const newUser = await User.create({
-      username,
+      username: firstName + lastName,
       email,
       password: hashedPassword,
     });
