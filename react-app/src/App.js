@@ -8,6 +8,7 @@ import Sandbox from "./components/pages/Sandbox";
 import SignUp from "./components/pages/SignUp";
 import Footer from "./components/footer/Footer";
 import SignIn from "./components/pages/SignIn";
+import GameFrame from "./game/SuperGame";
 import { AuthProvider } from "./api/auth/AuthProvider";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             <Route path="/sandbox" element={<Sandbox />} />
             <Route path="/sign-up" element={<SignUp />} />
             <Route path="/sign-in" element={<SignIn />} />
+            <Route path="/GTAVI" element={<GameFrame />} />
           </Routes>
           <Footer />
         </AuthProvider>
