@@ -95,4 +95,20 @@ router.post("/subtractPoints", async (req, res) => {
   }
 });
 
+// Endpunkte, um Benutzerpunkte und Trophäen abzurufen
+
+// GET-Endpunkt für Benutzerpunkte
+router.get("/api/user/:userId/points", async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    // Hier rufst du die Benutzerpunkte aus der Datenbank ab
+    // Verwende eine Datenbankabfrage, um die Punkte für den Benutzer mit der angegebenen ID zu erhalten
+    const userPoints = await User.findOne({ userId });
+    res.json({ points: userPoints.points });
+  } catch (error) {
+    console.error("Fehler beim Abrufen der Benutzerpunkte:", error);
+    res.status(500).json({ error: "Interner Serverfehler" });
+  }
+});
+
 module.exports = router;

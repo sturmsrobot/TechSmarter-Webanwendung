@@ -45,6 +45,7 @@ exports.loginUser = async (req, res) => {
 
     // Find user by email
     const user = await User.findOne({ where: { email } });
+    console.log("Hallo von Login!", user, email, password);
     if (!user) {
       return res.status(401).json({ message: "Invalid credentials" });
     }
@@ -57,8 +58,9 @@ exports.loginUser = async (req, res) => {
 
     // Generate JWT token
     const token = jwt.sign({ userId: user.id, email: user.email }, jwtSecret);
+    console.log("Login erfolgreich!", user);
 
-    res.json({ message: "Login successful", token });
+    res.json({ user, token });
   } catch (error) {
     console.error("Error logging in user:", error);
     res.status(500).json({ message: "Internal Server Error" });
