@@ -1,6 +1,6 @@
 // Verwaltet die Authentifizierungszustände und -aktionen
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { login, register } from "../config/api"; // Importiert die API-Funktionen
+import { login, register, UserDashboard } from "../config/api"; // Importiert die API-Funktionen
 
 const AuthContext = createContext();
 
@@ -30,7 +30,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const handleRegister = async (userData) => {
+  const signUp = async (userData) => {
     try {
       await register(userData);
       // Optionally handle successful registration
@@ -46,9 +46,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider
-      value={{ user, handleLogin, handleRegister, handleLogout }}
-    >
+    <AuthContext.Provider value={{ user, handleLogin, signUp, handleLogout }}>
       {children}
     </AuthContext.Provider>
   );

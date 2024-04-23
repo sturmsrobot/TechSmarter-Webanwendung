@@ -356,4 +356,19 @@ Ich verwende `bcrypt` zum sicheren Hashen von Passwörtern, bevor sie in der Dat
 - `AuthProvider.js` erstellt
 - Durch das Einbetten aller Routen in den `AuthProvider` wird der Authentifizierungskontext über die gesamte Anwendung hinweg verfügbar gemacht
 - Import von `AuthProvider` in der `App.js`
+- In `AuthProvider.js` werden die Funktionen zum Anmelden, Registrieren und Abmelden definiert und über den `AuthContext` bereitgestellt. Diese Funktionen werden dann von `SignIn.js` und `SignUp.js` über die useAuth-Hook verwendet, um die entsprechenden Aktionen auszuführen.
 
+
+# Express-App Dokumentation - Dienstag, 23. April 2024
+
+## Was ist heute passiert?
+- Wir haben das Problem mit der AuthProvider.js behoben, indem wir die signUp-Funktion implementiert haben, um die Benutzerregistrierung zu ermöglichen.
+- Es wurde festgestellt, dass das Problem in der SignUp.js-Datei auftrat, da die signUp-Funktion nicht ordnungsgemäß in der AuthProvider.js definiert war.
+- Um das Problem zu lösen, wurde die signUp-Funktion korrekt in der AuthProvider.js definiert und in der SignUp.js-Datei verwendet.
+- Nachdem das Problem behoben war, haben wir die SignUp-Komponente in eine Funktion umgewandelt, um eine konsistente Funktionsweise innerhalb der Anwendung sicherzustellen.
+- Anschließend haben wir die Änderungen in der SignUp.js-Datei überprüft, um sicherzustellen, dass die Funktionalität der Benutzerregistrierung ordnungsgemäß implementiert wurde.
+
+- Ich habe einen Fehler in der Express-App behoben, indem ich router.use anstelle von app.get verwendet habe.
+- Die Route /api/user/:userId/points wurde in den UserRoutes hinzugefügt, um Benutzerpunkte abzurufen.
+- Eine neue React-Komponente namens UserDashboard wurde erstellt, um Benutzerdaten anzuzeigen und API-Anfragen zu verwalten.
+- Die UserDashboard-Komponente wurde in die Hauptanwendung integriert und über die entsprechende Route erreichbar gemacht.
