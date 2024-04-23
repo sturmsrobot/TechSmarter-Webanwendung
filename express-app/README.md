@@ -356,4 +356,4 @@ Ich verwende `bcrypt` zum sicheren Hashen von Passwörtern, bevor sie in der Dat
 - `AuthProvider.js` erstellt
 - Durch das Einbetten aller Routen in den `AuthProvider` wird der Authentifizierungskontext über die gesamte Anwendung hinweg verfügbar gemacht
 - Import von `AuthProvider` in der `App.js`
-
+- In `AuthProvider.js` werden die Funktionen zum Anmelden, Registrieren und Abmelden definiert und über den `AuthContext` bereitgestellt. Diese Funktionen werden dann von `SignIn.js` und `SignUp.js` über die useAuth-Hook verwendet, um die entsprechenden Aktionen auszuführen.

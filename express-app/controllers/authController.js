@@ -40,6 +40,7 @@ exports.registerUser = async (req, res) => {
 
 exports.loginUser = async (req, res) => {
   try {
+    console.log("Hallo von Login!");
     // Extract email and password from request body
     const { email, password } = req.body;
 
@@ -57,8 +58,9 @@ exports.loginUser = async (req, res) => {
 
     // Generate JWT token
     const token = jwt.sign({ userId: user.id, email: user.email }, jwtSecret);
+    console.log("Login erfolgreich!", user);
 
-    res.json({ message: "Login successful", token });
+    res.json({ user, token });
   } catch (error) {
     console.error("Error logging in user:", error);
     res.status(500).json({ message: "Internal Server Error" });
