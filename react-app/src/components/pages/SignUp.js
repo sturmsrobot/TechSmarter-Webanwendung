@@ -123,7 +123,7 @@ export function SignUp() {
                       onChange={handleChange}
                     />
                   }
-                  label="Ich würde gerne permanent genervt werden mit unnötigen rotz Mails."
+                  label="Ich würde gerne permanent genervt werden mit unnötigen Mails & akzeptiere diverse AGB's."
                 />
               </Grid>
             </Grid>

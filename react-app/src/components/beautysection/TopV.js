@@ -23,9 +23,9 @@ function eyecatch() {
           className="btns"
           buttonStyle="btn--primary"
           buttonSize="btn--large"
+          path="/dashboard"
         >
-          {" "}
-          Top Brains <i className="far fa-play-circle" />
+          Dashboard <i className="far fa-play-circle" />
         </Button>
       </div>
     </div>

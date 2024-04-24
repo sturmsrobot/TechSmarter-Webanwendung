@@ -2,14 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Carditem(props) {
+  const linkTarget = props.openNewTab ? "_blank" : "_self";
   return (
     <>
       <li className="cards__item">
-        <Link className="cards__item__link" to={props.path}>
+        <Link className="cards__item__link" to={props.path} target={linkTarget}>
           <figure className="cards__item__pic-wrap" data-category={props.label}>
             <img
               src={props.src}
-              alt="Minimalistic B/W Pictue"
+              alt="TechSmarter Webpage"
               className="cards__item__img"
             />
           </figure>
