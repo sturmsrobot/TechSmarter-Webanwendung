@@ -19,7 +19,8 @@ function Cards() {
               src="pictures/code.jpg"
               text="Werbung?"
               label="Minimalism"
-              path="/sandbox"
+              path="https://github.com/sturmsrobot/Projektphase-main"
+              openNewTab={true}
             />
           </ul>
           <ul className="cards__items">
@@ -37,7 +38,7 @@ function Cards() {
             />
             <Carditem
               src="pictures/coral.jpg"
-              text="Hier könnte was anderes stehen"
+              text="Hier könnte auch was anderes stehen"
               label="Python"
               path="/quiz"
             />
