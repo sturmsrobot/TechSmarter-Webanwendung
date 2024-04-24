@@ -11,12 +11,11 @@ function eyecatch() {
       <p>Test your knowledge...</p>
       <div className="eyecatch-btns">
         <Button
+          path="/quiz"
           className="btns"
           buttonStyle="btn--outline"
           buttonSize="btn--large"
-          path="/quiz"
         >
-          {" "}
           Lets go!
         </Button>
 
