@@ -75,7 +75,7 @@ function Footer() {
                 target="_blank"
                 aria-label="Bitjoin"
               >
-                <i class="fa-brands fa-bitcoin"></i>
+                <i className="fa-brands fa-bitcoin"></i>
               </Link>
             </div>
           </div>
