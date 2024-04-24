@@ -54,7 +54,7 @@ function Navbar() {
                 className="nav-links"
                 onClick={closeMobileMenu}
               >
-                Sandbox
+                Wissen
               </Link>
             </li>
             <li className="nav-item">

@@ -13,7 +13,7 @@ function Cards() {
               src="pictures/html5.png"
               text="Das gesamte HTML Wissen mit einem Klick"
               label="HTML"
-              path="/"
+              path="/htmlpage"
             />
             <Carditem
               src="pictures/javascript.png"
@@ -32,7 +32,7 @@ function Cards() {
               src="pictures/DevOps.png"
               text="DevOps die Zukunft?"
               label="DevOps"
-              path="https://www.w3schools.com/"
+              path="https://roadmap.sh/"
               openNewTab={true}
             />
           </ul>

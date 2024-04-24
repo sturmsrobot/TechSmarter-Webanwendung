@@ -11,6 +11,7 @@ import SignIn from "./components/pages/SignIn";
 import GameFrame from "./game/SuperGame";
 import { AuthProvider } from "./api/auth/AuthProvider";
 import UserDashboard from "./components/pages/UserDashboard";
+import HTMLPage from "./components/pages/HtmlPage";
 
 function App() {
   return (
@@ -25,8 +26,8 @@ function App() {
             <Route path="/sign-up" element={<SignUp />} />
             <Route path="/sign-in" element={<SignIn />} />
             <Route path="/GTAVI" element={<GameFrame />} />
-         <Route path="/dashboard" element={<UserDashboard />} />
-
+            <Route path="/dashboard" element={<UserDashboard />} />
+            <Route path="/htmlpage" element={<HTMLPage />} />
           </Routes>
           <Footer />
         </AuthProvider>
