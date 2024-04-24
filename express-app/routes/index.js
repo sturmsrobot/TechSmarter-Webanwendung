@@ -15,6 +15,6 @@ router.use("/questions", QuestionsRoutes);
 router.use("/answers", AnswersRoutes);
 router.use("/quizzes", QuizzesRoutes);
 router.use("/stats", StatsRoutes);
-router.use("/users", UserRoutes);
+router.use("/user", UserRoutes);
 
 module.exports = router;

@@ -3,7 +3,7 @@ const router = express.Router();
 const Stats = require("../models/Stats");
 const { body } = require("express-validator");
 
-router.get("/all", (req, res) => {
+router.get("/", (req, res) => {
   Stats.findAll()
     .then((stats) => {
       res.json(stats);

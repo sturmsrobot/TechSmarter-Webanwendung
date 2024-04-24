@@ -4,7 +4,7 @@ const { body, validationResult } = require("express-validator");
 const User = require("../models/Users");
 
 // GET-Anforderungen (Benutzerdaten abrufen):
-router.get("/all", (req, res) => {
+router.get("/", (req, res) => {
   User.findAll()
     .then((user) => {
       res.json(user);

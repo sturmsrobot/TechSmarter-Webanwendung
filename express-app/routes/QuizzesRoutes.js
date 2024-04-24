@@ -3,7 +3,7 @@ const router = express.Router();
 const { body, validationResult } = require("express-validator");
 const Quizzes = require("../models/Quizzes");
 
-router.get("/all", (req, res) => {
+router.get("/", (req, res) => {
   Quizzes.findAll()
     .then((quizzes) => {
       res.json(quizzes);
