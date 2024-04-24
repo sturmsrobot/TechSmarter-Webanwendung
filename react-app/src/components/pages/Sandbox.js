@@ -19,14 +19,14 @@ function Cards() {
               src="pictures/javascript.png"
               text="Lerne noch heute JavaScript"
               label="JavaScript"
-              path="/"
+              path="/javascriptpage"
             />
 
             <Carditem
               src="pictures/python.webp"
               text="Python für Anfänger und Fortgeschrittene"
               label="Python"
-              path="/"
+              path="/pythonpage"
             />
             <Carditem
               src="pictures/DevOps.png"

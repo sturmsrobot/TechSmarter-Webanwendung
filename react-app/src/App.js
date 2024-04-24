@@ -12,6 +12,8 @@ import GameFrame from "./game/SuperGame";
 import { AuthProvider } from "./api/auth/AuthProvider";
 import UserDashboard from "./components/pages/UserDashboard";
 import HTMLPage from "./components/pages/HtmlPage";
+import JavaScriptPage from "./components/pages/JavaScriptPage";
+import PythonPage from "./components/pages/PythonPage";
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
             <Route path="/GTAVI" element={<GameFrame />} />
             <Route path="/dashboard" element={<UserDashboard />} />
             <Route path="/htmlpage" element={<HTMLPage />} />
+            <Route path="/javascriptpage" element={<JavaScriptPage />} />
+            <Route path="/pythonpage" element={<PythonPage />} />
           </Routes>
           <Footer />
         </AuthProvider>
