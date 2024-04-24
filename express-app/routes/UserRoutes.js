@@ -104,7 +104,7 @@ router.get("/:userId/points", async (req, res) => {
     console.log("Irgendwas rein", userId);
     // Hier rufst du die Benutzerpunkte aus der Datenbank ab
     // Verwende eine Datenbankabfrage, um die Punkte für den Benutzer mit der angegebenen ID zu erhalten
-    const userPoints = await User.findOne({ id: userId });
+    const userPoints = await User.findOne({ where: { id: userId } });
     res.json({ points: userPoints.points });
   } catch (error) {
     console.error("Fehler beim Abrufen der Benutzerpunkte:", error);
