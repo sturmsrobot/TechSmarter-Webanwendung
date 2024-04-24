@@ -1,8 +1,8 @@
 const TestDataUsers = [
     {
       userId: 1,
-      username: "Pimmelnase",
-      email: "pimmelnase@doofenamen.com",
+      username: "IsoldeMaduschn",
+      email: "isoldemaduschn@doofenamen.com",
       password: "123456",
       points: 0,
     },
