@@ -116,3 +116,8 @@ h1 {
     margin-bottom: 2rem;
   }
 }
+
+.techlinks {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+}

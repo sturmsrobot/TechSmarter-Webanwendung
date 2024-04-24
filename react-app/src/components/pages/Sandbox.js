@@ -1,6 +1,45 @@
 import React from "react";
-import "../../App.css";
+import Carditem from "../slots/Carditem";
+import "../slots/Cards.css";
 
-export default function Sandbox() {
-  return <h1 className="sandbox">SANDBOX</h1>;
+function Cards() {
+  return (
+    <div className="cards">
+      <h1 className="techlinks">TechLinks</h1>
+      <div className="cards__container">
+        <div className="cards__wrapper">
+          <ul className="cards__items">
+            <Carditem
+              src="pictures/html5.png"
+              text="Das gesamte HTML Wissen mit einem Klick"
+              label="HTML"
+              path="/"
+            />
+            <Carditem
+              src="pictures/javascript.png"
+              text="Lerne noch heute JavaScript"
+              label="JavaScript"
+              path="/"
+            />
+
+            <Carditem
+              src="pictures/python.webp"
+              text="Python für Anfänger und Fortgeschrittene"
+              label="Python"
+              path="/"
+            />
+            <Carditem
+              src="pictures/DevOps.png"
+              text="DevOps die Zukunft?"
+              label="DevOps"
+              path="https://www.w3schools.com/"
+              openNewTab={true}
+            />
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
 }
+
+export default Cards;
