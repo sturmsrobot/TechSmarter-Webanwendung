@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { getUserPoints } from "../../api/config/api";
 import { useAuth } from "../../api/auth/AuthProvider";
+import "../../App.css";
 
 const UserDashboard = () => {
   const { user, setUser } = useAuth();
@@ -10,8 +11,9 @@ const UserDashboard = () => {
     const fetchUserData = async () => {
       try {
         const response = await getUserPoints(user.id);
-       
-     console.log("Hallöchen", response.data);    setUser({ ...user, ...response });
+
+        console.log("Hallöchen", response.data);
+        setUser({ ...user, ...response });
       } catch (error) {
         console.error("Fehler beim Abrufen der Benutzerdaten:", error);
       }

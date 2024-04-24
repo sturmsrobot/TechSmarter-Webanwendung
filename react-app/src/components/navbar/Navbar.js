@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { Button } from "../buttons/Button";
 import "./Navbar.css";
 import { useAuth } from "../../api/auth/AuthProvider";
+import Avatar from "@mui/material/Avatar";
+import Stack from "@mui/material/Stack";
 
 function Navbar() {
   const { user, handleLogout } = useAuth();
@@ -81,6 +83,11 @@ function Navbar() {
             <Button onClick={handleLogout} buttonStyle="btn--outline" path="/">
               Logout
             </Button>
+          )}
+          {user && (
+            <Stack direction="row" spacing={2}>
+              <Avatar alt="Hacker Dude" src="/pictures/hacker.png" />
+            </Stack>
           )}
         </div>
       </nav>
