@@ -12,7 +12,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #686868;
+  background-color: #b8b8b8;
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .container {

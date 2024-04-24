@@ -10,15 +10,13 @@ function Footer() {
         <p className="footer-subscription-heading">
           Verkaufe noch heute HIER deine Seele und erlange grenzenlose MACHT!
         </p>
-        <p className="footer-subscription-text">
-          Hier könntest du deine Seele zurückbekommen, wenn wir das wollen...
-        </p>
+        <p className="footer-subscription-text">Oder auch nicht...</p>
         <div className="input-areas">
           <form>
             <input
               type="email"
               name="email"
-              placeholder="Deine E-mail"
+              placeholder="Deine Seele"
               className="footer-input"
             />
             <Button buttonStyle="btn--outline">Verkaufen...</Button>
@@ -29,7 +27,7 @@ function Footer() {
         <div className="footer-link-wrapper">
           <div className="footer-link-item">
             <h2>About us</h2>
-            <Link to="/sign-up">Hier gehts los</Link>
+            <Link to="/sign-up">Hier geht's los</Link>
             <Link to="/">Wer wir sind</Link>
             <Link to="/">Impressum</Link>
             <Link to="/">AGB's</Link>
@@ -75,7 +73,7 @@ function Footer() {
                 target="_blank"
                 aria-label="Bitjoin"
               >
-                <i className="fa-brands fa-bitcoin"></i>
+                Free Bitcoins<i className="fa-brands fa-bitcoin"></i>
               </Link>
             </div>
           </div>
