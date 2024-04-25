@@ -113,6 +113,14 @@
   align-items: center;
 }
 
+.dashboard-content {
+  background-color: #242424;
+  color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+}
+
 .user-info {
   margin-top: 20px;
   text-align: center;

@@ -28,15 +28,22 @@ function Footer() {
           <div className="footer-link-item">
             <h2>About us</h2>
             <Link to="/sign-up">Hier geht's los</Link>
-            <Link to="/">Wer wir sind</Link>
+            <Link to="/teampage">Wer wir sind</Link>
             <Link to="/">Impressum</Link>
             <Link to="/">AGB's</Link>
           </div>
           <div className="footer-link-item">
             <h2>Kontakt</h2>
             <Link to="/">Mail</Link>
-            <Link to="/">Fax</Link>
-            <Link to="/">Brieftaube</Link>
+            <Link
+              to="https://dlsueilsetm4b.cloudfront.net/tonerpartner.de/out/media/image/faxgeraet_philips.jpg"
+              target="_blank"
+            >
+              Fax
+            </Link>
+            <Link to="https://www.brieftaube.de/" target="_blank">
+              Brieftaube
+            </Link>
             <Link to="/">Social Media</Link>
           </div>
         </div>
