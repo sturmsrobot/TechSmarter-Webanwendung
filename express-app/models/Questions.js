@@ -4,17 +4,16 @@ const sequelize = require('../config/database');
 const Question = sequelize.define(
   'Question', 
   {
-  quiz_id: {
+  quizId: {
     type: DataTypes.INTEGER,
-    primaryKey: true,
-    allowNull: false,
+    allowNull: false, 
   },
-  question_id: {
+  questionId: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     allowNull: false,
     },
-  question_text: {
+  questionText: {
     type: DataTypes.STRING,
     allowNull: false,
   },

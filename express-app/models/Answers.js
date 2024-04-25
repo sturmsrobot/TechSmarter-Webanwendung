@@ -1,28 +1,31 @@
 const { DataTypes, Model } = require("sequelize");
 const sequelize = require("../config/database");
-const Question = require("./Question");
+const Question = require("./Questions");
 const { FOREIGNKEYS } = require("sequelize/lib/query-types");
 
 const Answer = sequelize.define(
   "Answer", 
 {
-  quiz_id: {
+  // id: {
+  // type: DataTypes.INTEGER,
+  // autoIncrement: true,
+  // primaryKey: true,
+  // },
+  quizId: {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
-  question_id: {
+  questionId: {
     type: DataTypes.INTEGER,
   },
-  id: {
+  answerId: {
     type: DataTypes.INTEGER,
-    autoIncrement: true,
-    primaryKey: true,
   },
-  answer_text: {
+  answerText: {
     type: DataTypes.STRING,
     allowNull: false,
   },
-  is_correct: {
+  isCorrect: {
     type: DataTypes.BOOLEAN,
     allowNull: false,
     defaultValue: false,
