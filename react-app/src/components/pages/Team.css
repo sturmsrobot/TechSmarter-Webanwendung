@@ -1,0 +1,69 @@
+.team {
+  padding: 4rem;
+  background: #fff;
+}
+
+h1 {
+  text-align: center;
+}
+
+.team-members {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.team-member {
+  max-width: 300px;
+  margin: 20px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.team-member-info {
+  margin-bottom: 10px;
+}
+
+.team-member-info h2 {
+  margin-bottom: 5px;
+}
+
+.team-member-bio {
+  font-size: 16px;
+  color: #555;
+}
+
+.team-member-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 10%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.call-to-action {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px; /* Anpassen, je nachdem wie viel Abstand du zwischen den Kacheln und dem Textfeld haben möchtest */
+}
+
+.cta-box {
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  background-color: #f9f9f9;
+}
+
+.cta-box p {
+  font-size: 16px;
+}
+
+.cta-box a {
+  color: #04b0bd;
+  text-decoration: none;
+}
+
+.cta-box a:hover {
+  text-decoration: line-through;
+}

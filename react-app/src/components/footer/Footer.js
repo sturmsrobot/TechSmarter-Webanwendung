@@ -28,7 +28,7 @@ function Footer() {
           <div className="footer-link-item">
             <h2>About us</h2>
             <Link to="/sign-up">Hier geht's los</Link>
-            <Link to="/">Wer wir sind</Link>
+            <Link to="/teampage">Wer wir sind</Link>
             <Link to="/">Impressum</Link>
             <Link to="/">AGB's</Link>
           </div>
