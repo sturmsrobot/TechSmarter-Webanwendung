@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "../../App.css";
 
-const TrophiesList = () => {
+const TrophiesList = ({ points }) => {
   const [trophies, setTrophies] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchTrophies = async () => {
       try {
-        const response = await axios.get("http://localhost:5050/trophies");
+        const response = await axios.get(
+          `http://localhost:5050/trophies/points?points=${points}`
+        );
         setTrophies(response.data);
         setLoading(false);
       } catch (error) {
@@ -33,7 +36,7 @@ const TrophiesList = () => {
         <div key={trophy.id}>
           <h3>{trophy.name}</h3>
           <p>{trophy.description}</p>
-          <img src={trophy.imageUrl} alt={trophy.name} />
+          <img className="trophy" src={trophy.imageUrl} alt={trophy.name} />
         </div>
       ))}
     </div>

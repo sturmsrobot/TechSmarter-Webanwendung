@@ -23,7 +23,7 @@ const UserDashboard = () => {
     if (user) {
       fetchUserData();
     }
-  }, [user, setUser]);
+  }, []);
 
   return (
     <div className="user-dashboard">
@@ -33,7 +33,7 @@ const UserDashboard = () => {
           <p>Name: {user.username}</p>
           <p>Punkte: {user.points}</p>
           {/* Weitere Benutzerdaten anzeigen */}
-          <TrophiesList />
+          <TrophiesList points={user.points} />
         </div>
       ) : (
         <p>Lade Benutzerdaten...</p>

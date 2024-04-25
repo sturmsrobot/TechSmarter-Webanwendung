@@ -122,3 +122,10 @@
   font-size: 25px;
   margin-bottom: 10px;
 }
+
+.trophy {
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
