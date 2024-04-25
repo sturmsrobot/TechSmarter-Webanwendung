@@ -7,7 +7,6 @@ const UserDashboard = () => {
   const { user, setUser } = useAuth();
 
   useEffect(() => {
-    // Funktion zum Abrufen der Benutzerdaten aufrufen, wenn die Komponente montiert ist
     const fetchUserData = async () => {
       try {
         const response = await getUserPoints(user.id);
@@ -27,15 +26,20 @@ const UserDashboard = () => {
   return (
     <div className="user-dashboard">
       <h2>User Dashboard</h2>
-      {user ? (
-        <div className="user-info">
-          <p>Name: {user.username}</p>
-          <p>Punkte: {user.points}</p>
-          {/* Weitere Benutzerdaten anzeigen */}
-        </div>
-      ) : (
-        <p>Lade Benutzerdaten...</p>
-      )}
+      <div className="dashboard-content">
+        {user ? (
+          <div className="user-info">
+            <p>Name: {user.username}</p>
+            <p>Punkte: {user.points}</p>
+            {/* Weitere Benutzerdaten anzeigen */}
+          </div>
+        ) : (
+          <>
+            <p>Hier könnten deine Daten stehen.</p>
+            <p>Bitte warten...</p>
+          </>
+        )}
+      </div>
     </div>
   );
 };
