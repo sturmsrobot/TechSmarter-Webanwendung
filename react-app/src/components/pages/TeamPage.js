@@ -4,12 +4,12 @@ import "./Team.css";
 import tinaImage from "./profilepictures/tinaprof.jpg";
 import janImage from "./profilepictures/magejan.JPG";
 import mauriceImage from "./profilepictures/songoku.jpg";
-// import tobiImage from "./profilepictures/";
+import tobiImage from "./profilepictures/tobiprof.png";
 
 const tinaImageSrc = tinaImage;
 const janImageSrc = janImage;
 const mauriceImageSrc = mauriceImage;
-// const tobiImageSrc = tobiImage;
+const tobiImageSrc = tobiImage;
 
 const teamMembers = [
   {
@@ -22,7 +22,7 @@ const teamMembers = [
     name: "Tobias 'Tobi' / 'Tavirp'",
     position: "Backend Developer",
     bio: "Ein erfahrener Programmierer mit einem Hintergrund in Datenbanken und Systemarchitektur.",
-    image: mauriceImageSrc,
+    image: tobiImageSrc,
   },
   {
     name: "Justina 'Tina' / 'sturmsrobot'",
