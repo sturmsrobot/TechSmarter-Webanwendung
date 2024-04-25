@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { getUserPoints } from "../../api/config/api";
 import { useAuth } from "../../api/auth/AuthProvider";
+import TrophiesList from "../trophies/TrophiesList";
 import "../../App.css";
 
 const UserDashboard = () => {
@@ -22,7 +23,7 @@ const UserDashboard = () => {
     if (user) {
       fetchUserData();
     }
-  }, [user, setUser]);
+  }, []);
 
   return (
     <div className="user-dashboard">
@@ -32,6 +33,7 @@ const UserDashboard = () => {
           <p>Name: {user.username}</p>
           <p>Punkte: {user.points}</p>
           {/* Weitere Benutzerdaten anzeigen */}
+          <TrophiesList points={user.points} />
         </div>
       ) : (
         <p>Lade Benutzerdaten...</p>
