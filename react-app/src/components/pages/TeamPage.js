@@ -4,7 +4,7 @@ import "./Team.css";
 import tinaImage from "./profilepictures/tinaprof.jpg";
 import janImage from "./profilepictures/magejan.JPG";
 import mauriceImage from "./profilepictures/songoku.jpg";
-import tobiImage from "./profilepictures/tobiprof.png";
+import tobiImage from "./profilepictures/tobiprof.jpg";
 
 const tinaImageSrc = tinaImage;
 const janImageSrc = janImage;
