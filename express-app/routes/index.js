@@ -7,6 +7,7 @@ const QuestionAnswerRoutes = require("./QuestionAnswerRoutes");
 const QuizzesRoutes = require("./QuizzesRoutes");
 const StatsRoutes = require("./StatsRoutes");
 const UserRoutes = require("./UserRoutes");
+const trophiesRoutes = require("./trophiesRoutes");
 
 // Verwende Routen
 router.use("/auth", authRoutes);
@@ -14,5 +15,6 @@ router.use("/question-answer", QuestionAnswerRoutes);
 router.use("/quizzes", QuizzesRoutes);
 router.use("/stats", StatsRoutes);
 router.use("/user", UserRoutes);
+router.use("/trophies", trophiesRoutes);
 
 module.exports = router;

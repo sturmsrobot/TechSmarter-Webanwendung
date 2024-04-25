@@ -15,6 +15,8 @@ import HTMLPage from "./components/pages/HtmlPage";
 import JavaScriptPage from "./components/pages/JavaScriptPage";
 import PythonPage from "./components/pages/PythonPage";
 import Team from "./components/pages/TeamPage";
+import HighscoreBoard from "./Pages/Highscore/highscore";
+
 
 function App() {
   return (
@@ -34,6 +36,7 @@ function App() {
             <Route path="/javascriptpage" element={<JavaScriptPage />} />
             <Route path="/pythonpage" element={<PythonPage />} />
             <Route path="/teampage" element={<Team />} />
+            <Route path="/highscore" element={<HighscoreBoard />} />
           </Routes>
           <Footer />
         </AuthProvider>
