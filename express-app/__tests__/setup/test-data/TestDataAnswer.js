@@ -1,34 +1,34 @@
 const TestDataAnswer = [
 
     {
-      quiz_id: 1,
-      question_id: 1,
-      answer_text: "Hyper Text Markup Language",
-      is_correct: true
+      quizId: 1,
+      questionId: 1,
+      answerText: "Hyper Text Markup Language",
+      isCorrect: true
     },
     {
-      quiz_id: 1,
-      question_id: 1,
-      answer_text: "Home Tool Markup Language",
-      is_correct: false
+      quizId: 1,
+      questionId: 1,
+      answerText: "Home Tool Markup Language",
+      isCorrect: false
     },
     {
-      quiz_id: 1,
-      question_id: 1,
-      answer_text: "Hyperlinks and Text Markup Language",
-      is_correct: false
+      quizId: 1,
+      questionId: 1,
+      answerText: "Hyperlinks and Text Markup Language",
+      isCorrect: false
     },
     {
-      quiz_id: 2,
-      question_id: 1,
-      answer_text: "Echo (Hello World)",
-      is_correct: false
+      quizId: 2,
+      questionId: 1,
+      answerText: "Echo (Hello World)",
+      isCorrect: false
     },
     {
-      quiz_id: 3,
-      question_id: 69,
-      answer_text: "<scripting>",
-      is_correct: false
+      quizId: 3,
+      questionId: 69,
+      answerText: "<scripting>",
+      isCorrect: false
     },
   ];
   

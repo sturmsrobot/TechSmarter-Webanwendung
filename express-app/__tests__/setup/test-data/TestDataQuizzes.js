@@ -1,18 +1,18 @@
 const TestDataQuizzes = [
     {
-      quiz_id: 1,
-      quiz_name: "HTML",
-      questions_total: 256,
+      quizId: 1,
+      quizName: "HTML",
+      questionsTotal: 256,
     },
     {
-      quiz_id: 2,
-      quiz_name: "Python",
-      questions_total: 128,
+      quizId: 2,
+      quizName: "Python",
+      questionsTotal: 128,
     },
     {
-      quiz_id: 3,
-      quiz_name: "Javaskript",
-      questions_total: 192,
+      quizId: 3,
+      quizName: "Javaskript",
+      questionsTotal: 192,
     },
   ];
   
