@@ -20,6 +20,10 @@ const Trophy = sequelize.define("Trophy", {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  points: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
 });
 
 module.exports = Trophy;

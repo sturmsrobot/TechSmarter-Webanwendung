@@ -3,6 +3,7 @@ const sequelize = require("../config/database");
 const Question = require("./Questions");
 const { FOREIGNKEYS } = require("sequelize/lib/query-types");
 
+
 const Answer = sequelize.define(
     "Answer", 
   {
@@ -31,4 +32,4 @@ const Answer = sequelize.define(
   Answer.belongsTo(Question);
   
   module.exports = Answer;
-  
+ 
