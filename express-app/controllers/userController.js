@@ -2,7 +2,8 @@ const User = require("../models/Users");
 
 // Funktion zum Hinzufügen von Punkten zu einem Benutzer
 const addPoints = async (req, res) => {
-  const { username, points } = req.body;
+  console.log(req.body);
+  const { username, points } = req.body.data;
   try {
     // Finde den Benutzer in der Datenbank
     const user = await User.findOne({ where: { username } });

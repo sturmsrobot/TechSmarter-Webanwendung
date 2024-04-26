@@ -164,6 +164,7 @@ const nextQuestion = () => {
     showQuestion(questions[currentQuestion - 1]);
   } else {
     showScore();
+    sendScore();
   }
 };
 
@@ -178,6 +179,22 @@ const showScore = () => {
   quiz.classList.add("hide");
   finalScore.innerHTML = score;
   totalScore.innerHTML = `/${questions.length}`;
+};
+
+const sendScore = () => {
+  const username = localStorage.getItem("username");
+  const points = score;
+  const data = { username, points };
+  console.log(data);
+  console.log(JSON.stringify(data));
+  fetch("http://localhost:5050/user/addPoints", {
+    method: "POST",
+    mode: "cors",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: data,
+  });
 };
 
 const restartBtn = document.querySelector(".restart");

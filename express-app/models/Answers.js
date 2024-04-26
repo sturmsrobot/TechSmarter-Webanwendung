@@ -3,14 +3,12 @@ const sequelize = require("../config/database");
 const Question = require("./Questions");
 const { FOREIGNKEYS } = require("sequelize/lib/query-types");
 
-const Answer = sequelize.define(
-  "Answer", 
-{
-  // id: {
-  // type: DataTypes.INTEGER,
-  // autoIncrement: true,
-  // primaryKey: true,
-  // },
+const Answer = sequelize.define("Answer", {
+  id: {
+    type: DataTypes.INTEGER,
+    autoIncrement: true,
+    primaryKey: true,
+  },
   quizId: {
     type: DataTypes.INTEGER,
     allowNull: false,

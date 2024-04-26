@@ -27,6 +27,7 @@ export const AuthProvider = ({ children }) => {
       localStorage.setItem("token", token);
       console.log("response bitte", response);
       setUser(response.user);
+      localStorage.setItem("username", response.user.username);
       navigate("/dashboard");
     } catch (error) {
       console.error("Login error:", error);
