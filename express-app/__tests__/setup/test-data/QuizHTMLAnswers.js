@@ -424,66 +424,22 @@ const QuizHTMLAnswers = [
         quizId: 1,
         questionId: 20,
         answerId: 1,
-        answerText: "", // "<image src="bild.jpg" alt="Beschreibung">",
+        answerText: '<image src="bild.jpg" alt="Beschreibung">',
         isCorrect: false
     },
     {
         quizId: 1,
         questionId: 20,
         answerId: 2,
-        answerText: "", // "<img src="bild.jpg" alt="Beschreibung">",
+        answerText: '<img src="bild.jpg" alt="Beschreibung">',
         isCorrect: true
     },    {
         quizId: 1,
         questionId: 20,
         answerId: 3,
-        answerText: "", // "<picture src="bild.jpg" alt="Beschreibung">",
+        answerText: '<picture src="bild.jpg" alt="Beschreibung">',
         isCorrect: false
     },
 
-
-    {
-        quizId: 1,
-        questionId: 21,
-        answerId: 1,
-        answerText: "",
-        isCorrect: false
-    },
-    {
-        quizId: 1,
-        questionId: 21,
-        answerId: 2,
-        answerText: "",
-        isCorrect: false
-    },    {
-        quizId: 1,
-        questionId: 21,
-        answerId: 3,
-        answerText: "",
-        isCorrect: false
-    },
-
-
-    {
-        quizId: 1,
-        questionId: 22,
-        answerId: 1,
-        answerText: "",
-        isCorrect: false
-    },
-    {
-        quizId: 1,
-        questionId: 22,
-        answerId: 2,
-        answerText: "",
-        isCorrect: false
-    },    {
-        quizId: 1,
-        questionId: 22,
-        answerId: 3,
-        answerText: "",
-        isCorrect: false
-    },
-    
 ]
 module.exports = QuizHTMLAnswers;
