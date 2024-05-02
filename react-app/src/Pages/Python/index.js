@@ -6,8 +6,8 @@ import Aufgabe2 from "./Aufgabe2";
 const Python = () => {
   const [text, setText] = useState("");
   const welcomeText = "Willkommen zum Python Lernen!";
-  const [aufgabe1Imported, setAufgabe1Imported] = useState(false); // Zustand für den Importstatus von Aufgabe 1
-  const [aufgabe2Imported, setAufgabe2Imported] = useState(false); // Zustand für den Importstatus von Aufgabe 2
+  const [aufgabe1Imported, setAufgabe1Imported] = useState(false);
+  const [aufgabe2Imported, setAufgabe2Imported] = useState(false);
 
   let interval;
 
@@ -31,11 +31,11 @@ const Python = () => {
 
   const importTask = (taskName) => {
     console.log(`Importiere Aufgabe: ${taskName}`);
-    // Hier könntest du die Logik für den Import der Aufgaben implementieren
+
     if (taskName === "Aufgabe 1") {
-      setAufgabe1Imported(true); // Setze den Zustand, um anzuzeigen, dass Aufgabe 1 importiert wurde
+      setAufgabe1Imported(true);
     } else if (taskName === "Aufgabe 2") {
-      setAufgabe2Imported(true); // Setze den Zustand, um anzuzeigen, dass Aufgabe 2 importiert wurde
+      setAufgabe2Imported(true);
     }
   };
 

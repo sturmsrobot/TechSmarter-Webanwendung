@@ -23,7 +23,6 @@ const HTML = () => {
 
   const importTask = (taskName) => {
     console.log(`Importiere Aufgabe: ${taskName}`);
-    // Hier könntest du die Logik für den Import der Aufgaben implementieren
   };
   const redirectToLink = (link) => {
     window.location.href = link;

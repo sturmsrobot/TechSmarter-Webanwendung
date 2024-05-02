@@ -33,7 +33,6 @@ const ProfilePage = () => {
         points: userData.points,
       });
 
-      // Konvertiere die Punkte und setze das Band
       convertPoints(userData.points);
     } catch (error) {
       console.error("Fehler beim Abrufen der Benutzerdaten:", error);
@@ -78,7 +77,6 @@ const ProfilePage = () => {
       newBand = "Kein Band erreicht";
     }
 
-    // Setze das neue Band
     setBand(newBand);
   };
 
