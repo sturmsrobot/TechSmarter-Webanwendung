@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const Trophy = require("../models/Trophy");
-// const TestDataTrophies = require("../__tests__/setup/test-data/TestDataTrophies");
 const { Op } = require("sequelize");
 
 // GET-Endpunkt für alle Trophäen
@@ -15,7 +14,6 @@ router.get("/", async (req, res) => {
   }
 });
 
-//
 router.get("/points", async (req, res) => {
   try {
     const { points } = req.query;

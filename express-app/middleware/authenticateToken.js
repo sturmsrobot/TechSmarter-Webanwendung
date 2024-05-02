@@ -27,9 +27,8 @@ const authenticateToken = (req, res, next) => {
 
 // Funktion zur Überprüfung von Benutzerzugriffen
 const checkUserAccess = (decodedToken) => {
-  // Hier können wir überprüfen, ob der Benutzer die erforderlichen Berechtigungen hat
-  // Beispiel: return decodedToken.roles.includes("admin");
-  return true; // Rückgabewert für Demonstration, sollte entsprechend angepasst werden
+  // Hier können wir überprüfen, ob der Benutzer die erforderlichen Berechtigungen hat:
+  return true; // Rückgabewert für Demonstration
 };
 
 module.exports = authenticateToken;
