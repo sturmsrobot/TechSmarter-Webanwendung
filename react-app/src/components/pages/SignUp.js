@@ -18,7 +18,7 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 export function SignUp() {
   const navigate = useNavigate();
-  const { signUp } = useAuth(); // Verwende die signUp-Funktion aus der useAuth-Hook
+  const { signUp } = useAuth();
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -36,8 +36,8 @@ export function SignUp() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await signUp(formData); // Benutze die signUp-Funktion, um den Benutzer zu registrieren
-      navigate("/"); // Leite den Benutzer nach der Registrierung zur Startseite weiter
+      await signUp(formData);
+      navigate("/");
     } catch (error) {
       console.error("Registrierung fehlgeschlagen:", error);
     }

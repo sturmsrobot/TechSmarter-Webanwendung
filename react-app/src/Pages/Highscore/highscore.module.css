@@ -5,8 +5,8 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #222; /* Dunkler Hintergrund */
-  color: #fff; /* Weiße Schriftfarbe */
+  background-color: #222;
+  color: #fff;
 }
 
 .highscore-board {
@@ -24,17 +24,17 @@ table {
 th,
 td {
   padding: 10px;
-  border-bottom: 1px solid #ddd; /* Hellgraue Linie zwischen den Zeilen */
+  border-bottom: 1px solid #ddd;
 }
 
 th {
-  background-color: #444; /* Dunkelgraues Hintergrund für Kopfzeile */
+  background-color: #444;
 }
 
 tr:nth-child(even) {
-  background-color: #333; /* Dunkelgraues Hintergrund für gerade Zeilen */
+  background-color: #333;
 }
 
 tr:nth-child(odd) {
-  background-color: #222; /* Noch dunkleres Hintergrund für ungerade Zeilen */
+  background-color: #222;
 }

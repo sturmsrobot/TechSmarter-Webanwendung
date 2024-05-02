@@ -5,7 +5,6 @@ function Aufgabe2() {
   const [hintImageVisible, setHintImageVisible] = useState(false);
 
   const handleHintClick = () => {
-    // Hier den Zustand des Bildes aktualisieren, um es anzuzeigen
     setHintImageVisible(true);
   };
 
@@ -44,4 +43,3 @@ function TaskDescription({ handleHintClick }) {
 }
 
 export default Aufgabe2;
-

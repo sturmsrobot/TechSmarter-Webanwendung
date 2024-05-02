@@ -168,7 +168,7 @@ const nextQuestion = () => {
   }
 };
 
-// BIS HIER FUNKTIONIERT ALLES VERDAMMT
+// crit. point
 
 const endScreen = document.querySelector(".end-screen"),
   finalScore = document.querySelector(".final-score");

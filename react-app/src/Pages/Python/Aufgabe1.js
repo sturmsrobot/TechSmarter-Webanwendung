@@ -5,7 +5,6 @@ function Aufgabe1() {
   const [hintImageVisible, setHintImageVisible] = useState(false);
 
   const handleHintClick = () => {
-    // Hier den Zustand des Bildes aktualisieren, um es anzuzeigen
     setHintImageVisible(true);
   };
 
@@ -22,10 +21,8 @@ function Aufgabe1() {
 
 function TaskDescription({ handleHintClick }) {
   const handleLoginClick = () => {
-    // Hier kannst du den Code für den Klick-Handler hinzufügen
     console.log("Der Button wurde geklickt!");
-    // Zum Beispiel:
-    // Gib einen Hinweis für die Aufgabe aus
+
     alert("Hier ist ein Hinweis für die Aufgabe!");
   };
 

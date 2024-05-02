@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import questions from "./questions"; // Importiere die Fragen
+import questions from "./questions";
 import "./styles.css";
-import film from "../../videos/Particle_Tunnel_4K_Motion_Background_Loop.mp4"
+import film from "../../videos/Particle_Tunnel_4K_Motion_Background_Loop.mp4";
 
 const Quiz = () => {
   const topics = ["Python", "HTML", "JavaScript"];
@@ -14,7 +14,7 @@ const Quiz = () => {
       const randomIndex = Math.floor(Math.random() * topics.length);
       setSelectedTopic(topics[randomIndex]);
       setIsSpinning(false);
-    }, 2000); // Change the duration as needed
+    }, 2000);
   };
 
   return (
@@ -31,7 +31,11 @@ const Quiz = () => {
             <div className="wheel-text">{selectedTopic}</div>
           )}
         </div>
-        <button className="spin-button" onClick={spinWheel} disabled={isSpinning}>
+        <button
+          className="spin-button"
+          onClick={spinWheel}
+          disabled={isSpinning}
+        >
           Spin
         </button>
         {selectedTopic && <QuizQuestion topic={selectedTopic} />}
@@ -83,7 +87,9 @@ const QuizQuestion = ({ topic }) => {
               <label htmlFor={option}>{option}</label>
             </div>
           ))}
-          <button className="check-answer" onClick={checkAnswer}>Check Answer</button>
+          <button className="check-answer" onClick={checkAnswer}>
+            Check Answer
+          </button>
         </div>
       )}
     </div>

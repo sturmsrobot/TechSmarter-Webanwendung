@@ -27,7 +27,7 @@
 .headerButtons button {
   background-color: #ffffff;
   color: #333;
-  margin-left: 0; /* Margin für den linken Button auf 0 setzen */
+  margin-left: 0;
   margin-right: 20px;
   padding: 10px 20px;
   cursor: pointer;
@@ -41,7 +41,7 @@
 }
 
 .headerButtons button:hover {
-  background-color: #ff0000; /* Ändern Sie die Hintergrundfarbe beim Überfahren des Buttons */
+  background-color: #ff0000;
 }
 
 .content {
@@ -120,7 +120,7 @@ button {
 }
 
 .dropbtn:hover {
-  background-color: #ff0000; /* Ändern Sie die Hintergrundfarbe beim Überfahren des Dropdown-Buttons */
+  background-color: #ff0000;
 }
 
 .footer {

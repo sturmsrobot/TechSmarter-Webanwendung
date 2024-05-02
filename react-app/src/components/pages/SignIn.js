@@ -12,7 +12,7 @@ import Box from "@mui/material/Box";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
-import { useAuth } from "../../api/auth/AuthProvider"; // Passe den Pfad entsprechend deiner Ordnerstruktur an
+import { useAuth } from "../../api/auth/AuthProvider";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
 function Copyright(props) {
@@ -32,7 +32,6 @@ function Copyright(props) {
     </Typography>
   );
 }
-// TODO remove, this demo shouldn't need to reset the theme.
 const defaultTheme = createTheme();
 export default function SignIn() {
   const { handleLogin } = useAuth();
@@ -43,10 +42,8 @@ export default function SignIn() {
     const password = data.get("password");
     try {
       await handleLogin({ email, password });
-      // Erfolgreicher Login, leite den Benutzer weiter oder führe andere Aktionen aus
     } catch (error) {
       console.error("Login fehlgeschlagen:", error);
-      // Handle Fehler beim Login
     }
   };
   return (
