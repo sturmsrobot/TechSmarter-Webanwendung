@@ -87,7 +87,6 @@ router.put(
       if (!user) {
         return res.status(404).json({ message: "User nicht gefunden!" });
       }
-
       // Aktualisiere die Userdaten
       user.username = username;
       user.email = email;

@@ -54,10 +54,8 @@ module.exports = async () => {
 
   };
 
-// module.exports = {
-//   testEnvironment: customTestEnvironment(),
-//   moduleNameMapper: {
-//     "^jsonwebtoken$": "<rootDir>/__mocks__/jsonwebtoken.js",
-//   },
-//   testRegex: /\.test\.js$/,
-// };
+
+
+
+
+

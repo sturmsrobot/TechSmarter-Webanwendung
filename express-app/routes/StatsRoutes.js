@@ -52,7 +52,6 @@ router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-
     const { stats_id, quiz_id, userId, progress, right_answers, wrong_answers, score } = req.body;
     const stat = await Stats.create({
       stats_id: stats_id,
@@ -84,13 +83,11 @@ router.put(
     const { quiz_id, userId, progress, right_answers, wrong_answers, score } = req.body;
 
   try {
-
     const stats = await Stats.findOne({ where: { stats_id: stats_id } });
 
     if (!stats) {
       return res.status(404).json({ message: "Statistik nicht gefunden!" });
     }
-
     stats.quiz_id = quiz_id,
     stats.userId = userId,
     stats.progress = progress,

@@ -1,5 +1,4 @@
 const QuizHTMLAnswers = [
-
     {
         quizId: 1,
         questionId: 1,
@@ -21,8 +20,6 @@ const QuizHTMLAnswers = [
         answerText: "Hyperlinks and Text Markup Language",
         isCorrect: false
     },
-
-
     {
         quizId: 1,
         questionId: 2,
@@ -43,8 +40,6 @@ const QuizHTMLAnswers = [
         answerText: "<li>",
         isCorrect: false
     },
-
-
     {
         quizId: 1,
         questionId: 3,
@@ -66,8 +61,6 @@ const QuizHTMLAnswers = [
         answerText: "Zur Erstellung von Tabellen",
         isCorrect: false
     },
-
-
     {
         quizId: 1,
         questionId: 4,
@@ -88,8 +81,6 @@ const QuizHTMLAnswers = [
         answerText: "link",
         isCorrect: false
     },
-
-
     {
         quizId: 1,
         questionId: 5,
@@ -110,8 +101,6 @@ const QuizHTMLAnswers = [
         answerText: "<div>",
         isCorrect: false
     },
-
-
     {
         quizId: 1,
         questionId: 6,
@@ -132,8 +121,6 @@ const QuizHTMLAnswers = [
         answerText: "<HTML>",
         isCorrect: false
     },
-
-
     {
         quizId: 1,
         questionId: 7,
@@ -154,8 +141,6 @@ const QuizHTMLAnswers = [
         answerText: "<html>, <head>, <body>",
         isCorrect: false
     },
-
-
     {
         quizId: 1,
         questionId: 8,
@@ -176,8 +161,6 @@ const QuizHTMLAnswers = [
         answerText: "<span>",
         isCorrect: false
     },
-
-
     {
         quizId: 1,
         questionId: 9,
@@ -198,8 +181,6 @@ const QuizHTMLAnswers = [
         answerText: "<href>",
         isCorrect: true
     },
-
-
     {
         quizId: 1,
         questionId: 10,
@@ -220,8 +201,6 @@ const QuizHTMLAnswers = [
         answerText: "<list>",
         isCorrect: false
     },
-
-
     {
         quizId: 1,
         questionId: 11,
@@ -242,8 +221,6 @@ const QuizHTMLAnswers = [
         answerText: "<b>",
         isCorrect: true
     },
-
-
     {
         quizId: 1,
         questionId: 12,
@@ -264,8 +241,6 @@ const QuizHTMLAnswers = [
         answerText: "<italic>",
         isCorrect: false
     },
-
-
     {
         quizId: 1,
         questionId: 13,
@@ -286,8 +261,6 @@ const QuizHTMLAnswers = [
         answerText: "input",
         isCorrect: false
     },
-
-
     {
         quizId: 1,
         questionId: 14,
@@ -308,8 +281,6 @@ const QuizHTMLAnswers = [
         answerText: "<hl>",
         isCorrect: false
     },
-
-
     {
         quizId: 1,
         questionId: 15,
@@ -330,8 +301,6 @@ const QuizHTMLAnswers = [
         answerText: "/* Kommentar */",
         isCorrect: false
     },
-
-
     {
         quizId: 1,
         questionId: 16,
@@ -352,8 +321,6 @@ const QuizHTMLAnswers = [
         answerText: "<figcaption>",
         isCorrect: true
     },
-
-
     {
         quizId: 1,
         questionId: 17,
@@ -374,8 +341,6 @@ const QuizHTMLAnswers = [
         answerText: "<button>",
         isCorrect: false
     },
-
-
     {
         quizId: 1,
         questionId: 18,
@@ -396,8 +361,6 @@ const QuizHTMLAnswers = [
         answerText: "label",
         isCorrect: false
     },
-
-
     {
         quizId: 1,
         questionId: 19,
@@ -418,8 +381,6 @@ const QuizHTMLAnswers = [
         answerText: "<listbox>",
         isCorrect: false
     },
-
-
     {
         quizId: 1,
         questionId: 20,

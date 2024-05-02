@@ -1,9 +1,9 @@
 const QuizJavascriptQuestions = [
-  {
-    quizId: 2,
-    questionId: 21,
-    questionText: "Wie deklariert man eine Variable in JavaScript?",
-  },
+    {
+      quizId: 2,
+      questionId: 21,
+      questionText: "Wie deklariert man eine Variable in JavaScript?",
+    },
     {
       quizId: 2,
       questionId: 22,

@@ -48,7 +48,6 @@ router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() });
     }
-
     const { quiz_id, quiz_name, questions_total } = req.body;
     const quiz = await Quizzes.create({
       quiz_id: quiz_id,
@@ -76,7 +75,6 @@ try {
   if (!quiz) {
     return res.status(404).json({ message: "Quiz nicht gefunden!" });
   }
-
   quiz.quiz_name = quiz_name;
   quiz.questions_total = questions_total;
   await quiz.save()
@@ -93,13 +91,11 @@ router.delete("/:quiz_id", async (req, res) => {
   const { quiz_id } = req.params;
 
   try {
-
     const quiz = await Quizzes.findOne({ where: { quiz_id: quiz_id } });
 
     if (!Quizzes) {
       return res.status(404).json({ message: "Quiz nicht gefunden!" });
     }
-
     await quiz.destroy();
 
     res.json({ message: "Quiz erfolgreich gelöscht!" });
