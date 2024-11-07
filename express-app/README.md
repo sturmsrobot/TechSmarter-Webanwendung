@@ -359,6 +359,8 @@ Ich verwende `bcrypt` zum sicheren Hashen von Passwörtern, bevor sie in der Dat
 - In `AuthProvider.js` werden die Funktionen zum Anmelden, Registrieren und Abmelden definiert und über den `AuthContext` bereitgestellt. Diese Funktionen werden dann von `SignIn.js` und `SignUp.js` über die useAuth-Hook verwendet, um die entsprechenden Aktionen auszuführen.
 
 
+
+
 # Express-App Dokumentation - Dienstag, 23. April 2024
 
 ## Was ist heute passiert?
@@ -397,4 +399,60 @@ Ich verwende `bcrypt` zum sicheren Hashen von Passwörtern, bevor sie in der Dat
 ## Morgen werde ich mich weiterhin mit der Entwicklung der React-Anwendung befassen und mich auf folgende Aufgaben konzentrieren:
 
 - **Optimierung der Benutzererfahrung**: Ich werde mich darauf konzentrieren, die Benutzererfahrung zu optimieren, indem ich die Leistung der Anwendung optimiere.
+
+
+
+
+
+# Express-App Dokumentation - Mittwoch, 24. April 2024
+
+## Was ist heute passiert?
+ - Überblick über verbleibende Aufgaben erstellt
+ - Verknüpfungen zwischen FE & BE überprüft
+ - Weitere Seiten erstellt & implementiert (HMLT / JAVASCRIPT / PYTHON)
+ - kleinere Design Anpassungen
+ - „SANDBOX“ Page komplett geändert
+
+## Welche Arbeiten konnte ich noch erledigen?
+CORS-Middleware konfiguriert und implementiert
+Sequelize-Abfrage angepasst, um Bedingungen hinzuzufügen und Warnung zu beheben
+Zusätzlich wurde die Logik für Trophäen in React & Express implementiert 
+
+
+ ## Welche Probleme sind aufgetreten/Lösungsansätze?
+ - GitHub
+ - VSCODE & GitHub?
+ - „zu wenig“ Zeit für „zu viel Projekt“ (eigener Anspruch zu Hoch)
+
+
+
+# Express-App Dokumentation - Donnerstag, 25. April 2024
+
+## Was ist heute passiert?
+ - Teampage erstellt & Design
+ - Dashboard Design
+ - Trophysystem
+ - Trophydesign
+
+
+## Welche Probleme sind aufgetreten/Lösungsansätze?
+zu viele Probleme im Code, die Spamanfragen verursachten, aber auch Probleme technischer Natur (wurde alles mit Julius gelöst)
+
+
+
+
+# Express-App Dokumentation - Freitag, 26. April 2024
+
+### Last Daily Recap // Projektabschluss
+
+## Was ist heute passiert?
+ - Datenbank fix
+ - Punktesystem & Trophysystem fix
+ - Retro & Review
+ - Recap der gemeinsamen Arbeit
+ - Letzter Feinschliff
+ - Kleinere Design Anpassungen
+
+## Welche Probleme sind aufgetreten/Lösungsansätze?
+ - Retrospektive wurde durchgeführt
 

@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 5050;
 sequelize
   .sync()
   .then(() => {
-    console.log("Datenbankverbindung erfolgreich hergestellt!");
+    console.log("Datenbankverbindung wurde erfolgreich hergestellt!");
   })
   .catch((err) => {
     console.error("Fehler beim Verbinden mit der Datenbank:", err);

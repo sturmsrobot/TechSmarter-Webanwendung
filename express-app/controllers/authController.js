@@ -50,13 +50,13 @@ exports.loginUser = async (req, res) => {
       return res.status(401).json({ message: "Invalid credentials" });
     }
 
-    // Compare passwords
+    // Passwörter vergleichen:
     const passwordMatch = await bcrypt.compare(password, user.password);
     if (!passwordMatch) {
       return res.status(401).json({ message: "Invalid credentials" });
     }
 
-    // Generate JWT token
+    // JWT-Token generieren:
     const token = jwt.sign({ userId: user.id, email: user.email }, jwtSecret);
     console.log("Login erfolgreich!", user);
 
